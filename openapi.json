@@ -6,7 +6,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:44221/api",
+      "url": "http://localhost:45043/api",
       "description": "Generated server url"
     }
   ],
@@ -1003,22 +1003,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -1264,22 +1264,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -1583,22 +1583,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -1820,22 +1820,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -2423,22 +2423,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -2869,22 +2869,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -3024,22 +3024,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -3285,22 +3285,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -3546,22 +3546,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -3807,22 +3807,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -3962,22 +3962,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -4502,22 +4502,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -4703,22 +4703,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -5255,22 +5255,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -5516,22 +5516,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -5777,22 +5777,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -6552,22 +6552,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -6707,22 +6707,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -6968,22 +6968,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -7229,22 +7229,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -7490,22 +7490,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -7777,22 +7777,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -7932,22 +7932,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -8193,22 +8193,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -8454,22 +8454,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -8715,22 +8715,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -8976,22 +8976,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -9131,22 +9131,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -9392,22 +9392,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -9808,22 +9808,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -10087,22 +10087,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -10242,22 +10242,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -10574,22 +10574,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -10854,22 +10854,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -11009,22 +11009,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -12272,22 +12272,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -12742,22 +12742,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -12897,22 +12897,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -13158,22 +13158,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -13313,22 +13313,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -13509,22 +13509,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -13811,22 +13811,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -14072,22 +14072,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -14309,22 +14309,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -14611,22 +14611,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -14872,22 +14872,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -15109,22 +15109,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -15370,22 +15370,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -15525,22 +15525,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -15827,22 +15827,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -16129,22 +16129,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -16431,22 +16431,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -16627,22 +16627,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -16929,22 +16929,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -17084,22 +17084,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -17386,22 +17386,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -17574,22 +17574,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -17729,22 +17729,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -18031,22 +18031,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -18186,22 +18186,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -18341,22 +18341,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -18602,22 +18602,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -18757,22 +18757,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -18912,22 +18912,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -19173,22 +19173,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -20680,22 +20680,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -20877,22 +20877,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -21138,22 +21138,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -21641,22 +21641,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -21902,22 +21902,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -22803,22 +22803,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -22958,22 +22958,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -23245,22 +23245,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -23554,22 +23554,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -24370,22 +24370,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -24631,22 +24631,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -24892,22 +24892,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -25153,22 +25153,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -25414,22 +25414,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -25675,22 +25675,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -25987,22 +25987,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -26533,22 +26533,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -27131,22 +27131,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -28560,22 +28560,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -28871,22 +28871,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -29118,22 +29118,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -29623,22 +29623,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -29778,22 +29778,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -30309,22 +30309,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -30464,22 +30464,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -30631,22 +30631,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "workflow not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-workflow-Workflow"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "workflow not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -30672,22 +30672,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "workflow not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-workflow-Workflow"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "workflow not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -30713,22 +30713,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "workflow not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-workflow-Workflow"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "workflow not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -30754,22 +30754,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "workflow not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-workflow-Workflow"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "workflow not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -30795,22 +30795,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "workflow not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-workflow-Workflow"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "workflow not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -30877,22 +30877,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "workflow not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-workflow-Workflow"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "workflow not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -31784,22 +31784,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -32332,22 +32332,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -32593,22 +32593,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -32748,22 +32748,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -32903,22 +32903,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -33058,22 +33058,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -33317,22 +33317,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -33472,22 +33472,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -33627,22 +33627,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -33782,22 +33782,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -34043,22 +34043,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -34302,22 +34302,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -34553,22 +34553,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -35564,22 +35564,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -35961,22 +35961,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -36140,22 +36140,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -36295,22 +36295,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -36556,22 +36556,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -36711,22 +36711,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -36866,22 +36866,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -37021,22 +37021,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -37730,22 +37730,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -50965,6 +50965,16 @@
           "required": true
         },
         "responses": {
+          "422": {
+            "description": "query was not valid to process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
+                }
+              }
+            }
+          },
           "200": {
             "description": "successful operation",
             "content": {
@@ -50974,16 +50984,6 @@
                   "items": {
                     "$ref": "#/components/schemas/common-ftsearch-SearchResult"
                   }
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "query was not valid to process",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -51582,22 +51582,22 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-cunit-CuResult"
-                }
-              }
-            }
-          },
           "422": {
             "description": "query was not valid to process",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-error-ApiError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-cunit-CuResult"
                 }
               }
             }
@@ -54452,22 +54452,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -60679,6 +60679,16 @@
           }
         ],
         "responses": {
+          "422": {
+            "description": "query was not valid to process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
+                }
+              }
+            }
+          },
           "200": {
             "description": "successful operation",
             "content": {
@@ -60688,16 +60698,6 @@
                   "items": {
                     "$ref": "#/components/schemas/common-ftsearch-SearchResult"
                   }
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "query was not valid to process",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -60811,22 +60811,22 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/common-ftsearch-SearchResult"
-                }
-              }
-            }
-          },
           "422": {
             "description": "query was not valid to process",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-error-ApiError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/common-ftsearch-SearchResult"
                 }
               }
             }
@@ -61741,22 +61741,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -62320,22 +62320,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resource was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "409": {
             "description": "unable to delete Resource, due to constraints, existing references or internal state",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
