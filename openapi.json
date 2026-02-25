@@ -6,7 +6,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:58303/api",
+      "url": "http://localhost:50776/api",
       "description": "Generated server url"
     }
   ],
@@ -11768,21 +11768,6 @@
           "required": true
         },
         "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/octet-stream": {
-                "schema": {
-                  "type": "object"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          },
           "405": {
             "description": "printing not allowed for the current document state",
             "content": {
@@ -11794,6 +11779,21 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-error-ApiError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "object"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object"
                 }
               }
             }
@@ -31394,22 +31394,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "workflow not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-workflow-Workflow"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "workflow not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -31435,22 +31435,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "workflow not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-workflow-Workflow"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "workflow not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -31476,22 +31476,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "workflow not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-workflow-Workflow"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "workflow not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -31517,22 +31517,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "workflow not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-workflow-Workflow"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "workflow not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -31558,22 +31558,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "workflow not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-workflow-Workflow"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "workflow not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -31640,22 +31640,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "workflow not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-workflow-Workflow"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "workflow not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -47632,22 +47632,22 @@
               }
             }
           },
-          "422": {
-            "description": "Resource was not valid to process",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "Response contains File",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was not valid to process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -53127,22 +53127,22 @@
           "required": true
         },
         "responses": {
-          "404": {
-            "description": "Resource with given ids was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-account-AccountPerson"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ids was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -53188,22 +53188,22 @@
           "required": true
         },
         "responses": {
-          "404": {
-            "description": "Resource with given ids was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-account-AccountAddress"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ids was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -53580,22 +53580,22 @@
               }
             }
           },
-          "422": {
-            "description": "Resource was not valid to process",
-            "content": {
-              "application/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "Response contains File",
             "content": {
               "application/*": {
                 "schema": {
                   "type": "object"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was not valid to process",
+            "content": {
+              "application/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -58105,22 +58105,22 @@
               }
             }
           },
-          "422": {
-            "description": "Resource was not valid to process",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "Response contains File",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was not valid to process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -58205,21 +58205,6 @@
               }
             }
           },
-          "422": {
-            "description": "Resource was not valid to process",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              },
-              "application/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "Response contains File",
             "content": {
@@ -58231,6 +58216,21 @@
               "application/*": {
                 "schema": {
                   "type": "object"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was not valid to process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
+                }
+              },
+              "application/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -58366,22 +58366,22 @@
               }
             }
           },
-          "422": {
-            "description": "Resource was not valid to process",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "Response contains File",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was not valid to process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -58444,22 +58444,22 @@
               }
             }
           },
-          "422": {
-            "description": "Resource was not valid to process",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "Response contains File",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was not valid to process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -58569,22 +58569,22 @@
               }
             }
           },
-          "422": {
-            "description": "Resource was not valid to process",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "Response contains File",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was not valid to process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
