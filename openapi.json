@@ -2,11 +2,11 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.32.0"
+    "version": "2026.32.1"
   },
   "servers": [
     {
-      "url": "http://10.102.24.236:32796/api",
+      "url": "http://10.102.25.223:32797/api",
       "description": "Generated server url"
     }
   ],
@@ -53579,14 +53579,6 @@
               }
             }
           },
-          "303": {
-            "description": "Location attribute contains alternate download location",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          },
           "422": {
             "description": "Resource was not valid to process",
             "content": {
@@ -53594,6 +53586,14 @@
                 "schema": {
                   "$ref": "#/components/schemas/core-error-ApiError"
                 }
+              }
+            }
+          },
+          "303": {
+            "description": "Location attribute contains alternate download location",
+            "content": {
+              "application/json": {
+                "schema": {}
               }
             }
           },
@@ -54092,22 +54092,22 @@
           "required": true
         },
         "responses": {
-          "422": {
-            "description": "Resource was unable to create",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-api-ScenarioDesiredValue"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was unable to create",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -54133,22 +54133,22 @@
           "required": true
         },
         "responses": {
-          "422": {
-            "description": "Resource was unable to create",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-api-ScenarioActualValue"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was unable to create",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -54174,22 +54174,22 @@
           "required": true
         },
         "responses": {
-          "422": {
-            "description": "Resource was unable to create",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-api-Scenario"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was unable to create",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -55959,22 +55959,22 @@
           "required": true
         },
         "responses": {
-          "422": {
-            "description": "Resource was unable to create",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-api-LogEntryGet"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was unable to create",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -56166,22 +56166,22 @@
           "required": true
         },
         "responses": {
-          "422": {
-            "description": "Resource was unable to create",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-api-AppMessageEntryGet"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was unable to create",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -56417,22 +56417,22 @@
           "required": true
         },
         "responses": {
-          "422": {
-            "description": "Resource was unable to create",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-api-TextEnumGet"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was unable to create",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -56458,22 +56458,22 @@
           "required": true
         },
         "responses": {
-          "422": {
-            "description": "Resource was unable to create",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-api-TextEnumGroupGet"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was unable to create",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -59099,12 +59099,6 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "Request is processed and returned as Stream",
-            "content": {
-              "*/*": {}
-            }
-          },
           "202": {
             "description": "Request is accepted and processing in progress",
             "content": {
@@ -59113,6 +59107,12 @@
                   "$ref": "#/components/schemas/common-api-OutputQueue"
                 }
               }
+            }
+          },
+          "200": {
+            "description": "Request is processed and returned as Stream",
+            "content": {
+              "*/*": {}
             }
           }
         }
@@ -60667,14 +60667,6 @@
           }
         ],
         "responses": {
-          "303": {
-            "description": "Location attribute contains alternate download location",
-            "content": {
-              "application/*": {
-                "schema": {}
-              }
-            }
-          },
           "422": {
             "description": "Resource was not valid to process",
             "content": {
@@ -60682,6 +60674,14 @@
                 "schema": {
                   "$ref": "#/components/schemas/core-error-ApiError"
                 }
+              }
+            }
+          },
+          "303": {
+            "description": "Location attribute contains alternate download location",
+            "content": {
+              "application/*": {
+                "schema": {}
               }
             }
           }
@@ -60742,14 +60742,6 @@
               }
             }
           },
-          "303": {
-            "description": "Location attribute contains alternate download location",
-            "content": {
-              "application/*": {
-                "schema": {}
-              }
-            }
-          },
           "422": {
             "description": "Resource was not valid to process",
             "content": {
@@ -60757,6 +60749,14 @@
                 "schema": {
                   "$ref": "#/components/schemas/core-error-ApiError"
                 }
+              }
+            }
+          },
+          "303": {
+            "description": "Location attribute contains alternate download location",
+            "content": {
+              "application/*": {
+                "schema": {}
               }
             }
           },
@@ -65450,14 +65450,6 @@
               }
             }
           },
-          "303": {
-            "description": "Location attribute contains alternate download location",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          },
           "422": {
             "description": "Resource was not valid to process",
             "content": {
@@ -65465,6 +65457,14 @@
                 "schema": {
                   "$ref": "#/components/schemas/core-error-ApiError"
                 }
+              }
+            }
+          },
+          "303": {
+            "description": "Location attribute contains alternate download location",
+            "content": {
+              "application/json": {
+                "schema": {}
               }
             }
           },
@@ -65537,17 +65537,6 @@
               }
             }
           },
-          "303": {
-            "description": "Location attribute contains alternate download location",
-            "content": {
-              "application/json": {
-                "schema": {}
-              },
-              "application/*": {
-                "schema": {}
-              }
-            }
-          },
           "422": {
             "description": "Resource was not valid to process",
             "content": {
@@ -65560,6 +65549,17 @@
                 "schema": {
                   "$ref": "#/components/schemas/core-error-ApiError"
                 }
+              }
+            }
+          },
+          "303": {
+            "description": "Location attribute contains alternate download location",
+            "content": {
+              "application/json": {
+                "schema": {}
+              },
+              "application/*": {
+                "schema": {}
               }
             }
           },
@@ -65693,14 +65693,6 @@
               }
             }
           },
-          "303": {
-            "description": "Location attribute contains alternate download location",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          },
           "422": {
             "description": "Resource was not valid to process",
             "content": {
@@ -65708,6 +65700,14 @@
                 "schema": {
                   "$ref": "#/components/schemas/core-error-ApiError"
                 }
+              }
+            }
+          },
+          "303": {
+            "description": "Location attribute contains alternate download location",
+            "content": {
+              "application/json": {
+                "schema": {}
               }
             }
           },
@@ -65765,14 +65765,6 @@
               }
             }
           },
-          "303": {
-            "description": "Location attribute contains alternate download location",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          },
           "422": {
             "description": "Resource was not valid to process",
             "content": {
@@ -65780,6 +65772,14 @@
                 "schema": {
                   "$ref": "#/components/schemas/core-error-ApiError"
                 }
+              }
+            }
+          },
+          "303": {
+            "description": "Location attribute contains alternate download location",
+            "content": {
+              "application/json": {
+                "schema": {}
               }
             }
           },
@@ -65884,14 +65884,6 @@
               }
             }
           },
-          "303": {
-            "description": "Location attribute contains alternate download location",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          },
           "422": {
             "description": "Resource was not valid to process",
             "content": {
@@ -65899,6 +65891,14 @@
                 "schema": {
                   "$ref": "#/components/schemas/core-error-ApiError"
                 }
+              }
+            }
+          },
+          "303": {
+            "description": "Location attribute contains alternate download location",
+            "content": {
+              "application/json": {
+                "schema": {}
               }
             }
           },
@@ -105835,6 +105835,21 @@
           }
         }
       },
+      "vds-shipment-ShipmentAppMessagePayload": {
+        "description": "Webhook payload for shipment-related events",
+        "properties": {
+          "shipmentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of shipment"
+          },
+          "parcelId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of parcel"
+          }
+        }
+      },
       "common-system-WebhookEntityPayload": {
         "description": "Default webhook payload containing the affected entity ID",
         "properties": {
@@ -105842,6 +105857,20 @@
             "type": "integer",
             "format": "int64",
             "description": "ID of the affected entity"
+          }
+        }
+      },
+      "dms-shelf-ShelfDocumentWebhookPayload": {
+        "description": "Webhook payload for DMS shelf document events",
+        "properties": {
+          "shelfDocumentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected shelf document"
+          },
+          "externalRef": {
+            "type": "string",
+            "description": "External reference of the share"
           }
         }
       },
@@ -105860,59 +105889,6 @@
           "fsResourceId": {
             "type": "string",
             "description": "File storage resource ID"
-          }
-        }
-      },
-      "erp-product-ArticleAppMessagePayload": {
-        "description": "Webhook payload for article-related events",
-        "properties": {
-          "articleId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected article"
-          },
-          "priceId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected price"
-          },
-          "listingId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected listing"
-          },
-          "categoryId": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "vds-shipment-ShipmentAppMessagePayload": {
-        "description": "Webhook payload for shipment-related events",
-        "properties": {
-          "shipmentId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of shipment"
-          },
-          "parcelId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of parcel"
-          }
-        }
-      },
-      "dms-shelf-ShelfDocumentWebhookPayload": {
-        "description": "Webhook payload for DMS shelf document events",
-        "properties": {
-          "shelfDocumentId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected shelf document"
-          },
-          "externalRef": {
-            "type": "string",
-            "description": "External reference of the share"
           }
         }
       },
@@ -105944,6 +105920,30 @@
           },
           "paymentOperation": {
             "type": "string"
+          }
+        }
+      },
+      "erp-product-ArticleAppMessagePayload": {
+        "description": "Webhook payload for article-related events",
+        "properties": {
+          "articleId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected article"
+          },
+          "priceId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected price"
+          },
+          "listingId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected listing"
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       }
