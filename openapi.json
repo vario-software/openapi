@@ -2,11 +2,11 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.32.3"
+    "version": "2026.32.4"
   },
   "servers": [
     {
-      "url": "http://10.102.24.197:32795/api",
+      "url": "http://10.102.24.132:32797/api",
       "description": "Generated server url"
     }
   ],
@@ -25553,8 +25553,8 @@
           "200": {
             "description": "successful operation"
           },
-          "409": {
-            "description": "Resource is not deletable",
+          "404": {
+            "description": "Resource with given ID was not found",
             "content": {
               "*/*": {
                 "schema": {
@@ -25563,8 +25563,8 @@
               }
             }
           },
-          "404": {
-            "description": "Resource with given ID was not found",
+          "409": {
+            "description": "Resource is not deletable",
             "content": {
               "*/*": {
                 "schema": {
@@ -25688,8 +25688,8 @@
           "200": {
             "description": "successful operation"
           },
-          "409": {
-            "description": "Resource is not deletable",
+          "404": {
+            "description": "Resource with given ID was not found",
             "content": {
               "*/*": {
                 "schema": {
@@ -25698,8 +25698,8 @@
               }
             }
           },
-          "404": {
-            "description": "Resource with given ID was not found",
+          "409": {
+            "description": "Resource is not deletable",
             "content": {
               "*/*": {
                 "schema": {
@@ -25823,8 +25823,8 @@
           "200": {
             "description": "successful operation"
           },
-          "409": {
-            "description": "Resource is not deletable",
+          "404": {
+            "description": "Resource with given ID was not found",
             "content": {
               "*/*": {
                 "schema": {
@@ -25833,8 +25833,8 @@
               }
             }
           },
-          "404": {
-            "description": "Resource with given ID was not found",
+          "409": {
+            "description": "Resource is not deletable",
             "content": {
               "*/*": {
                 "schema": {
@@ -32849,8 +32849,8 @@
           "200": {
             "description": "successful operation"
           },
-          "409": {
-            "description": "Resource is not deletable",
+          "404": {
+            "description": "Resource with given ID was not found",
             "content": {
               "*/*": {
                 "schema": {
@@ -32859,8 +32859,8 @@
               }
             }
           },
-          "404": {
-            "description": "Resource with given ID was not found",
+          "409": {
+            "description": "Resource is not deletable",
             "content": {
               "*/*": {
                 "schema": {
@@ -32984,8 +32984,8 @@
           "200": {
             "description": "successful operation"
           },
-          "409": {
-            "description": "Resource is not deletable",
+          "404": {
+            "description": "Resource with given ID was not found",
             "content": {
               "*/*": {
                 "schema": {
@@ -32994,8 +32994,8 @@
               }
             }
           },
-          "404": {
-            "description": "Resource with given ID was not found",
+          "409": {
+            "description": "Resource is not deletable",
             "content": {
               "*/*": {
                 "schema": {
@@ -49290,22 +49290,22 @@
           "required": true
         },
         "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-api-OperationMessage"
-                }
-              }
-            }
-          },
           "422": {
             "description": "invalid request (e.g. Periodicity MANUAL or missing)",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/core-error-ApiError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-api-OperationMessage"
                 }
               }
             }
@@ -54091,22 +54091,22 @@
           "required": true
         },
         "responses": {
-          "422": {
-            "description": "Resource was unable to create",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-api-ScenarioDesiredValue"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was unable to create",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -54132,22 +54132,22 @@
           "required": true
         },
         "responses": {
-          "422": {
-            "description": "Resource was unable to create",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-api-ScenarioActualValue"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was unable to create",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -54173,22 +54173,22 @@
           "required": true
         },
         "responses": {
-          "422": {
-            "description": "Resource was unable to create",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-api-Scenario"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was unable to create",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -55958,22 +55958,22 @@
           "required": true
         },
         "responses": {
-          "422": {
-            "description": "Resource was unable to create",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-api-LogEntryGet"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was unable to create",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -56165,22 +56165,22 @@
           "required": true
         },
         "responses": {
-          "422": {
-            "description": "Resource was unable to create",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-api-AppMessageEntryGet"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was unable to create",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -56416,22 +56416,22 @@
           "required": true
         },
         "responses": {
-          "422": {
-            "description": "Resource was unable to create",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-api-TextEnumGet"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was unable to create",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -56457,22 +56457,22 @@
           "required": true
         },
         "responses": {
-          "422": {
-            "description": "Resource was unable to create",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-api-TextEnumGroupGet"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was unable to create",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -105849,20 +105849,6 @@
           }
         }
       },
-      "dms-shelf-ShelfDocumentWebhookPayload": {
-        "description": "Webhook payload for DMS shelf document events",
-        "properties": {
-          "shelfDocumentId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected shelf document"
-          },
-          "externalRef": {
-            "type": "string",
-            "description": "External reference of the share"
-          }
-        }
-      },
       "erp-product-ArticleAppMessagePayload": {
         "description": "Webhook payload for article-related events",
         "properties": {
@@ -105887,18 +105873,21 @@
           }
         }
       },
-      "vds-shipment-ShipmentAppMessagePayload": {
-        "description": "Webhook payload for shipment-related events",
+      "common-output-OutputWebhookPayload": {
+        "description": "Webhook payload for output queue events",
         "properties": {
-          "shipmentId": {
+          "queueId": {
             "type": "integer",
             "format": "int64",
-            "description": "ID of shipment"
+            "description": "ID of the output queue"
           },
-          "parcelId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of parcel"
+          "title": {
+            "type": "string",
+            "description": "Subject of the output queue"
+          },
+          "fsResourceId": {
+            "type": "string",
+            "description": "File storage resource ID"
           }
         }
       },
@@ -105933,21 +105922,32 @@
           }
         }
       },
-      "common-output-OutputWebhookPayload": {
-        "description": "Webhook payload for output queue events",
+      "vds-shipment-ShipmentAppMessagePayload": {
+        "description": "Webhook payload for shipment-related events",
         "properties": {
-          "queueId": {
+          "shipmentId": {
             "type": "integer",
             "format": "int64",
-            "description": "ID of the output queue"
+            "description": "ID of shipment"
           },
-          "title": {
-            "type": "string",
-            "description": "Subject of the output queue"
+          "parcelId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of parcel"
+          }
+        }
+      },
+      "dms-shelf-ShelfDocumentWebhookPayload": {
+        "description": "Webhook payload for DMS shelf document events",
+        "properties": {
+          "shelfDocumentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected shelf document"
           },
-          "fsResourceId": {
+          "externalRef": {
             "type": "string",
-            "description": "File storage resource ID"
+            "description": "External reference of the share"
           }
         }
       }
