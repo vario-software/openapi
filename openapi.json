@@ -2,11 +2,11 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.32.6"
+    "version": "2026.32.7"
   },
   "servers": [
     {
-      "url": "http://10.102.25.84:32796/api",
+      "url": "http://10.102.25.85:32796/api",
       "description": "Generated server url"
     }
   ],
@@ -825,22 +825,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-wms-ReplenishmentProposal"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -1125,22 +1125,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-wms-ReplenishmentProposalTemplate"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -1386,22 +1386,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-wms-PickTrolley"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -1705,22 +1705,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-wms-PickTrolleyGroup"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -1938,22 +1938,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-wms-PicklistTemplate"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -2199,22 +2199,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-wms-Inventory"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -2541,22 +2541,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/vds-shipment-Shipment"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -2983,22 +2983,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-sales_channel-VariantValueListing"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -3138,22 +3138,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-sales_channel-VariantAttributeListing"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -3293,22 +3293,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-product-VariantAttributeAssignmentConfig"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -3448,22 +3448,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-user-ErpUserDetail"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -3603,22 +3603,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-texttemplates-TextTemplate"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -3864,22 +3864,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-tax-TaxSchema"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -4125,22 +4125,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-tax-TaxRate"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -4386,22 +4386,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-tax-TaxEwuDeliveryLimit"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -4541,22 +4541,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-stock-Storage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -5079,22 +5079,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-stock-StorageArea"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -5280,22 +5280,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-sales_channel-SalesChannelStorageSchema"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -5541,22 +5541,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-rma-ReturnGroup"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -5802,22 +5802,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-rma-ReturnCause"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -6063,22 +6063,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-product-RecommendedRetailPrice"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -6560,22 +6560,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-product-ProductPriceGroup"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -6715,22 +6715,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-product-ProductGroup"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -6976,22 +6976,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-product-ProductMainGroup"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -7237,22 +7237,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-product-IdentifierType"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -7498,22 +7498,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-product-DiscountGroup"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -7785,22 +7785,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-document-PriceModifierTemplate"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -8057,22 +8057,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-pos-PosRegister"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -8318,22 +8318,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-pos-FiscalizationBackend"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -8627,22 +8627,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-pos-PosDepositExpenseType"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -8888,22 +8888,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-pos-CashDrawer"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -9149,22 +9149,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-payment-PaymentTerm"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -9410,22 +9410,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-payment-PaymentTemplate"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -9565,22 +9565,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-payment-PaymentMethod"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -9826,22 +9826,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-stock-OrderProposal"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -10242,22 +10242,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-finance-OpenItemMatchingRule"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -10515,22 +10515,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-finance-Ledger"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -10670,22 +10670,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-finance-LedgerAssignment"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -10825,22 +10825,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-finance-Dunning"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -11043,22 +11043,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-finance-DunningLevel"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -11323,22 +11323,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-finance-CostCenter"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -11478,22 +11478,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-finance-BusinessTransaction"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -12658,22 +12658,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-document-DocumentType"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -13128,22 +13128,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-document-DocumentTypeChain"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -13283,22 +13283,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-delivery-DeliveryTerm"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -13544,22 +13544,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-delivery-ShippingCost"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -13740,22 +13740,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-crm-CrmSubType"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -14042,22 +14042,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-crm-CrmState"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -14303,22 +14303,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-crm-CrmPriority"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -14540,22 +14540,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-crm-CrmSubType"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -14842,22 +14842,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-crm-CrmState"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -15103,22 +15103,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-crm-CrmPriority"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -15340,22 +15340,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-crm-CrmProjectPhase"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -15601,22 +15601,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-crm-CrmDealVisibility"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -15756,22 +15756,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-crm-CrmSubType"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -16058,22 +16058,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-crm-CrmDealTopic"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -16360,22 +16360,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-crm-CrmState"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -16662,22 +16662,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-crm-CrmPriority"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -16858,22 +16858,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-crm-CrmDealHealth"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -17160,22 +17160,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-crm-CrmDealClosingReason"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -17462,22 +17462,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-crm-CrmActivity"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -17617,22 +17617,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-crm-CrmActivityType"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -17919,22 +17919,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-crm-CrmActivityTypePerUser"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -18107,22 +18107,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-crm-CrmActivityBillingRule"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -18262,22 +18262,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-account-ContactType"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -18562,22 +18562,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-commission-CommissionAssignment"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -18717,22 +18717,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-product-BundleSchema"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -18872,22 +18872,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-bank-Bank"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -19133,22 +19133,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-bank-BankTransaction"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -19380,22 +19380,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-bank-BankPayment"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -19535,22 +19535,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-bank-BankingBackend"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -19796,22 +19796,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-bank-BankAccount"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -20168,22 +20168,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-asset-Asset"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -20429,22 +20429,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-asset-AssetType"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -21895,22 +21895,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-product-ArticleSerialNumber"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -22090,22 +22090,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-product-ArticleSupplier"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -22351,22 +22351,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-product-ArticleCustomer"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -22612,22 +22612,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-product-Accessory"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -22892,22 +22892,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-account-AccountListing"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -23164,22 +23164,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-account-SupplierGroup"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -23425,22 +23425,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-account-CustomerGroup"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -23963,22 +23963,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/dms-shelf-ShelfDocument"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -24497,22 +24497,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/dms-shelf-ShelfDocumentType"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -24652,22 +24652,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/dms-shelf-ShelfDocumentAttribution"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -24939,22 +24939,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/vds-carrier-Carrier"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -25248,22 +25248,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/vds-carrier-CarrierType"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -25460,22 +25460,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-api-Scenario"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -25510,22 +25510,22 @@
           "required": true
         },
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-api-Scenario"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -25550,6 +25550,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "successful operation"
+          },
           "404": {
             "description": "Resource with given ID was not found",
             "content": {
@@ -25559,9 +25562,6 @@
                 }
               }
             }
-          },
-          "200": {
-            "description": "successful operation"
           },
           "409": {
             "description": "Resource is not deletable",
@@ -25595,22 +25595,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-api-ScenarioDesiredValue"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -25645,22 +25645,22 @@
           "required": true
         },
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-api-ScenarioDesiredValue"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -25685,6 +25685,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "successful operation"
+          },
           "404": {
             "description": "Resource with given ID was not found",
             "content": {
@@ -25694,9 +25697,6 @@
                 }
               }
             }
-          },
-          "200": {
-            "description": "successful operation"
           },
           "409": {
             "description": "Resource is not deletable",
@@ -25730,22 +25730,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-api-ScenarioActualValue"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -25780,22 +25780,22 @@
           "required": true
         },
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-api-ScenarioActualValue"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -25820,6 +25820,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "successful operation"
+          },
           "404": {
             "description": "Resource with given ID was not found",
             "content": {
@@ -25829,9 +25832,6 @@
                 }
               }
             }
-          },
-          "200": {
-            "description": "successful operation"
           },
           "409": {
             "description": "Resource is not deletable",
@@ -26265,22 +26265,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-sales_channel-SalesChannel"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -26526,22 +26526,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-sales_channel-SalesChannelBackend"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -26681,22 +26681,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-pos-PosPaymentRule"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -26996,22 +26996,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-pos-PosPaymentMethod"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -27342,22 +27342,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-pos-PosPaymentConsumer"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -27603,22 +27603,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-pos-PosPaymentBackend"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -27864,22 +27864,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-finance-FinanceBookingBackend"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -28125,22 +28125,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-delivery-DeliveryMethod"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -28489,22 +28489,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-crm-CrmTask"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -29090,22 +29090,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-crm-CrmProject"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -29691,22 +29691,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-crm-CrmDeal"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -31123,22 +31123,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-account-Account"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -31285,22 +31285,22 @@
           "required": true
         },
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-account-Account"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -31434,22 +31434,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-account-AccountSalutation"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -31588,22 +31588,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-api-LogEntryGet"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -31638,22 +31638,22 @@
           "required": true
         },
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-api-LogEntryGet"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -31681,22 +31681,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-api-AppScriptingProxy"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -31835,22 +31835,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-api-AppMessageEntryGet"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -31885,22 +31885,22 @@
           "required": true
         },
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-api-AppMessageEntryGet"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -31995,22 +31995,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-system-SecretStorage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -32341,22 +32341,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-api-OutputConsumer"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -32496,22 +32496,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-api-OutputConsumerRule"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -32756,22 +32756,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-api-TextEnumGet"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -32806,22 +32806,22 @@
           "required": true
         },
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-api-TextEnumGet"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -32846,6 +32846,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "successful operation"
+          },
           "404": {
             "description": "Resource with given ID was not found",
             "content": {
@@ -32855,9 +32858,6 @@
                 }
               }
             }
-          },
-          "200": {
-            "description": "successful operation"
           },
           "409": {
             "description": "Resource is not deletable",
@@ -32891,22 +32891,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-api-TextEnumGroupGet"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -32941,22 +32941,22 @@
           "required": true
         },
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-api-TextEnumGroupGet"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -32981,6 +32981,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "successful operation"
+          },
           "404": {
             "description": "Resource with given ID was not found",
             "content": {
@@ -32990,9 +32993,6 @@
                 }
               }
             }
-          },
-          "200": {
-            "description": "successful operation"
           },
           "409": {
             "description": "Resource is not deletable",
@@ -33027,22 +33027,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-eav-EavGroup"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -33182,22 +33182,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-workflow-Workflow"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -33461,22 +33461,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "workflow not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-workflow-Workflow"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "workflow not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -33502,22 +33502,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "workflow not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-workflow-Workflow"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "workflow not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -33543,22 +33543,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "workflow not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-workflow-Workflow"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "workflow not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -33584,22 +33584,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "workflow not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-workflow-Workflow"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "workflow not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -33625,22 +33625,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "workflow not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-workflow-Workflow"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "workflow not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -33707,22 +33707,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "workflow not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-workflow-Workflow"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "workflow not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -33901,22 +33901,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-variant-VariantSchema"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -34162,22 +34162,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-variant-VariantAttribute"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -35190,22 +35190,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-user-Role"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -35738,22 +35738,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-user-Group"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -35999,22 +35999,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-masterdata-UnitType"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -36154,22 +36154,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-masterdata-UnitTypeRatio"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -36309,22 +36309,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-ui-UiSetting"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -36464,22 +36464,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-cunit-Translation"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -36619,22 +36619,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-cunit-QueryBaseHolderPreset"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -36723,22 +36723,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-task-Task"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -36878,22 +36878,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-tag-TagDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -37033,22 +37033,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-sequencer-SequencerConfiguration"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -37188,22 +37188,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-sequencer-FreeSequence"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -37449,22 +37449,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-scripting-ScriptModule"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -37708,22 +37708,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-scripting-ScriptModuleGroup"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -37953,22 +37953,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-output-OutputReport"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -38461,22 +38461,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-sales_channel-Location"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -38690,22 +38690,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-masterdata-LanguageCode"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -38989,22 +38989,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-data_import-ScheduledImport"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -39144,22 +39144,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-data_import-DataImportRun"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -39457,22 +39457,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-data_import-MultiPartImportRun"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -39614,22 +39614,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-data_import-ImportMappingRuleSet"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -39769,22 +39769,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-masterdata-CustomsMeasure"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -40030,22 +40030,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-masterdata-CurrencyCode"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -40291,22 +40291,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-masterdata-CurrencyExchangeRate"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -40446,22 +40446,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-create_template-CreateTemplate"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -40601,22 +40601,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-create_template-CreateTemplateGroup"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -40756,22 +40756,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-masterdata-CountryRegion"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -41017,22 +41017,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-masterdata-CountryCode"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -41227,22 +41227,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-connector-HttpWhitelist"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -41909,22 +41909,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-masterdata-CommodityCode"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -42170,22 +42170,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-masterdata-Category"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -42431,22 +42431,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-masterdata-CategoryTree"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -42764,22 +42764,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/banking-api-BankingProvider"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -52258,16 +52258,6 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
@@ -52277,6 +52267,16 @@
                   "items": {
                     "$ref": "#/components/schemas/erp-product-ArticleTax"
                   }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -56097,6 +56097,9 @@
           "required": true
         },
         "responses": {
+          "200": {
+            "description": "successful operation"
+          },
           "404": {
             "description": "Resource with given ID was not found",
             "content": {
@@ -56106,9 +56109,6 @@
                 }
               }
             }
-          },
-          "200": {
-            "description": "successful operation"
           }
         }
       }
@@ -56131,6 +56131,9 @@
           "required": true
         },
         "responses": {
+          "200": {
+            "description": "successful operation"
+          },
           "404": {
             "description": "Resource with given ID was not found",
             "content": {
@@ -56140,9 +56143,6 @@
                 }
               }
             }
-          },
-          "200": {
-            "description": "successful operation"
           }
         }
       }
@@ -59694,22 +59694,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/common-api-AppSettings"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -60066,22 +60066,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-document-DocumentResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -60115,22 +60115,22 @@
           "required": true
         },
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-document-DocumentResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -60229,22 +60229,22 @@
           "required": true
         },
         "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/erp-account-AccountPerson"
-                }
-              }
-            }
-          },
           "404": {
             "description": "Resource with given ids was not found",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-error-ApiError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/erp-account-AccountPerson"
                 }
               }
             }
@@ -60290,22 +60290,22 @@
           "required": true
         },
         "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/erp-account-AccountAddress"
-                }
-              }
-            }
-          },
           "404": {
             "description": "Resource with given ids was not found",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/core-error-ApiError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/erp-account-AccountAddress"
                 }
               }
             }
@@ -60469,22 +60469,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-wms-Picklist"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -62310,22 +62310,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-stock-OrderProposalToOrdersRun"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -62526,22 +62526,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-finance-OpenItem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -62671,22 +62671,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-finance-ManualEntry"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -62745,22 +62745,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-finance-DunningRun"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -63985,22 +63985,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-crm-CrmBillingRun"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -64407,22 +64407,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-bank-BankPaymentRun"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -64782,16 +64782,6 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
@@ -64801,6 +64791,16 @@
                   "items": {
                     "type": "string"
                   }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -65277,22 +65277,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-account-AccountDuplicate"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -66976,16 +66976,6 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
@@ -66995,6 +66985,16 @@
                   "items": {
                     "type": "string"
                   }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -67325,22 +67325,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-scripting-ScriptDeprecationLog"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -67419,22 +67419,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-api-OutputQueue"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -69214,22 +69214,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/common-output-OutputReportType"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -70581,22 +70581,22 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
-                }
-              }
-            }
-          },
           "200": {
             "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/banking-api-BankingUser"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -105849,77 +105849,6 @@
           }
         }
       },
-      "dms-shelf-ShelfDocumentWebhookPayload": {
-        "description": "Webhook payload for DMS shelf document events",
-        "properties": {
-          "shelfDocumentId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected shelf document"
-          },
-          "externalRef": {
-            "type": "string",
-            "description": "External reference of the share"
-          }
-        }
-      },
-      "common-output-OutputWebhookPayload": {
-        "description": "Webhook payload for output queue events",
-        "properties": {
-          "queueId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the output queue"
-          },
-          "title": {
-            "type": "string",
-            "description": "Subject of the output queue"
-          },
-          "fsResourceId": {
-            "type": "string",
-            "description": "File storage resource ID"
-          }
-        }
-      },
-      "erp-product-ArticleAppMessagePayload": {
-        "description": "Webhook payload for article-related events",
-        "properties": {
-          "articleId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected article"
-          },
-          "priceId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected price"
-          },
-          "listingId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected listing"
-          },
-          "categoryId": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "vds-shipment-ShipmentAppMessagePayload": {
-        "description": "Webhook payload for shipment-related events",
-        "properties": {
-          "shipmentId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of shipment"
-          },
-          "parcelId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of parcel"
-          }
-        }
-      },
       "erp-pos-PosPaymentOrderEvent": {
         "properties": {
           "paymentOrderId": {
@@ -105948,6 +105877,77 @@
           },
           "paymentOperation": {
             "type": "string"
+          }
+        }
+      },
+      "common-output-OutputWebhookPayload": {
+        "description": "Webhook payload for output queue events",
+        "properties": {
+          "queueId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the output queue"
+          },
+          "title": {
+            "type": "string",
+            "description": "Subject of the output queue"
+          },
+          "fsResourceId": {
+            "type": "string",
+            "description": "File storage resource ID"
+          }
+        }
+      },
+      "vds-shipment-ShipmentAppMessagePayload": {
+        "description": "Webhook payload for shipment-related events",
+        "properties": {
+          "shipmentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of shipment"
+          },
+          "parcelId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of parcel"
+          }
+        }
+      },
+      "erp-product-ArticleAppMessagePayload": {
+        "description": "Webhook payload for article-related events",
+        "properties": {
+          "articleId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected article"
+          },
+          "priceId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected price"
+          },
+          "listingId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected listing"
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "dms-shelf-ShelfDocumentWebhookPayload": {
+        "description": "Webhook payload for DMS shelf document events",
+        "properties": {
+          "shelfDocumentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected shelf document"
+          },
+          "externalRef": {
+            "type": "string",
+            "description": "External reference of the share"
           }
         }
       }
