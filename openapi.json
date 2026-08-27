@@ -2,11 +2,11 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.33.1"
+    "version": "2026.33.2"
   },
   "servers": [
     {
-      "url": "http://10.102.24.214:32797/api",
+      "url": "http://10.102.24.202:32799/api",
       "description": "Generated server url"
     }
   ],
@@ -72000,10 +72000,28 @@
           "float": {
             "type": "boolean"
           },
+          "valueNode": {
+            "type": "boolean"
+          },
+          "container": {
+            "type": "boolean"
+          },
+          "missingNode": {
+            "type": "boolean"
+          },
           "integralNumber": {
             "type": "boolean"
           },
           "floatingPointNumber": {
+            "type": "boolean"
+          },
+          "pojo": {
+            "type": "boolean"
+          },
+          "short": {
+            "type": "boolean"
+          },
+          "int": {
             "type": "boolean"
           },
           "nodeType": {
@@ -72021,24 +72039,6 @@
             ]
           },
           "string": {
-            "type": "boolean"
-          },
-          "missingNode": {
-            "type": "boolean"
-          },
-          "valueNode": {
-            "type": "boolean"
-          },
-          "container": {
-            "type": "boolean"
-          },
-          "pojo": {
-            "type": "boolean"
-          },
-          "short": {
-            "type": "boolean"
-          },
-          "int": {
             "type": "boolean"
           },
           "long": {
@@ -102040,10 +102040,10 @@
               "METHOD"
             ]
           },
-          "dataType": {
+          "dataTypeName": {
             "type": "string"
           },
-          "dataTypeName": {
+          "dataType": {
             "type": "string"
           }
         }
@@ -106412,27 +106412,18 @@
           }
         }
       },
-      "dms-shelf-ShelfDocumentWebhookPayload": {
-        "description": "Webhook payload for DMS shelf document events",
+      "vds-shipment-ShipmentAppMessagePayload": {
+        "description": "Webhook payload for shipment-related events",
         "properties": {
-          "shelfDocumentId": {
+          "shipmentId": {
             "type": "integer",
             "format": "int64",
-            "description": "ID of the affected shelf document"
+            "description": "ID of shipment"
           },
-          "externalRef": {
-            "type": "string",
-            "description": "External reference of the share"
-          }
-        }
-      },
-      "common-system-WebhookEntityPayload": {
-        "description": "Default webhook payload containing the affected entity ID",
-        "properties": {
-          "id": {
+          "parcelId": {
             "type": "integer",
             "format": "int64",
-            "description": "ID of the affected entity"
+            "description": "ID of parcel"
           }
         }
       },
@@ -106460,36 +106451,27 @@
           }
         }
       },
-      "vds-shipment-ShipmentAppMessagePayload": {
-        "description": "Webhook payload for shipment-related events",
+      "dms-shelf-ShelfDocumentWebhookPayload": {
+        "description": "Webhook payload for DMS shelf document events",
         "properties": {
-          "shipmentId": {
+          "shelfDocumentId": {
             "type": "integer",
             "format": "int64",
-            "description": "ID of shipment"
+            "description": "ID of the affected shelf document"
           },
-          "parcelId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of parcel"
+          "externalRef": {
+            "type": "string",
+            "description": "External reference of the share"
           }
         }
       },
-      "common-output-OutputWebhookPayload": {
-        "description": "Webhook payload for output queue events",
+      "common-system-WebhookEntityPayload": {
+        "description": "Default webhook payload containing the affected entity ID",
         "properties": {
-          "queueId": {
+          "id": {
             "type": "integer",
             "format": "int64",
-            "description": "ID of the output queue"
-          },
-          "title": {
-            "type": "string",
-            "description": "Subject of the output queue"
-          },
-          "fsResourceId": {
-            "type": "string",
-            "description": "File storage resource ID"
+            "description": "ID of the affected entity"
           }
         }
       },
@@ -106521,6 +106503,24 @@
           },
           "paymentOperation": {
             "type": "string"
+          }
+        }
+      },
+      "common-output-OutputWebhookPayload": {
+        "description": "Webhook payload for output queue events",
+        "properties": {
+          "queueId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the output queue"
+          },
+          "title": {
+            "type": "string",
+            "description": "Subject of the output queue"
+          },
+          "fsResourceId": {
+            "type": "string",
+            "description": "File storage resource ID"
           }
         }
       }
