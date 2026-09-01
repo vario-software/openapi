@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.33.4"
+    "version": "2026.34.0"
   },
   "servers": [
     {
@@ -36934,6 +36934,58 @@
         }
       }
     },
+    "/cmn/task/{id}/tracing": {
+      "put": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "Aktiviert das Call-Tracing für diesen Task",
+        "description": "Bewusst ein eigener Endpunkt, damit das Flag bei einer gewöhnlichen Task-Bearbeitung nicht versehentlich mitwandert.",
+        "operationId": "activateTrace",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "an identifier",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "Deaktiviert das Call-Tracing für diesen Task",
+        "description": "Bewusst ein eigener Endpunkt, damit das Flag bei einer gewöhnlichen Task-Bearbeitung nicht versehentlich mitwandert.",
+        "operationId": "deactivateTrace",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "an identifier",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/cmn/tags/{id}": {
       "get": {
         "tags": [
@@ -51117,7 +51169,7 @@
             "application/json": {
               "schema": {
                 "type": "array",
-                "description": "Save sync",
+                "description": "Referenz-IDs der zu importierenden Konten",
                 "items": {
                   "type": "string"
                 }
@@ -71999,6 +72051,33 @@
           "float": {
             "type": "boolean"
           },
+          "integralNumber": {
+            "type": "boolean"
+          },
+          "floatingPointNumber": {
+            "type": "boolean"
+          },
+          "valueNode": {
+            "type": "boolean"
+          },
+          "container": {
+            "type": "boolean"
+          },
+          "missingNode": {
+            "type": "boolean"
+          },
+          "pojo": {
+            "type": "boolean"
+          },
+          "short": {
+            "type": "boolean"
+          },
+          "int": {
+            "type": "boolean"
+          },
+          "long": {
+            "type": "boolean"
+          },
           "nodeType": {
             "type": "string",
             "enum": [
@@ -72014,27 +72093,6 @@
             ]
           },
           "string": {
-            "type": "boolean"
-          },
-          "missingNode": {
-            "type": "boolean"
-          },
-          "valueNode": {
-            "type": "boolean"
-          },
-          "container": {
-            "type": "boolean"
-          },
-          "pojo": {
-            "type": "boolean"
-          },
-          "short": {
-            "type": "boolean"
-          },
-          "int": {
-            "type": "boolean"
-          },
-          "long": {
             "type": "boolean"
           },
           "double": {
@@ -72054,12 +72112,6 @@
             "type": "boolean"
           },
           "binary": {
-            "type": "boolean"
-          },
-          "integralNumber": {
-            "type": "boolean"
-          },
-          "floatingPointNumber": {
             "type": "boolean"
           },
           "number": {
@@ -72767,6 +72819,10 @@
               "$ref": "#/components/schemas/core-api-ApiObjectReference"
             }
           },
+          "allowOnlyDefinedDeliveryMethods": {
+            "type": "boolean",
+            "description": "dürfen nur gültige Lieferarten genutz werden?"
+          },
           "documentTypeRefs": {
             "type": "array",
             "description": "Liste der Belegarten vom Belegtyp \"Auftrag\"",
@@ -72909,10 +72965,20 @@
             "default": false,
             "description": "Sollen die Paketlabel automatisch nach Abschluss der Kommissionierung gedruckt werden?"
           },
-          "allowOnlyScanOfArticles": {
+          "alwaysRequireScanOfStorageBin": {
             "type": "boolean",
             "default": false,
-            "description": "Dürfen Artikel nur per Scan (oder z.B. auch Eingabe der Artikelnummer) erfasst werden"
+            "description": "Lagerplätze müssen erfasst werden, trotz Vorgabe"
+          },
+          "articleScanRequirement": {
+            "type": "string",
+            "default": "FREE",
+            "description": "Erfassungsbedingung für Artikel",
+            "enum": [
+              "FREE",
+              "SCAN_ONCE",
+              "SCAN_ALWAYS"
+            ]
           },
           "autoDeterminationOfLots": {
             "type": "boolean",
@@ -80161,6 +80227,27 @@
             "maxLength": 255,
             "minLength": 0
           },
+          "externalArticleNumber": {
+            "type": "string",
+            "description": "Externe Artikelnummer",
+            "maxLength": 255,
+            "minLength": 0,
+            "readOnly": true
+          },
+          "externalArticleName": {
+            "type": "string",
+            "description": "Externer Artikelname",
+            "maxLength": 255,
+            "minLength": 0,
+            "readOnly": true
+          },
+          "externalArticleDescription": {
+            "type": "string",
+            "description": "Externe Artikelbeschreibung",
+            "maxLength": 255,
+            "minLength": 0,
+            "readOnly": true
+          },
           "netWeight": {
             "type": "number",
             "description": "Nettogewicht"
@@ -80746,6 +80833,12 @@
             "type": "number",
             "description": "Abschöpfung auf Betrag (Modus BALANCE) — Restbetrag, der in der Kasse verbleibt",
             "readOnly": true
+          },
+          "deletable": {
+            "type": "boolean",
+            "default": false,
+            "description": "Kann diese Zahlungsposition aus dem Beleg entfernt werden? false, solange die Zahlung noch läuft oder bereits erfolgreich ausgeführt wurde",
+            "readOnly": true
           }
         }
       },
@@ -81093,6 +81186,12 @@
           "withdrawToBalance": {
             "type": "number",
             "description": "Abschöpfung auf Betrag (Modus BALANCE) — Restbetrag, der in der Kasse verbleibt"
+          },
+          "deletable": {
+            "type": "boolean",
+            "default": false,
+            "description": "Kann diese Zahlungsposition aus dem Beleg entfernt werden? false, solange die Zahlung noch läuft oder bereits erfolgreich ausgeführt wurde",
+            "readOnly": true
           }
         },
         "required": [
@@ -81970,6 +82069,11 @@
           },
           "picklistRef": {
             "$ref": "#/components/schemas/core-api-ApiObjectReference"
+          },
+          "autoPrintPaperReceipt": {
+            "type": "boolean",
+            "description": "Papierbelege automatisch drucken (Vorgabe des Verkaufskanals, nur bei Kassenbelegen)",
+            "readOnly": true
           }
         }
       },
@@ -88622,6 +88726,11 @@
           "reportGroupRef": {
             "$ref": "#/components/schemas/core-api-ApiObjectReference"
           },
+          "autoPrintPaperReceipt": {
+            "type": "boolean",
+            "default": true,
+            "description": "Papierbelege automatisch drucken"
+          },
           "businessRelationType": {
             "type": "string",
             "description": "Geschäftsbeziehungs-Typen für Geschäftspartner",
@@ -88924,6 +89033,16 @@
           "withdrawalBalance": {
             "type": "number",
             "description": "Restbetrag, der bei Entnahme im Modus BALANCE in der Kasse verbleibt"
+          },
+          "negativeBalanceBehaviour": {
+            "type": "string",
+            "default": "ALWAYS_DENY",
+            "description": "Verhalten einer Kassenzahlungsart, wenn ihr Bestand negativ werden würde",
+            "enum": [
+              "ALWAYS_DENY",
+              "ALWAYS_ALLOW",
+              "ALLOW_AFTER_CONFIRMATION"
+            ]
           }
         },
         "required": [
@@ -89216,6 +89335,10 @@
           "minWeightPerParcel": {
             "type": "number",
             "description": "Min. Gewicht pro Paket"
+          },
+          "identifier": {
+            "type": "string",
+            "description": "Barcode"
           },
           "maxWeightPerParcel": {
             "type": "number",
@@ -92600,6 +92723,7 @@
             "default": "NORMAL",
             "description": "Category",
             "enum": [
+              "QUICK",
               "NORMAL",
               "LONG_RUNNING"
             ],
@@ -92628,7 +92752,8 @@
           "traceActive": {
             "type": "boolean",
             "default": false,
-            "description": "Aktiviert Call-Tracing fuer diesen Task"
+            "description": "Aktiviert Call-Tracing fuer diesen Task",
+            "readOnly": true
           },
           "custom": {
             "$ref": "#/components/schemas/unknownservice-unknownmodule-JsonNode"
@@ -95896,6 +96021,8 @@
               "PICK_TROLLEY_BOX_CANCELLED",
               "STORAGE_BIN_CHOSEN",
               "ARTICLE_CHOSEN",
+              "CHANGED_DELIVERY_METHOD",
+              "CHANGED_DELIVERY_METHOD_DELIVERY_TERM",
               "SERIAL_NUMBER_CHOSEN",
               "SERIAL_NUMBER_LIST_PROCESSED",
               "ABSOLUTE_QUANTITY_MANUAL_CHANGED",
@@ -102039,10 +102166,10 @@
               "METHOD"
             ]
           },
-          "dataTypeName": {
+          "dataType": {
             "type": "string"
           },
-          "dataType": {
+          "dataTypeName": {
             "type": "string"
           }
         }
@@ -106436,20 +106563,6 @@
           }
         }
       },
-      "dms-shelf-ShelfDocumentWebhookPayload": {
-        "description": "Webhook payload for DMS shelf document events",
-        "properties": {
-          "shelfDocumentId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected shelf document"
-          },
-          "externalRef": {
-            "type": "string",
-            "description": "External reference of the share"
-          }
-        }
-      },
       "erp-pos-PosPaymentOrderEvent": {
         "properties": {
           "paymentOrderId": {
@@ -106481,6 +106594,38 @@
           }
         }
       },
+      "common-output-OutputWebhookPayload": {
+        "description": "Webhook payload for output queue events",
+        "properties": {
+          "queueId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the output queue"
+          },
+          "title": {
+            "type": "string",
+            "description": "Subject of the output queue"
+          },
+          "fsResourceId": {
+            "type": "string",
+            "description": "File storage resource ID"
+          }
+        }
+      },
+      "dms-shelf-ShelfDocumentWebhookPayload": {
+        "description": "Webhook payload for DMS shelf document events",
+        "properties": {
+          "shelfDocumentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected shelf document"
+          },
+          "externalRef": {
+            "type": "string",
+            "description": "External reference of the share"
+          }
+        }
+      },
       "erp-product-ArticleAppMessagePayload": {
         "description": "Webhook payload for article-related events",
         "properties": {
@@ -106502,24 +106647,6 @@
           "categoryId": {
             "type": "integer",
             "format": "int64"
-          }
-        }
-      },
-      "common-output-OutputWebhookPayload": {
-        "description": "Webhook payload for output queue events",
-        "properties": {
-          "queueId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the output queue"
-          },
-          "title": {
-            "type": "string",
-            "description": "Subject of the output queue"
-          },
-          "fsResourceId": {
-            "type": "string",
-            "description": "File storage resource ID"
           }
         }
       }
