@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.34.1"
+    "version": "2026.34.2"
   },
   "servers": [
     {
@@ -63798,7 +63798,7 @@
           "Document"
         ],
         "summary": "Liefert alle nicht zu Paketen zugewiesenen Belegpositionsbuchungen zu einem Beleg",
-        "operationId": "getUnassignedDocumentLineBookings",
+        "operationId": "getUnassignedDocumentLinesWithBookings",
         "parameters": [
           {
             "name": "documentId",
@@ -63818,7 +63818,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/erp-document-DocumentLineBooking"
+                    "$ref": "#/components/schemas/erp-document-DocumentLineWithBooking"
                   }
                 }
               }
@@ -72051,6 +72051,38 @@
           "float": {
             "type": "boolean"
           },
+          "integralNumber": {
+            "type": "boolean"
+          },
+          "floatingPointNumber": {
+            "type": "boolean"
+          },
+          "string": {
+            "type": "boolean"
+          },
+          "nodeType": {
+            "type": "string",
+            "enum": [
+              "ARRAY",
+              "BINARY",
+              "BOOLEAN",
+              "MISSING",
+              "NULL",
+              "NUMBER",
+              "OBJECT",
+              "POJO",
+              "STRING"
+            ]
+          },
+          "missingNode": {
+            "type": "boolean"
+          },
+          "valueNode": {
+            "type": "boolean"
+          },
+          "container": {
+            "type": "boolean"
+          },
           "pojo": {
             "type": "boolean"
           },
@@ -72081,38 +72113,6 @@
           },
           "binary": {
             "type": "boolean"
-          },
-          "integralNumber": {
-            "type": "boolean"
-          },
-          "floatingPointNumber": {
-            "type": "boolean"
-          },
-          "string": {
-            "type": "boolean"
-          },
-          "missingNode": {
-            "type": "boolean"
-          },
-          "valueNode": {
-            "type": "boolean"
-          },
-          "container": {
-            "type": "boolean"
-          },
-          "nodeType": {
-            "type": "string",
-            "enum": [
-              "ARRAY",
-              "BINARY",
-              "BOOLEAN",
-              "MISSING",
-              "NULL",
-              "NUMBER",
-              "OBJECT",
-              "POJO",
-              "STRING"
-            ]
           },
           "number": {
             "type": "boolean"
@@ -84196,6 +84196,11 @@
           "id": {
             "type": "string",
             "description": "Unique identifier of the Object"
+          },
+          "documentLineId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Referenz zur Belegposition"
           },
           "documentLineBookingId": {
             "type": "integer",
@@ -104120,6 +104125,20 @@
           }
         }
       },
+      "erp-document-DocumentLineWithBooking": {
+        "properties": {
+          "line": {
+            "$ref": "#/components/schemas/erp-document-DocumentLine"
+          },
+          "booking": {
+            "$ref": "#/components/schemas/erp-document-DocumentLineBooking"
+          },
+          "quantity": {
+            "type": "number",
+            "description": "Die Menge dieser Kombination"
+          }
+        }
+      },
       "erp-document-CompleteDocumentAvailabilityInfoApi": {
         "description": "Verfügbarkeitsinformationen zu einem Beleg und seinen Positionen",
         "properties": {
@@ -106548,6 +106567,30 @@
           }
         }
       },
+      "erp-product-ArticleAppMessagePayload": {
+        "description": "Webhook payload for article-related events",
+        "properties": {
+          "articleId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected article"
+          },
+          "priceId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected price"
+          },
+          "listingId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected listing"
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
       "common-output-OutputWebhookPayload": {
         "description": "Webhook payload for output queue events",
         "properties": {
@@ -106563,21 +106606,6 @@
           "fsResourceId": {
             "type": "string",
             "description": "File storage resource ID"
-          }
-        }
-      },
-      "vds-shipment-ShipmentAppMessagePayload": {
-        "description": "Webhook payload for shipment-related events",
-        "properties": {
-          "shipmentId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of shipment"
-          },
-          "parcelId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of parcel"
           }
         }
       },
@@ -106612,27 +106640,18 @@
           }
         }
       },
-      "erp-product-ArticleAppMessagePayload": {
-        "description": "Webhook payload for article-related events",
+      "vds-shipment-ShipmentAppMessagePayload": {
+        "description": "Webhook payload for shipment-related events",
         "properties": {
-          "articleId": {
+          "shipmentId": {
             "type": "integer",
             "format": "int64",
-            "description": "ID of the affected article"
+            "description": "ID of shipment"
           },
-          "priceId": {
+          "parcelId": {
             "type": "integer",
             "format": "int64",
-            "description": "ID of the affected price"
-          },
-          "listingId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected listing"
-          },
-          "categoryId": {
-            "type": "integer",
-            "format": "int64"
+            "description": "ID of parcel"
           }
         }
       },
