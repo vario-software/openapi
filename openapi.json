@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.34.2"
+    "version": "2026.34.3"
   },
   "servers": [
     {
@@ -72051,13 +72051,20 @@
           "float": {
             "type": "boolean"
           },
-          "integralNumber": {
+          "bigDecimal": {
             "type": "boolean"
           },
-          "floatingPointNumber": {
+          "bigInteger": {
             "type": "boolean"
           },
-          "string": {
+          "textual": {
+            "type": "boolean",
+            "deprecated": true
+          },
+          "boolean": {
+            "type": "boolean"
+          },
+          "binary": {
             "type": "boolean"
           },
           "nodeType": {
@@ -72074,13 +72081,7 @@
               "STRING"
             ]
           },
-          "missingNode": {
-            "type": "boolean"
-          },
-          "valueNode": {
-            "type": "boolean"
-          },
-          "container": {
+          "string": {
             "type": "boolean"
           },
           "pojo": {
@@ -72098,20 +72099,19 @@
           "double": {
             "type": "boolean"
           },
-          "bigDecimal": {
+          "integralNumber": {
             "type": "boolean"
           },
-          "bigInteger": {
+          "floatingPointNumber": {
             "type": "boolean"
           },
-          "textual": {
-            "type": "boolean",
-            "deprecated": true
-          },
-          "boolean": {
+          "valueNode": {
             "type": "boolean"
           },
-          "binary": {
+          "container": {
+            "type": "boolean"
+          },
+          "missingNode": {
             "type": "boolean"
           },
           "number": {
@@ -106567,6 +106567,35 @@
           }
         }
       },
+      "dms-shelf-ShelfDocumentWebhookPayload": {
+        "description": "Webhook payload for DMS shelf document events",
+        "properties": {
+          "shelfDocumentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected shelf document"
+          },
+          "externalRef": {
+            "type": "string",
+            "description": "External reference of the share"
+          }
+        }
+      },
+      "vds-shipment-ShipmentAppMessagePayload": {
+        "description": "Webhook payload for shipment-related events",
+        "properties": {
+          "shipmentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of shipment"
+          },
+          "parcelId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of parcel"
+          }
+        }
+      },
       "erp-product-ArticleAppMessagePayload": {
         "description": "Webhook payload for article-related events",
         "properties": {
@@ -106637,35 +106666,6 @@
           },
           "paymentOperation": {
             "type": "string"
-          }
-        }
-      },
-      "vds-shipment-ShipmentAppMessagePayload": {
-        "description": "Webhook payload for shipment-related events",
-        "properties": {
-          "shipmentId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of shipment"
-          },
-          "parcelId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of parcel"
-          }
-        }
-      },
-      "dms-shelf-ShelfDocumentWebhookPayload": {
-        "description": "Webhook payload for DMS shelf document events",
-        "properties": {
-          "shelfDocumentId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected shelf document"
-          },
-          "externalRef": {
-            "type": "string",
-            "description": "External reference of the share"
           }
         }
       }
