@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.34.4"
+    "version": "2026.35.0"
   },
   "servers": [
     {
@@ -68767,6 +68767,7 @@
                 "MANDATE",
                 "OPENITEM",
                 "SHIPPED_DOCUMENT",
+                "SALES_AGENT",
                 "POS_REGISTER",
                 "CASH_DRAWER",
                 "POS_PAYMENT_METHOD",
@@ -72051,10 +72052,36 @@
           "float": {
             "type": "boolean"
           },
+          "nodeType": {
+            "type": "string",
+            "enum": [
+              "ARRAY",
+              "BINARY",
+              "BOOLEAN",
+              "MISSING",
+              "NULL",
+              "NUMBER",
+              "OBJECT",
+              "POJO",
+              "STRING"
+            ]
+          },
+          "string": {
+            "type": "boolean"
+          },
           "integralNumber": {
             "type": "boolean"
           },
           "floatingPointNumber": {
+            "type": "boolean"
+          },
+          "missingNode": {
+            "type": "boolean"
+          },
+          "valueNode": {
+            "type": "boolean"
+          },
+          "container": {
             "type": "boolean"
           },
           "pojo": {
@@ -72087,32 +72114,6 @@
           },
           "binary": {
             "type": "boolean"
-          },
-          "string": {
-            "type": "boolean"
-          },
-          "missingNode": {
-            "type": "boolean"
-          },
-          "valueNode": {
-            "type": "boolean"
-          },
-          "container": {
-            "type": "boolean"
-          },
-          "nodeType": {
-            "type": "string",
-            "enum": [
-              "ARRAY",
-              "BINARY",
-              "BOOLEAN",
-              "MISSING",
-              "NULL",
-              "NUMBER",
-              "OBJECT",
-              "POJO",
-              "STRING"
-            ]
           },
           "number": {
             "type": "boolean"
@@ -75240,7 +75241,12 @@
           },
           "purchasePrice": {
             "type": "number",
-            "description": "Der neue letzte EK"
+            "description": "Der neue letzte EK, ausgedrückt pro priceUnit Einheiten"
+          },
+          "priceUnit": {
+            "type": "number",
+            "description": "Preiseinheit, auf die sich der EK bezieht; ohne Angabe gilt die basePriceUnit des Artikels",
+            "minimum": 0
           },
           "serialNumberId": {
             "type": "integer",
@@ -75270,7 +75276,7 @@
           },
           "priceUnit": {
             "type": "number",
-            "description": "Preiseinheit, auf die sich der DEK bezieht (i.d.R. basePriceUnit des Artikels)",
+            "description": "Preiseinheit, auf die sich der DEK bezieht; ohne Angabe gilt die basePriceUnit des Artikels",
             "minimum": 0
           },
           "note": {
@@ -77484,6 +77490,7 @@
               "COMMON",
               "ACCOUNT",
               "PRODUCT",
+              "ASSET",
               "DOCUMENT",
               "OPEN_ITEM",
               "CRM_COMMON",
@@ -85948,6 +85955,13 @@
             },
             "readOnly": true
           },
+          "tags": {
+            "type": "array",
+            "description": "Tags zum Asset",
+            "items": {
+              "$ref": "#/components/schemas/common-tag-TagDto"
+            }
+          },
           "custom": {
             "$ref": "#/components/schemas/unknownservice-unknownmodule-JsonNode"
           }
@@ -92602,6 +92616,7 @@
               "MANDATE",
               "OPENITEM",
               "SHIPPED_DOCUMENT",
+              "SALES_AGENT",
               "POS_REGISTER",
               "CASH_DRAWER",
               "POS_PAYMENT_METHOD",
@@ -97668,7 +97683,7 @@
           },
           "priceUnit": {
             "type": "number",
-            "description": "Preiseinheit, auf die sich der EK bezieht (i.d.R. basePriceUnit des Artikels)",
+            "description": "Preiseinheit, auf die sich der EK bezieht",
             "minimum": 0
           },
           "serialNumber1": {
@@ -102171,10 +102186,10 @@
               "METHOD"
             ]
           },
-          "dataType": {
+          "dataTypeName": {
             "type": "string"
           },
-          "dataTypeName": {
+          "dataType": {
             "type": "string"
           }
         }
@@ -102270,6 +102285,10 @@
           "averagePurchasePrice": {
             "type": "number",
             "description": "DEK"
+          },
+          "priceUnit": {
+            "type": "number",
+            "description": "Preiseinheit, auf die sich EK und DEK beziehen"
           },
           "targetStock": {
             "type": "number",
@@ -102777,6 +102796,11 @@
           "lastPrice": {
             "type": "number",
             "description": "letzter Einkaufspreis",
+            "readOnly": true
+          },
+          "priceUnitLastPrice": {
+            "type": "number",
+            "description": "Preiseinheit letzter Einkaufspreis",
             "readOnly": true
           },
           "lastPriceUpdatedAt": {
@@ -105237,6 +105261,7 @@
               "BANK",
               "BANK_TRANSACTION",
               "SHIPPED_DOCUMENT",
+              "SALES_AGENT",
               "POS_REGISTER",
               "CASH_DRAWER",
               "POS_PAYMENT_METHOD",
@@ -106567,6 +106592,53 @@
           }
         }
       },
+      "common-output-OutputWebhookPayload": {
+        "description": "Webhook payload for output queue events",
+        "properties": {
+          "queueId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the output queue"
+          },
+          "title": {
+            "type": "string",
+            "description": "Subject of the output queue"
+          },
+          "fsResourceId": {
+            "type": "string",
+            "description": "File storage resource ID"
+          }
+        }
+      },
+      "dms-shelf-ShelfDocumentWebhookPayload": {
+        "description": "Webhook payload for DMS shelf document events",
+        "properties": {
+          "shelfDocumentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected shelf document"
+          },
+          "externalRef": {
+            "type": "string",
+            "description": "External reference of the share"
+          }
+        }
+      },
+      "vds-shipment-ShipmentAppMessagePayload": {
+        "description": "Webhook payload for shipment-related events",
+        "properties": {
+          "shipmentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of shipment"
+          },
+          "parcelId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of parcel"
+          }
+        }
+      },
       "erp-pos-PosPaymentOrderEvent": {
         "properties": {
           "paymentOrderId": {
@@ -106598,39 +106670,6 @@
           }
         }
       },
-      "vds-shipment-ShipmentAppMessagePayload": {
-        "description": "Webhook payload for shipment-related events",
-        "properties": {
-          "shipmentId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of shipment"
-          },
-          "parcelId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of parcel"
-          }
-        }
-      },
-      "common-output-OutputWebhookPayload": {
-        "description": "Webhook payload for output queue events",
-        "properties": {
-          "queueId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the output queue"
-          },
-          "title": {
-            "type": "string",
-            "description": "Subject of the output queue"
-          },
-          "fsResourceId": {
-            "type": "string",
-            "description": "File storage resource ID"
-          }
-        }
-      },
       "erp-product-ArticleAppMessagePayload": {
         "description": "Webhook payload for article-related events",
         "properties": {
@@ -106652,20 +106691,6 @@
           "categoryId": {
             "type": "integer",
             "format": "int64"
-          }
-        }
-      },
-      "dms-shelf-ShelfDocumentWebhookPayload": {
-        "description": "Webhook payload for DMS shelf document events",
-        "properties": {
-          "shelfDocumentId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected shelf document"
-          },
-          "externalRef": {
-            "type": "string",
-            "description": "External reference of the share"
           }
         }
       }
