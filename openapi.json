@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.35.1"
+    "version": "2026.35.2"
   },
   "servers": [
     {
@@ -72052,26 +72052,24 @@
           "float": {
             "type": "boolean"
           },
-          "valueNode": {
-            "type": "boolean"
-          },
           "integralNumber": {
             "type": "boolean"
           },
           "floatingPointNumber": {
             "type": "boolean"
           },
-          "container": {
+          "double": {
             "type": "boolean"
           },
-          "missingNode": {
+          "bigDecimal": {
             "type": "boolean"
           },
-          "boolean": {
+          "bigInteger": {
             "type": "boolean"
           },
-          "binary": {
-            "type": "boolean"
+          "textual": {
+            "type": "boolean",
+            "deprecated": true
           },
           "nodeType": {
             "type": "string",
@@ -72090,6 +72088,15 @@
           "string": {
             "type": "boolean"
           },
+          "missingNode": {
+            "type": "boolean"
+          },
+          "valueNode": {
+            "type": "boolean"
+          },
+          "container": {
+            "type": "boolean"
+          },
           "pojo": {
             "type": "boolean"
           },
@@ -72102,18 +72109,11 @@
           "long": {
             "type": "boolean"
           },
-          "double": {
+          "boolean": {
             "type": "boolean"
           },
-          "bigDecimal": {
+          "binary": {
             "type": "boolean"
-          },
-          "bigInteger": {
-            "type": "boolean"
-          },
-          "textual": {
-            "type": "boolean",
-            "deprecated": true
           },
           "number": {
             "type": "boolean"
@@ -106615,6 +106615,39 @@
           }
         }
       },
+      "common-output-OutputWebhookPayload": {
+        "description": "Webhook payload for output queue events",
+        "properties": {
+          "queueId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the output queue"
+          },
+          "title": {
+            "type": "string",
+            "description": "Subject of the output queue"
+          },
+          "fsResourceId": {
+            "type": "string",
+            "description": "File storage resource ID"
+          }
+        }
+      },
+      "vds-shipment-ShipmentAppMessagePayload": {
+        "description": "Webhook payload for shipment-related events",
+        "properties": {
+          "shipmentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of shipment"
+          },
+          "parcelId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of parcel"
+          }
+        }
+      },
       "dms-shelf-ShelfDocumentWebhookPayload": {
         "description": "Webhook payload for DMS shelf document events",
         "properties": {
@@ -106657,39 +106690,6 @@
           },
           "paymentOperation": {
             "type": "string"
-          }
-        }
-      },
-      "vds-shipment-ShipmentAppMessagePayload": {
-        "description": "Webhook payload for shipment-related events",
-        "properties": {
-          "shipmentId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of shipment"
-          },
-          "parcelId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of parcel"
-          }
-        }
-      },
-      "common-output-OutputWebhookPayload": {
-        "description": "Webhook payload for output queue events",
-        "properties": {
-          "queueId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the output queue"
-          },
-          "title": {
-            "type": "string",
-            "description": "Subject of the output queue"
-          },
-          "fsResourceId": {
-            "type": "string",
-            "description": "File storage resource ID"
           }
         }
       }
