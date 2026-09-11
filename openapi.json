@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.35.2"
+    "version": "2026.35.3"
   },
   "servers": [
     {
@@ -72052,25 +72052,6 @@
           "float": {
             "type": "boolean"
           },
-          "integralNumber": {
-            "type": "boolean"
-          },
-          "floatingPointNumber": {
-            "type": "boolean"
-          },
-          "double": {
-            "type": "boolean"
-          },
-          "bigDecimal": {
-            "type": "boolean"
-          },
-          "bigInteger": {
-            "type": "boolean"
-          },
-          "textual": {
-            "type": "boolean",
-            "deprecated": true
-          },
           "nodeType": {
             "type": "string",
             "enum": [
@@ -72088,13 +72069,16 @@
           "string": {
             "type": "boolean"
           },
+          "integralNumber": {
+            "type": "boolean"
+          },
+          "floatingPointNumber": {
+            "type": "boolean"
+          },
           "missingNode": {
             "type": "boolean"
           },
           "valueNode": {
-            "type": "boolean"
-          },
-          "container": {
             "type": "boolean"
           },
           "pojo": {
@@ -72109,10 +72093,26 @@
           "long": {
             "type": "boolean"
           },
+          "double": {
+            "type": "boolean"
+          },
+          "bigDecimal": {
+            "type": "boolean"
+          },
+          "bigInteger": {
+            "type": "boolean"
+          },
+          "textual": {
+            "type": "boolean",
+            "deprecated": true
+          },
           "boolean": {
             "type": "boolean"
           },
           "binary": {
+            "type": "boolean"
+          },
+          "container": {
             "type": "boolean"
           },
           "number": {
@@ -102185,10 +102185,10 @@
               "METHOD"
             ]
           },
-          "dataTypeName": {
+          "dataType": {
             "type": "string"
           },
-          "dataType": {
+          "dataTypeName": {
             "type": "string"
           }
         }
@@ -106591,27 +106591,34 @@
           }
         }
       },
-      "erp-product-ArticleAppMessagePayload": {
-        "description": "Webhook payload for article-related events",
+      "erp-pos-PosPaymentOrderEvent": {
         "properties": {
-          "articleId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected article"
-          },
-          "priceId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected price"
-          },
-          "listingId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected listing"
-          },
-          "categoryId": {
+          "paymentOrderId": {
             "type": "integer",
             "format": "int64"
+          },
+          "externalPaymentId": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "currencyCode": {
+            "type": "string"
+          },
+          "paymentMethodId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "paymentMethodLabel": {
+            "type": "string"
+          },
+          "paymentConsumerId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "paymentOperation": {
+            "type": "string"
           }
         }
       },
@@ -106648,6 +106655,30 @@
           }
         }
       },
+      "erp-product-ArticleAppMessagePayload": {
+        "description": "Webhook payload for article-related events",
+        "properties": {
+          "articleId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected article"
+          },
+          "priceId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected price"
+          },
+          "listingId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected listing"
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
       "dms-shelf-ShelfDocumentWebhookPayload": {
         "description": "Webhook payload for DMS shelf document events",
         "properties": {
@@ -106659,37 +106690,6 @@
           "externalRef": {
             "type": "string",
             "description": "External reference of the share"
-          }
-        }
-      },
-      "erp-pos-PosPaymentOrderEvent": {
-        "properties": {
-          "paymentOrderId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "externalPaymentId": {
-            "type": "string"
-          },
-          "amount": {
-            "type": "number"
-          },
-          "currencyCode": {
-            "type": "string"
-          },
-          "paymentMethodId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "paymentMethodLabel": {
-            "type": "string"
-          },
-          "paymentConsumerId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "paymentOperation": {
-            "type": "string"
           }
         }
       }
