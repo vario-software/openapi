@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.35.3"
+    "version": "2026.35.4"
   },
   "servers": [
     {
@@ -72052,6 +72052,12 @@
           "float": {
             "type": "boolean"
           },
+          "integralNumber": {
+            "type": "boolean"
+          },
+          "floatingPointNumber": {
+            "type": "boolean"
+          },
           "nodeType": {
             "type": "string",
             "enum": [
@@ -72067,12 +72073,6 @@
             ]
           },
           "string": {
-            "type": "boolean"
-          },
-          "integralNumber": {
-            "type": "boolean"
-          },
-          "floatingPointNumber": {
             "type": "boolean"
           },
           "missingNode": {
@@ -102185,10 +102185,10 @@
               "METHOD"
             ]
           },
-          "dataType": {
+          "dataTypeName": {
             "type": "string"
           },
-          "dataTypeName": {
+          "dataType": {
             "type": "string"
           }
         }
@@ -106591,6 +106591,59 @@
           }
         }
       },
+      "dms-shelf-ShelfDocumentWebhookPayload": {
+        "description": "Webhook payload for DMS shelf document events",
+        "properties": {
+          "shelfDocumentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected shelf document"
+          },
+          "externalRef": {
+            "type": "string",
+            "description": "External reference of the share"
+          }
+        }
+      },
+      "erp-product-ArticleAppMessagePayload": {
+        "description": "Webhook payload for article-related events",
+        "properties": {
+          "articleId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected article"
+          },
+          "priceId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected price"
+          },
+          "listingId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected listing"
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "vds-shipment-ShipmentAppMessagePayload": {
+        "description": "Webhook payload for shipment-related events",
+        "properties": {
+          "shipmentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of shipment"
+          },
+          "parcelId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of parcel"
+          }
+        }
+      },
       "erp-pos-PosPaymentOrderEvent": {
         "properties": {
           "paymentOrderId": {
@@ -106637,59 +106690,6 @@
           "fsResourceId": {
             "type": "string",
             "description": "File storage resource ID"
-          }
-        }
-      },
-      "vds-shipment-ShipmentAppMessagePayload": {
-        "description": "Webhook payload for shipment-related events",
-        "properties": {
-          "shipmentId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of shipment"
-          },
-          "parcelId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of parcel"
-          }
-        }
-      },
-      "erp-product-ArticleAppMessagePayload": {
-        "description": "Webhook payload for article-related events",
-        "properties": {
-          "articleId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected article"
-          },
-          "priceId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected price"
-          },
-          "listingId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected listing"
-          },
-          "categoryId": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "dms-shelf-ShelfDocumentWebhookPayload": {
-        "description": "Webhook payload for DMS shelf document events",
-        "properties": {
-          "shelfDocumentId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected shelf document"
-          },
-          "externalRef": {
-            "type": "string",
-            "description": "External reference of the share"
           }
         }
       }
