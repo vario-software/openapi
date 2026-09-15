@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.35.4"
+    "version": "2026.36.0"
   },
   "servers": [
     {
@@ -53,6 +53,10 @@
     {
       "name": "Article",
       "description": "the Article API"
+    },
+    {
+      "name": "ArticleActor",
+      "description": "the Article Actor API"
     },
     {
       "name": "ArticleCustomer",
@@ -22664,13 +22668,168 @@
         }
       }
     },
+    "/erp/article-actors/{id}": {
+      "get": {
+        "tags": [
+          "ArticleActor"
+        ],
+        "summary": "Find an existing Resource by identifier",
+        "operationId": "getById_77",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "an identifier",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/erp-product-ArticleActor"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource with given ID was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ArticleActor"
+        ],
+        "summary": "Update existing Resource ",
+        "operationId": "update_80",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "an identifier",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/erp-product-ArticleActor"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/erp-product-ArticleActor"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was not valid to process",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ArticleActor"
+        ],
+        "summary": "Delete an existing Resource",
+        "operationId": "delete_76",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "an identifier",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "unable to delete Resource, due to constraints, existing references or internal state",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-api-OperationMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/erp/article-accessories/{id}": {
       "get": {
         "tags": [
           "Article"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_77",
+        "operationId": "getById_78",
         "parameters": [
           {
             "name": "id",
@@ -22711,7 +22870,7 @@
           "Article"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_80",
+        "operationId": "update_81",
         "parameters": [
           {
             "name": "id",
@@ -22772,7 +22931,7 @@
           "Article"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_76",
+        "operationId": "delete_77",
         "parameters": [
           {
             "name": "id",
@@ -22950,7 +23109,7 @@
           "account"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_78",
+        "operationId": "getById_79",
         "parameters": [
           {
             "name": "id",
@@ -22991,7 +23150,7 @@
           "account"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_81",
+        "operationId": "update_82",
         "parameters": [
           {
             "name": "id",
@@ -23052,7 +23211,7 @@
           "account"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_77",
+        "operationId": "delete_78",
         "parameters": [
           {
             "name": "id",
@@ -23222,7 +23381,7 @@
           "SupplierGroup"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_79",
+        "operationId": "getById_80",
         "parameters": [
           {
             "name": "id",
@@ -23263,7 +23422,7 @@
           "SupplierGroup"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_82",
+        "operationId": "update_83",
         "parameters": [
           {
             "name": "id",
@@ -23324,7 +23483,7 @@
           "SupplierGroup"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_78",
+        "operationId": "delete_79",
         "parameters": [
           {
             "name": "id",
@@ -23483,7 +23642,7 @@
           "CustomerGroup"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_80",
+        "operationId": "getById_81",
         "parameters": [
           {
             "name": "id",
@@ -23524,7 +23683,7 @@
           "CustomerGroup"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_83",
+        "operationId": "update_84",
         "parameters": [
           {
             "name": "id",
@@ -23585,7 +23744,7 @@
           "CustomerGroup"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_79",
+        "operationId": "delete_80",
         "parameters": [
           {
             "name": "id",
@@ -23743,7 +23902,7 @@
         "tags": [
           "Wiki"
         ],
-        "operationId": "getById_81",
+        "operationId": "getById_82",
         "parameters": [
           {
             "name": "id",
@@ -23772,7 +23931,7 @@
         "tags": [
           "Wiki"
         ],
-        "operationId": "update_84",
+        "operationId": "update_85",
         "parameters": [
           {
             "name": "id",
@@ -23811,7 +23970,7 @@
         "tags": [
           "Wiki"
         ],
-        "operationId": "delete_80",
+        "operationId": "delete_81",
         "parameters": [
           {
             "name": "id",
@@ -24021,7 +24180,7 @@
           "Documents"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_82",
+        "operationId": "getById_83",
         "parameters": [
           {
             "name": "id",
@@ -24062,7 +24221,7 @@
           "Documents"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_85",
+        "operationId": "update_86",
         "parameters": [
           {
             "name": "id",
@@ -24555,7 +24714,7 @@
           "Document Types"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_83",
+        "operationId": "getById_84",
         "parameters": [
           {
             "name": "id",
@@ -24596,7 +24755,7 @@
           "Document Types"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_86",
+        "operationId": "update_87",
         "parameters": [
           {
             "name": "id",
@@ -24657,7 +24816,7 @@
           "Document Types"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_81",
+        "operationId": "delete_82",
         "parameters": [
           {
             "name": "id",
@@ -24710,7 +24869,7 @@
           "Attributions"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_84",
+        "operationId": "getById_85",
         "parameters": [
           {
             "name": "id",
@@ -24751,7 +24910,7 @@
           "Attributions"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_87",
+        "operationId": "update_88",
         "parameters": [
           {
             "name": "id",
@@ -24812,7 +24971,7 @@
           "Attributions"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_82",
+        "operationId": "delete_83",
         "parameters": [
           {
             "name": "id",
@@ -24997,7 +25156,7 @@
           "Carrier"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_85",
+        "operationId": "getById_86",
         "parameters": [
           {
             "name": "id",
@@ -25038,7 +25197,7 @@
           "Carrier"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_88",
+        "operationId": "update_89",
         "parameters": [
           {
             "name": "id",
@@ -25099,7 +25258,7 @@
           "Carrier"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_83",
+        "operationId": "delete_84",
         "parameters": [
           {
             "name": "id",
@@ -25306,7 +25465,7 @@
           "Carrier"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_86",
+        "operationId": "getById_87",
         "parameters": [
           {
             "name": "id",
@@ -25347,7 +25506,7 @@
           "Carrier"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_89",
+        "operationId": "update_90",
         "parameters": [
           {
             "name": "id",
@@ -25408,7 +25567,7 @@
           "Carrier"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_84",
+        "operationId": "delete_85",
         "parameters": [
           {
             "name": "id",
@@ -25523,7 +25682,7 @@
           "Scenario"
         ],
         "summary": "Find an existing Instance by identifier",
-        "operationId": "getById_87",
+        "operationId": "getById_88",
         "parameters": [
           {
             "name": "id",
@@ -25563,7 +25722,7 @@
           "Scenario"
         ],
         "summary": "Update a Instance",
-        "operationId": "update_90",
+        "operationId": "update_91",
         "parameters": [
           {
             "name": "id",
@@ -25658,7 +25817,7 @@
           "Scenario"
         ],
         "summary": "Find an existing Instance by identifier",
-        "operationId": "getById_88",
+        "operationId": "getById_89",
         "parameters": [
           {
             "name": "id",
@@ -25698,7 +25857,7 @@
           "Scenario"
         ],
         "summary": "Update a Instance",
-        "operationId": "update_91",
+        "operationId": "update_92",
         "parameters": [
           {
             "name": "id",
@@ -25793,7 +25952,7 @@
           "Scenario"
         ],
         "summary": "Find an existing Instance by identifier",
-        "operationId": "getById_89",
+        "operationId": "getById_90",
         "parameters": [
           {
             "name": "id",
@@ -25833,7 +25992,7 @@
           "Scenario"
         ],
         "summary": "Update a Instance",
-        "operationId": "update_92",
+        "operationId": "update_93",
         "parameters": [
           {
             "name": "id",
@@ -26327,7 +26486,7 @@
           "SalesChannel"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_90",
+        "operationId": "getById_91",
         "parameters": [
           {
             "name": "id",
@@ -26368,7 +26527,7 @@
           "SalesChannel"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_93",
+        "operationId": "update_94",
         "parameters": [
           {
             "name": "id",
@@ -26429,7 +26588,7 @@
           "SalesChannel"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_85",
+        "operationId": "delete_86",
         "parameters": [
           {
             "name": "id",
@@ -26588,7 +26747,7 @@
           "SalesChannel"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_91",
+        "operationId": "getById_92",
         "parameters": [
           {
             "name": "id",
@@ -26629,7 +26788,7 @@
           "SalesChannel"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_94",
+        "operationId": "update_95",
         "parameters": [
           {
             "name": "id",
@@ -26690,7 +26849,7 @@
           "SalesChannel"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_86",
+        "operationId": "delete_87",
         "parameters": [
           {
             "name": "id",
@@ -26743,7 +26902,7 @@
           "PosPaymentRule"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_92",
+        "operationId": "getById_93",
         "parameters": [
           {
             "name": "id",
@@ -26784,7 +26943,7 @@
           "PosPaymentRule"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_95",
+        "operationId": "update_96",
         "parameters": [
           {
             "name": "id",
@@ -26845,7 +27004,7 @@
           "PosPaymentRule"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_87",
+        "operationId": "delete_88",
         "parameters": [
           {
             "name": "id",
@@ -27058,7 +27217,7 @@
           "PosPaymentMethod"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_93",
+        "operationId": "getById_94",
         "parameters": [
           {
             "name": "id",
@@ -27099,7 +27258,7 @@
           "PosPaymentMethod"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_96",
+        "operationId": "update_97",
         "parameters": [
           {
             "name": "id",
@@ -27160,7 +27319,7 @@
           "PosPaymentMethod"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_88",
+        "operationId": "delete_89",
         "parameters": [
           {
             "name": "id",
@@ -27404,7 +27563,7 @@
           "PosPaymentConsumer"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_94",
+        "operationId": "getById_95",
         "parameters": [
           {
             "name": "id",
@@ -27445,7 +27604,7 @@
           "PosPaymentConsumer"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_97",
+        "operationId": "update_98",
         "parameters": [
           {
             "name": "id",
@@ -27506,7 +27665,7 @@
           "PosPaymentConsumer"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_89",
+        "operationId": "delete_90",
         "parameters": [
           {
             "name": "id",
@@ -27665,7 +27824,7 @@
           "PosPaymentBackend"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_95",
+        "operationId": "getById_96",
         "parameters": [
           {
             "name": "id",
@@ -27706,7 +27865,7 @@
           "PosPaymentBackend"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_98",
+        "operationId": "update_99",
         "parameters": [
           {
             "name": "id",
@@ -27767,7 +27926,7 @@
           "PosPaymentBackend"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_90",
+        "operationId": "delete_91",
         "parameters": [
           {
             "name": "id",
@@ -27926,7 +28085,7 @@
           "FinanceBookingBackend"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_96",
+        "operationId": "getById_97",
         "parameters": [
           {
             "name": "id",
@@ -27967,7 +28126,7 @@
           "FinanceBookingBackend"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_99",
+        "operationId": "update_100",
         "parameters": [
           {
             "name": "id",
@@ -28028,7 +28187,7 @@
           "FinanceBookingBackend"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_91",
+        "operationId": "delete_92",
         "parameters": [
           {
             "name": "id",
@@ -28187,7 +28346,7 @@
           "DeliveryMethod"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_97",
+        "operationId": "getById_98",
         "parameters": [
           {
             "name": "id",
@@ -28228,7 +28387,7 @@
           "DeliveryMethod"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_100",
+        "operationId": "update_101",
         "parameters": [
           {
             "name": "id",
@@ -28289,7 +28448,7 @@
           "DeliveryMethod"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_92",
+        "operationId": "delete_93",
         "parameters": [
           {
             "name": "id",
@@ -28551,7 +28710,7 @@
           "Aufgaben"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_98",
+        "operationId": "getById_99",
         "parameters": [
           {
             "name": "id",
@@ -28592,7 +28751,7 @@
           "Aufgaben"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_101",
+        "operationId": "update_102",
         "parameters": [
           {
             "name": "id",
@@ -28653,7 +28812,7 @@
           "Aufgaben"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_93",
+        "operationId": "delete_94",
         "parameters": [
           {
             "name": "id",
@@ -29152,7 +29311,7 @@
           "Projekte"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_99",
+        "operationId": "getById_100",
         "parameters": [
           {
             "name": "id",
@@ -29193,7 +29352,7 @@
           "Projekte"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_102",
+        "operationId": "update_103",
         "parameters": [
           {
             "name": "id",
@@ -29254,7 +29413,7 @@
           "Projekte"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_94",
+        "operationId": "delete_95",
         "parameters": [
           {
             "name": "id",
@@ -29753,7 +29912,7 @@
           "Deals"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_100",
+        "operationId": "getById_101",
         "parameters": [
           {
             "name": "id",
@@ -29794,7 +29953,7 @@
           "Deals"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_103",
+        "operationId": "update_104",
         "parameters": [
           {
             "name": "id",
@@ -29855,7 +30014,7 @@
           "Deals"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_95",
+        "operationId": "delete_96",
         "parameters": [
           {
             "name": "id",
@@ -31185,7 +31344,7 @@
           "account"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_101",
+        "operationId": "getById_102",
         "parameters": [
           {
             "name": "id",
@@ -31226,7 +31385,7 @@
           "account"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_104",
+        "operationId": "update_105",
         "parameters": [
           {
             "name": "id",
@@ -31287,7 +31446,7 @@
           "account"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_96",
+        "operationId": "delete_97",
         "parameters": [
           {
             "name": "id",
@@ -31496,7 +31655,7 @@
           "salutation"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_102",
+        "operationId": "getById_103",
         "parameters": [
           {
             "name": "id",
@@ -31537,7 +31696,7 @@
           "salutation"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_105",
+        "operationId": "update_106",
         "parameters": [
           {
             "name": "id",
@@ -31598,7 +31757,7 @@
           "salutation"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_97",
+        "operationId": "delete_98",
         "parameters": [
           {
             "name": "id",
@@ -31651,7 +31810,7 @@
           "Logs"
         ],
         "summary": "Find an existing Instance by identifier",
-        "operationId": "getById_103",
+        "operationId": "getById_104",
         "parameters": [
           {
             "name": "id",
@@ -31691,7 +31850,7 @@
           "Logs"
         ],
         "summary": "Update a Instance",
-        "operationId": "update_106",
+        "operationId": "update_107",
         "parameters": [
           {
             "name": "id",
@@ -31743,7 +31902,7 @@
           "AppScriptingProxy"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_104",
+        "operationId": "getById_105",
         "parameters": [
           {
             "name": "id",
@@ -31784,7 +31943,7 @@
           "AppScriptingProxy"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_107",
+        "operationId": "update_108",
         "parameters": [
           {
             "name": "id",
@@ -31845,7 +32004,7 @@
           "AppScriptingProxy"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_98",
+        "operationId": "delete_99",
         "parameters": [
           {
             "name": "id",
@@ -31898,7 +32057,7 @@
           "AppMessage"
         ],
         "summary": "Find an existing Instance by identifier",
-        "operationId": "getById_105",
+        "operationId": "getById_106",
         "parameters": [
           {
             "name": "id",
@@ -31938,7 +32097,7 @@
           "AppMessage"
         ],
         "summary": "Update a Instance",
-        "operationId": "update_108",
+        "operationId": "update_109",
         "parameters": [
           {
             "name": "id",
@@ -32057,7 +32216,7 @@
           "Secret Storage"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_106",
+        "operationId": "getById_107",
         "parameters": [
           {
             "name": "id",
@@ -32098,7 +32257,7 @@
           "Secret Storage"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_109",
+        "operationId": "update_110",
         "parameters": [
           {
             "name": "id",
@@ -32159,7 +32318,7 @@
           "Secret Storage"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_99",
+        "operationId": "delete_100",
         "parameters": [
           {
             "name": "id",
@@ -32403,7 +32562,7 @@
           "Output-Consumer"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_107",
+        "operationId": "getById_108",
         "parameters": [
           {
             "name": "id",
@@ -32444,7 +32603,7 @@
           "Output-Consumer"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_110",
+        "operationId": "update_111",
         "parameters": [
           {
             "name": "id",
@@ -32505,7 +32664,7 @@
           "Output-Consumer"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_100",
+        "operationId": "delete_101",
         "parameters": [
           {
             "name": "id",
@@ -32558,7 +32717,7 @@
           "Output-Rule"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_108",
+        "operationId": "getById_109",
         "parameters": [
           {
             "name": "id",
@@ -32599,7 +32758,7 @@
           "Output-Rule"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_111",
+        "operationId": "update_112",
         "parameters": [
           {
             "name": "id",
@@ -32660,7 +32819,7 @@
           "Output-Rule"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_101",
+        "operationId": "delete_102",
         "parameters": [
           {
             "name": "id",
@@ -32819,7 +32978,7 @@
           "TextEnumeration"
         ],
         "summary": "Find an existing Instance by identifier",
-        "operationId": "getById_109",
+        "operationId": "getById_110",
         "parameters": [
           {
             "name": "id",
@@ -32859,7 +33018,7 @@
           "TextEnumeration"
         ],
         "summary": "Update a Instance",
-        "operationId": "update_112",
+        "operationId": "update_113",
         "parameters": [
           {
             "name": "id",
@@ -32954,7 +33113,7 @@
           "TextEnumeration-Groups"
         ],
         "summary": "Find an existing Instance by identifier",
-        "operationId": "getById_110",
+        "operationId": "getById_111",
         "parameters": [
           {
             "name": "id",
@@ -32994,7 +33153,7 @@
           "TextEnumeration-Groups"
         ],
         "summary": "Update a Instance",
-        "operationId": "update_113",
+        "operationId": "update_114",
         "parameters": [
           {
             "name": "id",
@@ -33089,7 +33248,7 @@
           "EavGroup"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_111",
+        "operationId": "getById_112",
         "parameters": [
           {
             "name": "id",
@@ -33130,7 +33289,7 @@
           "EavGroup"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_114",
+        "operationId": "update_115",
         "parameters": [
           {
             "name": "id",
@@ -33191,7 +33350,7 @@
           "EavGroup"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_102",
+        "operationId": "delete_103",
         "parameters": [
           {
             "name": "id",
@@ -33244,7 +33403,7 @@
           "Workflow"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_112",
+        "operationId": "getById_113",
         "parameters": [
           {
             "name": "id",
@@ -33285,7 +33444,7 @@
           "Workflow"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_115",
+        "operationId": "update_116",
         "parameters": [
           {
             "name": "id",
@@ -33346,7 +33505,7 @@
           "Workflow"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_103",
+        "operationId": "delete_104",
         "parameters": [
           {
             "name": "id",
@@ -33963,7 +34122,7 @@
           "VariantSchema"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_113",
+        "operationId": "getById_114",
         "parameters": [
           {
             "name": "id",
@@ -34004,7 +34163,7 @@
           "VariantSchema"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_116",
+        "operationId": "update_117",
         "parameters": [
           {
             "name": "id",
@@ -34065,7 +34224,7 @@
           "VariantSchema"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_104",
+        "operationId": "delete_105",
         "parameters": [
           {
             "name": "id",
@@ -34224,7 +34383,7 @@
           "VariantAttribute"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_114",
+        "operationId": "getById_115",
         "parameters": [
           {
             "name": "id",
@@ -34265,7 +34424,7 @@
           "VariantAttribute"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_117",
+        "operationId": "update_118",
         "parameters": [
           {
             "name": "id",
@@ -34326,7 +34485,7 @@
           "VariantAttribute"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_105",
+        "operationId": "delete_106",
         "parameters": [
           {
             "name": "id",
@@ -35252,7 +35411,7 @@
           "Role"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_115",
+        "operationId": "getById_116",
         "parameters": [
           {
             "name": "id",
@@ -35293,7 +35452,7 @@
           "Role"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_118",
+        "operationId": "update_119",
         "parameters": [
           {
             "name": "id",
@@ -35354,7 +35513,7 @@
           "Role"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_106",
+        "operationId": "delete_107",
         "parameters": [
           {
             "name": "id",
@@ -35800,7 +35959,7 @@
           "Group"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_116",
+        "operationId": "getById_117",
         "parameters": [
           {
             "name": "id",
@@ -35841,7 +36000,7 @@
           "Group"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_119",
+        "operationId": "update_120",
         "parameters": [
           {
             "name": "id",
@@ -35902,7 +36061,7 @@
           "Group"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_107",
+        "operationId": "delete_108",
         "parameters": [
           {
             "name": "id",
@@ -36061,7 +36220,7 @@
           "UnitType"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_117",
+        "operationId": "getById_118",
         "parameters": [
           {
             "name": "id",
@@ -36102,7 +36261,7 @@
           "UnitType"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_120",
+        "operationId": "update_121",
         "parameters": [
           {
             "name": "id",
@@ -36163,7 +36322,7 @@
           "UnitType"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_108",
+        "operationId": "delete_109",
         "parameters": [
           {
             "name": "id",
@@ -36216,7 +36375,7 @@
           "UnitTypeRatio"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_118",
+        "operationId": "getById_119",
         "parameters": [
           {
             "name": "id",
@@ -36257,7 +36416,7 @@
           "UnitTypeRatio"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_121",
+        "operationId": "update_122",
         "parameters": [
           {
             "name": "id",
@@ -36318,7 +36477,7 @@
           "UnitTypeRatio"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_109",
+        "operationId": "delete_110",
         "parameters": [
           {
             "name": "id",
@@ -36371,7 +36530,7 @@
           "Ui-Einstellungen"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_119",
+        "operationId": "getById_120",
         "parameters": [
           {
             "name": "id",
@@ -36412,7 +36571,7 @@
           "Ui-Einstellungen"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_122",
+        "operationId": "update_123",
         "parameters": [
           {
             "name": "id",
@@ -36473,7 +36632,7 @@
           "Ui-Einstellungen"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_110",
+        "operationId": "delete_111",
         "parameters": [
           {
             "name": "id",
@@ -36526,7 +36685,7 @@
           "Text"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_120",
+        "operationId": "getById_121",
         "parameters": [
           {
             "name": "id",
@@ -36567,7 +36726,7 @@
           "Text"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_123",
+        "operationId": "update_124",
         "parameters": [
           {
             "name": "id",
@@ -36628,7 +36787,7 @@
           "Text"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_111",
+        "operationId": "delete_112",
         "parameters": [
           {
             "name": "id",
@@ -36681,7 +36840,7 @@
           "query-base-holder-preset-resource"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_121",
+        "operationId": "getById_122",
         "parameters": [
           {
             "name": "id",
@@ -36722,7 +36881,7 @@
           "query-base-holder-preset-resource"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_124",
+        "operationId": "update_125",
         "parameters": [
           {
             "name": "id",
@@ -36785,7 +36944,7 @@
           "Task"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_122",
+        "operationId": "getById_123",
         "parameters": [
           {
             "name": "id",
@@ -36826,7 +36985,7 @@
           "Task"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_125",
+        "operationId": "update_126",
         "parameters": [
           {
             "name": "id",
@@ -36887,7 +37046,7 @@
           "Task"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_112",
+        "operationId": "delete_113",
         "parameters": [
           {
             "name": "id",
@@ -36992,7 +37151,7 @@
           "Tags"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_123",
+        "operationId": "getById_124",
         "parameters": [
           {
             "name": "id",
@@ -37033,7 +37192,7 @@
           "Tags"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_126",
+        "operationId": "update_127",
         "parameters": [
           {
             "name": "id",
@@ -37094,7 +37253,7 @@
           "Tags"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_113",
+        "operationId": "delete_114",
         "parameters": [
           {
             "name": "id",
@@ -37147,7 +37306,7 @@
           "Sequencer"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_124",
+        "operationId": "getById_125",
         "parameters": [
           {
             "name": "id",
@@ -37188,7 +37347,7 @@
           "Sequencer"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_127",
+        "operationId": "update_128",
         "parameters": [
           {
             "name": "id",
@@ -37249,7 +37408,7 @@
           "Sequencer"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_114",
+        "operationId": "delete_115",
         "parameters": [
           {
             "name": "id",
@@ -37302,7 +37461,7 @@
           "FreeSequencer"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_125",
+        "operationId": "getById_126",
         "parameters": [
           {
             "name": "id",
@@ -37343,7 +37502,7 @@
           "FreeSequencer"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_128",
+        "operationId": "update_129",
         "parameters": [
           {
             "name": "id",
@@ -37404,7 +37563,7 @@
           "FreeSequencer"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_115",
+        "operationId": "delete_116",
         "parameters": [
           {
             "name": "id",
@@ -37563,7 +37722,7 @@
           "Skript-Modul"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_126",
+        "operationId": "getById_127",
         "parameters": [
           {
             "name": "id",
@@ -37604,7 +37763,7 @@
           "Skript-Modul"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_129",
+        "operationId": "update_130",
         "parameters": [
           {
             "name": "id",
@@ -37665,7 +37824,7 @@
           "Skript-Modul"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_116",
+        "operationId": "delete_117",
         "parameters": [
           {
             "name": "id",
@@ -37822,7 +37981,7 @@
           "Skript-Modul-Gruppe"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_127",
+        "operationId": "getById_128",
         "parameters": [
           {
             "name": "id",
@@ -37863,7 +38022,7 @@
           "Skript-Modul-Gruppe"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_130",
+        "operationId": "update_131",
         "parameters": [
           {
             "name": "id",
@@ -37924,7 +38083,7 @@
           "Skript-Modul-Gruppe"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_117",
+        "operationId": "delete_118",
         "parameters": [
           {
             "name": "id",
@@ -38004,7 +38163,7 @@
         "tags": [
           "Parameter"
         ],
-        "operationId": "update_131",
+        "operationId": "update_132",
         "parameters": [
           {
             "name": "key",
@@ -38042,7 +38201,7 @@
         "tags": [
           "Parameter"
         ],
-        "operationId": "delete_118",
+        "operationId": "delete_119",
         "parameters": [
           {
             "name": "key",
@@ -38073,7 +38232,7 @@
           "Output-Module"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_128",
+        "operationId": "getById_129",
         "parameters": [
           {
             "name": "id",
@@ -38114,7 +38273,7 @@
           "Output-Module"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_132",
+        "operationId": "update_133",
         "parameters": [
           {
             "name": "id",
@@ -38175,7 +38334,7 @@
           "Output-Module"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_119",
+        "operationId": "delete_120",
         "parameters": [
           {
             "name": "id",
@@ -38334,7 +38493,7 @@
           "Output-Module"
         ],
         "summary": "Update Localisation",
-        "operationId": "update_133",
+        "operationId": "update_134",
         "parameters": [
           {
             "name": "moduleKey",
@@ -38581,7 +38740,7 @@
           "location-resource"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_129",
+        "operationId": "getById_130",
         "parameters": [
           {
             "name": "id",
@@ -38622,7 +38781,7 @@
           "location-resource"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_134",
+        "operationId": "update_135",
         "parameters": [
           {
             "name": "id",
@@ -38683,7 +38842,7 @@
           "location-resource"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_120",
+        "operationId": "delete_121",
         "parameters": [
           {
             "name": "id",
@@ -38810,7 +38969,7 @@
           "LanguageCode"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_130",
+        "operationId": "getById_131",
         "parameters": [
           {
             "name": "id",
@@ -38851,7 +39010,7 @@
           "LanguageCode"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_135",
+        "operationId": "update_136",
         "parameters": [
           {
             "name": "id",
@@ -39109,7 +39268,7 @@
           "eingeplante Importe"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_131",
+        "operationId": "getById_132",
         "parameters": [
           {
             "name": "id",
@@ -39150,7 +39309,7 @@
           "eingeplante Importe"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_136",
+        "operationId": "update_137",
         "parameters": [
           {
             "name": "id",
@@ -39211,7 +39370,7 @@
           "eingeplante Importe"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_121",
+        "operationId": "delete_122",
         "parameters": [
           {
             "name": "id",
@@ -39264,7 +39423,7 @@
           "ImportRun"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_132",
+        "operationId": "getById_133",
         "parameters": [
           {
             "name": "id",
@@ -39305,7 +39464,7 @@
           "ImportRun"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_137",
+        "operationId": "update_138",
         "parameters": [
           {
             "name": "id",
@@ -39577,7 +39736,7 @@
           "MultiPartImport"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_133",
+        "operationId": "getById_134",
         "parameters": [
           {
             "name": "id",
@@ -39657,7 +39816,7 @@
           "MultiPartImport"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_122",
+        "operationId": "delete_123",
         "parameters": [
           {
             "name": "id",
@@ -39734,7 +39893,7 @@
           "ImportRuleSet"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_134",
+        "operationId": "getById_135",
         "parameters": [
           {
             "name": "id",
@@ -39775,7 +39934,7 @@
           "ImportRuleSet"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_138",
+        "operationId": "update_139",
         "parameters": [
           {
             "name": "id",
@@ -39836,7 +39995,7 @@
           "ImportRuleSet"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_123",
+        "operationId": "delete_124",
         "parameters": [
           {
             "name": "id",
@@ -39889,7 +40048,7 @@
           "CustomsMeasure"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_135",
+        "operationId": "getById_136",
         "parameters": [
           {
             "name": "id",
@@ -39930,7 +40089,7 @@
           "CustomsMeasure"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_139",
+        "operationId": "update_140",
         "parameters": [
           {
             "name": "id",
@@ -39991,7 +40150,7 @@
           "CustomsMeasure"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_124",
+        "operationId": "delete_125",
         "parameters": [
           {
             "name": "id",
@@ -40150,7 +40309,7 @@
           "CurrencyCode"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_136",
+        "operationId": "getById_137",
         "parameters": [
           {
             "name": "id",
@@ -40191,7 +40350,7 @@
           "CurrencyCode"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_140",
+        "operationId": "update_141",
         "parameters": [
           {
             "name": "id",
@@ -40252,7 +40411,7 @@
           "CurrencyCode"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_125",
+        "operationId": "delete_126",
         "parameters": [
           {
             "name": "id",
@@ -40411,7 +40570,7 @@
           "CurrencyExchangeRate"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_137",
+        "operationId": "getById_138",
         "parameters": [
           {
             "name": "id",
@@ -40452,7 +40611,7 @@
           "CurrencyExchangeRate"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_141",
+        "operationId": "update_142",
         "parameters": [
           {
             "name": "id",
@@ -40513,7 +40672,7 @@
           "CurrencyExchangeRate"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_126",
+        "operationId": "delete_127",
         "parameters": [
           {
             "name": "id",
@@ -40566,7 +40725,7 @@
           "CreateTemplates"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_138",
+        "operationId": "getById_139",
         "parameters": [
           {
             "name": "id",
@@ -40607,7 +40766,7 @@
           "CreateTemplates"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_142",
+        "operationId": "update_143",
         "parameters": [
           {
             "name": "id",
@@ -40668,7 +40827,7 @@
           "CreateTemplates"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_127",
+        "operationId": "delete_128",
         "parameters": [
           {
             "name": "id",
@@ -40721,7 +40880,7 @@
           "CreateTemplateGroups"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_139",
+        "operationId": "getById_140",
         "parameters": [
           {
             "name": "id",
@@ -40762,7 +40921,7 @@
           "CreateTemplateGroups"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_143",
+        "operationId": "update_144",
         "parameters": [
           {
             "name": "id",
@@ -40823,7 +40982,7 @@
           "CreateTemplateGroups"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_128",
+        "operationId": "delete_129",
         "parameters": [
           {
             "name": "id",
@@ -40876,7 +41035,7 @@
           "CountryRegion"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_140",
+        "operationId": "getById_141",
         "parameters": [
           {
             "name": "id",
@@ -40917,7 +41076,7 @@
           "CountryRegion"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_144",
+        "operationId": "update_145",
         "parameters": [
           {
             "name": "id",
@@ -40978,7 +41137,7 @@
           "CountryRegion"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_129",
+        "operationId": "delete_130",
         "parameters": [
           {
             "name": "id",
@@ -41137,7 +41296,7 @@
           "CountryCode"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_141",
+        "operationId": "getById_142",
         "parameters": [
           {
             "name": "id",
@@ -41178,7 +41337,7 @@
           "CountryCode"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_145",
+        "operationId": "update_146",
         "parameters": [
           {
             "name": "id",
@@ -41347,7 +41506,7 @@
           "HTTP Whitelist"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_142",
+        "operationId": "getById_143",
         "parameters": [
           {
             "name": "id",
@@ -41388,7 +41547,7 @@
           "HTTP Whitelist"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_146",
+        "operationId": "update_147",
         "parameters": [
           {
             "name": "id",
@@ -41449,7 +41608,7 @@
           "HTTP Whitelist"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_130",
+        "operationId": "delete_131",
         "parameters": [
           {
             "name": "id",
@@ -42029,7 +42188,7 @@
           "CommodityCode"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_143",
+        "operationId": "getById_144",
         "parameters": [
           {
             "name": "id",
@@ -42070,7 +42229,7 @@
           "CommodityCode"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_147",
+        "operationId": "update_148",
         "parameters": [
           {
             "name": "id",
@@ -42131,7 +42290,7 @@
           "CommodityCode"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_131",
+        "operationId": "delete_132",
         "parameters": [
           {
             "name": "id",
@@ -42290,7 +42449,7 @@
           "Category"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_144",
+        "operationId": "getById_145",
         "parameters": [
           {
             "name": "id",
@@ -42331,7 +42490,7 @@
           "Category"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_148",
+        "operationId": "update_149",
         "parameters": [
           {
             "name": "id",
@@ -42392,7 +42551,7 @@
           "Category"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_132",
+        "operationId": "delete_133",
         "parameters": [
           {
             "name": "id",
@@ -42551,7 +42710,7 @@
           "CategoryTree"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_145",
+        "operationId": "getById_146",
         "parameters": [
           {
             "name": "id",
@@ -42592,7 +42751,7 @@
           "CategoryTree"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_149",
+        "operationId": "update_150",
         "parameters": [
           {
             "name": "id",
@@ -42653,7 +42812,7 @@
           "CategoryTree"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_133",
+        "operationId": "delete_134",
         "parameters": [
           {
             "name": "id",
@@ -42884,7 +43043,7 @@
           "BankingProvider"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_146",
+        "operationId": "getById_147",
         "parameters": [
           {
             "name": "id",
@@ -42925,7 +43084,7 @@
           "BankingProvider"
         ],
         "summary": "Update existing Resource ",
-        "operationId": "update_150",
+        "operationId": "update_151",
         "parameters": [
           {
             "name": "id",
@@ -42986,7 +43145,7 @@
           "BankingProvider"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_134",
+        "operationId": "delete_135",
         "parameters": [
           {
             "name": "id",
@@ -53094,13 +53253,54 @@
         }
       }
     },
+    "/erp/article-actors": {
+      "post": {
+        "tags": [
+          "ArticleActor"
+        ],
+        "summary": "Create new Resource",
+        "operationId": "create_76",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/erp-product-ArticleActor"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/erp-product-ArticleActor"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Resource was not valid to process",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/erp/article-accessories/": {
       "post": {
         "tags": [
           "Article"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_76",
+        "operationId": "create_77",
         "requestBody": {
           "content": {
             "application/json": {
@@ -53183,7 +53383,7 @@
           "account"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_77",
+        "operationId": "create_78",
         "requestBody": {
           "content": {
             "application/json": {
@@ -53224,7 +53424,7 @@
           "SupplierGroup"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_78",
+        "operationId": "create_79",
         "requestBody": {
           "content": {
             "application/json": {
@@ -53265,7 +53465,7 @@
           "CustomerGroup"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_79",
+        "operationId": "create_80",
         "requestBody": {
           "content": {
             "application/json": {
@@ -53345,7 +53545,7 @@
         "tags": [
           "Wiki"
         ],
-        "operationId": "create_80",
+        "operationId": "create_81",
         "requestBody": {
           "content": {
             "application/json": {
@@ -53450,7 +53650,7 @@
           "Documents"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_81",
+        "operationId": "create_82",
         "requestBody": {
           "content": {
             "application/json": {
@@ -53947,7 +54147,7 @@
           "Document Types"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_82",
+        "operationId": "create_83",
         "requestBody": {
           "content": {
             "application/json": {
@@ -54071,7 +54271,7 @@
           "Attributions"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_83",
+        "operationId": "create_84",
         "requestBody": {
           "content": {
             "application/json": {
@@ -54112,7 +54312,7 @@
           "Carrier"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_84",
+        "operationId": "create_85",
         "requestBody": {
           "content": {
             "application/json": {
@@ -54153,7 +54353,7 @@
           "Carrier"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_85",
+        "operationId": "create_86",
         "requestBody": {
           "content": {
             "application/json": {
@@ -54225,7 +54425,7 @@
           "Scenario"
         ],
         "summary": "Create a Instance",
-        "operationId": "create_86",
+        "operationId": "create_87",
         "requestBody": {
           "content": {
             "application/json": {
@@ -54266,7 +54466,7 @@
           "Scenario"
         ],
         "summary": "Create a Instance",
-        "operationId": "create_87",
+        "operationId": "create_88",
         "requestBody": {
           "content": {
             "application/json": {
@@ -54307,7 +54507,7 @@
           "Scenario"
         ],
         "summary": "Create a Instance",
-        "operationId": "create_88",
+        "operationId": "create_89",
         "requestBody": {
           "content": {
             "application/json": {
@@ -54429,7 +54629,7 @@
           "SalesChannel"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_89",
+        "operationId": "create_90",
         "requestBody": {
           "content": {
             "application/json": {
@@ -54470,7 +54670,7 @@
           "SalesChannel"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_90",
+        "operationId": "create_91",
         "requestBody": {
           "content": {
             "application/json": {
@@ -54511,7 +54711,7 @@
           "PosPaymentRule"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_91",
+        "operationId": "create_92",
         "requestBody": {
           "content": {
             "application/json": {
@@ -54552,7 +54752,7 @@
           "PosPaymentMethod"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_92",
+        "operationId": "create_93",
         "requestBody": {
           "content": {
             "application/json": {
@@ -54625,7 +54825,7 @@
           "PosPaymentConsumer"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_93",
+        "operationId": "create_94",
         "requestBody": {
           "content": {
             "application/json": {
@@ -54666,7 +54866,7 @@
           "PosPaymentBackend"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_94",
+        "operationId": "create_95",
         "requestBody": {
           "content": {
             "application/json": {
@@ -54927,7 +55127,7 @@
           "FinanceBookingBackend"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_95",
+        "operationId": "create_96",
         "requestBody": {
           "content": {
             "application/json": {
@@ -54968,7 +55168,7 @@
           "DeliveryMethod"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_96",
+        "operationId": "create_97",
         "requestBody": {
           "content": {
             "application/json": {
@@ -56051,7 +56251,7 @@
           "salutation"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_97",
+        "operationId": "create_98",
         "requestBody": {
           "content": {
             "application/json": {
@@ -56092,7 +56292,7 @@
           "Logs"
         ],
         "summary": "Create a Instance",
-        "operationId": "create_98",
+        "operationId": "create_99",
         "requestBody": {
           "content": {
             "application/json": {
@@ -56190,7 +56390,7 @@
           "AppScriptingProxy"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_99",
+        "operationId": "create_100",
         "requestBody": {
           "content": {
             "application/json": {
@@ -56299,7 +56499,7 @@
           "AppMessage"
         ],
         "summary": "Create a Instance",
-        "operationId": "create_100",
+        "operationId": "create_101",
         "requestBody": {
           "content": {
             "application/json": {
@@ -56340,7 +56540,7 @@
           "Secret Storage"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_101",
+        "operationId": "create_102",
         "requestBody": {
           "content": {
             "application/json": {
@@ -56470,7 +56670,7 @@
           "Output-Rule"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_102",
+        "operationId": "create_103",
         "requestBody": {
           "content": {
             "application/json": {
@@ -56511,7 +56711,7 @@
           "Output-Consumer"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_103",
+        "operationId": "create_104",
         "requestBody": {
           "content": {
             "application/json": {
@@ -56552,7 +56752,7 @@
           "TextEnumeration"
         ],
         "summary": "Create a Instance",
-        "operationId": "create_104",
+        "operationId": "create_105",
         "requestBody": {
           "content": {
             "application/json": {
@@ -56593,7 +56793,7 @@
           "TextEnumeration-Groups"
         ],
         "summary": "Create a Instance",
-        "operationId": "create_105",
+        "operationId": "create_106",
         "requestBody": {
           "content": {
             "application/json": {
@@ -56670,7 +56870,7 @@
           "EavGroup"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_106",
+        "operationId": "create_107",
         "requestBody": {
           "content": {
             "application/json": {
@@ -56711,7 +56911,7 @@
           "Workflow"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_107",
+        "operationId": "create_108",
         "requestBody": {
           "content": {
             "application/json": {
@@ -56975,7 +57175,7 @@
           "VariantSchema"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_108",
+        "operationId": "create_109",
         "requestBody": {
           "content": {
             "application/json": {
@@ -57016,7 +57216,7 @@
           "VariantAttribute"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_109",
+        "operationId": "create_110",
         "requestBody": {
           "content": {
             "application/json": {
@@ -57304,7 +57504,7 @@
           "Role"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_110",
+        "operationId": "create_111",
         "requestBody": {
           "content": {
             "application/json": {
@@ -57528,7 +57728,7 @@
           "Group"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_111",
+        "operationId": "create_112",
         "requestBody": {
           "content": {
             "application/json": {
@@ -57569,7 +57769,7 @@
           "UnitType"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_112",
+        "operationId": "create_113",
         "requestBody": {
           "content": {
             "application/json": {
@@ -57610,7 +57810,7 @@
           "UnitTypeRatio"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_113",
+        "operationId": "create_114",
         "requestBody": {
           "content": {
             "application/json": {
@@ -57687,7 +57887,7 @@
           "Ui-Einstellungen"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_114",
+        "operationId": "create_115",
         "requestBody": {
           "content": {
             "application/json": {
@@ -57728,7 +57928,7 @@
           "Text"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_115",
+        "operationId": "create_116",
         "requestBody": {
           "content": {
             "application/json": {
@@ -57769,7 +57969,7 @@
           "Task"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_116",
+        "operationId": "create_117",
         "requestBody": {
           "content": {
             "application/json": {
@@ -57897,7 +58097,7 @@
           "Tags"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_117",
+        "operationId": "create_118",
         "requestBody": {
           "content": {
             "application/json": {
@@ -57978,7 +58178,7 @@
           "FreeSequencer"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_118",
+        "operationId": "create_119",
         "requestBody": {
           "content": {
             "application/json": {
@@ -58019,7 +58219,7 @@
           "Skript-Modul"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_119",
+        "operationId": "create_120",
         "requestBody": {
           "content": {
             "application/json": {
@@ -58090,7 +58290,7 @@
           "Skript-Modul-Gruppe"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_120",
+        "operationId": "create_121",
         "requestBody": {
           "content": {
             "application/json": {
@@ -58144,7 +58344,7 @@
           "Output-Module"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_121",
+        "operationId": "create_122",
         "requestBody": {
           "content": {
             "application/json": {
@@ -58383,7 +58583,7 @@
           "location-resource"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_122",
+        "operationId": "create_123",
         "requestBody": {
           "content": {
             "application/json": {
@@ -58424,7 +58624,7 @@
           "LanguageCode"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_123",
+        "operationId": "create_124",
         "requestBody": {
           "content": {
             "application/json": {
@@ -58555,7 +58755,7 @@
           "eingeplante Importe"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_124",
+        "operationId": "create_125",
         "requestBody": {
           "content": {
             "application/json": {
@@ -58596,7 +58796,7 @@
           "ImportRun"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_125",
+        "operationId": "create_126",
         "requestBody": {
           "content": {
             "application/json": {
@@ -58783,7 +58983,7 @@
           "ImportRuleSet"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_126",
+        "operationId": "create_127",
         "requestBody": {
           "content": {
             "application/json": {
@@ -58824,7 +59024,7 @@
           "CustomsMeasure"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_127",
+        "operationId": "create_128",
         "requestBody": {
           "content": {
             "application/json": {
@@ -58865,7 +59065,7 @@
           "CurrencyCode"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_128",
+        "operationId": "create_129",
         "requestBody": {
           "content": {
             "application/json": {
@@ -58906,7 +59106,7 @@
           "CurrencyExchangeRate"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_129",
+        "operationId": "create_130",
         "requestBody": {
           "content": {
             "application/json": {
@@ -58968,7 +59168,7 @@
           "CreateTemplates"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_130",
+        "operationId": "create_131",
         "requestBody": {
           "content": {
             "application/json": {
@@ -59030,7 +59230,7 @@
           "CreateTemplateGroups"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_131",
+        "operationId": "create_132",
         "requestBody": {
           "content": {
             "application/json": {
@@ -59071,7 +59271,7 @@
           "CountryRegion"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_132",
+        "operationId": "create_133",
         "requestBody": {
           "content": {
             "application/json": {
@@ -59112,7 +59312,7 @@
           "CountryCode"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_133",
+        "operationId": "create_134",
         "requestBody": {
           "content": {
             "application/json": {
@@ -59153,7 +59353,7 @@
           "HTTP Whitelist"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_134",
+        "operationId": "create_135",
         "requestBody": {
           "content": {
             "application/json": {
@@ -59583,7 +59783,7 @@
           "CommodityCode"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_135",
+        "operationId": "create_136",
         "requestBody": {
           "content": {
             "application/json": {
@@ -59708,7 +59908,7 @@
           "CategoryTree"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_136",
+        "operationId": "create_137",
         "requestBody": {
           "content": {
             "application/json": {
@@ -59902,7 +60102,7 @@
           "AppSettings"
         ],
         "summary": "create/update settings",
-        "operationId": "update_151",
+        "operationId": "update_152",
         "parameters": [
           {
             "name": "appIdentifier",
@@ -59952,7 +60152,7 @@
           "AppSettings"
         ],
         "summary": "deletes a settings entry",
-        "operationId": "delete_135",
+        "operationId": "delete_136",
         "parameters": [
           {
             "name": "appIdentifier",
@@ -60076,7 +60276,7 @@
           "BankingProvider"
         ],
         "summary": "Create new Resource",
-        "operationId": "create_137",
+        "operationId": "create_138",
         "requestBody": {
           "content": {
             "application/json": {
@@ -60233,7 +60433,7 @@
           "Document"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_147",
+        "operationId": "getById_148",
         "parameters": [
           {
             "name": "id",
@@ -60636,7 +60836,7 @@
           "Picklisten"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_148",
+        "operationId": "getById_149",
         "parameters": [
           {
             "name": "id",
@@ -62516,7 +62716,7 @@
           "Bestellvorschlag-zu-Bestellungen-Lauf"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_149",
+        "operationId": "getById_150",
         "parameters": [
           {
             "name": "id",
@@ -62732,7 +62932,7 @@
           "OpenItem"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_150",
+        "operationId": "getById_151",
         "parameters": [
           {
             "name": "id",
@@ -62877,7 +63077,7 @@
           "ManualEntry"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_151",
+        "operationId": "getById_152",
         "parameters": [
           {
             "name": "id",
@@ -62951,7 +63151,7 @@
           "DunningRun"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_152",
+        "operationId": "getById_153",
         "parameters": [
           {
             "name": "id",
@@ -62992,7 +63192,7 @@
           "DunningRun"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_136",
+        "operationId": "delete_137",
         "parameters": [
           {
             "name": "id",
@@ -63347,7 +63547,7 @@
         "tags": [
           "Document"
         ],
-        "summary": "Gibt die manuellen Textbausteine für Kopf-/Fußtexte zurück, die für das Dokument Sinn ergeben",
+        "summary": "Gibt die manuellen Textbausteine für Kopf-/Fußtexte zurück",
         "operationId": "getManualTemplates",
         "parameters": [
           {
@@ -64191,7 +64391,7 @@
           "CRM Abrechnungslauf"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_153",
+        "operationId": "getById_154",
         "parameters": [
           {
             "name": "id",
@@ -64375,7 +64575,7 @@
         "tags": [
           "CommissionRun"
         ],
-        "operationId": "getById_154",
+        "operationId": "getById_155",
         "parameters": [
           {
             "name": "id",
@@ -64613,7 +64813,7 @@
           "BankPaymentRun"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_155",
+        "operationId": "getById_156",
         "parameters": [
           {
             "name": "id",
@@ -65518,7 +65718,7 @@
           "account"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_156",
+        "operationId": "getById_157",
         "parameters": [
           {
             "name": "id",
@@ -66302,7 +66502,7 @@
         "tags": [
           "FinanceBooking"
         ],
-        "operationId": "getById_157",
+        "operationId": "getById_158",
         "parameters": [
           {
             "name": "id",
@@ -67603,7 +67803,7 @@
           "Scripting"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_158",
+        "operationId": "getById_159",
         "parameters": [
           {
             "name": "id",
@@ -67644,7 +67844,7 @@
           "Scripting"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_137",
+        "operationId": "delete_138",
         "parameters": [
           {
             "name": "id",
@@ -67697,7 +67897,7 @@
           "Output-Queue"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_159",
+        "operationId": "getById_160",
         "parameters": [
           {
             "name": "id",
@@ -68032,7 +68232,7 @@
         "tags": [
           "WorkflowInstance"
         ],
-        "operationId": "getById_160",
+        "operationId": "getById_161",
         "parameters": [
           {
             "name": "id",
@@ -68771,7 +68971,8 @@
                 "POS_REGISTER",
                 "CASH_DRAWER",
                 "POS_PAYMENT_METHOD",
-                "POS_DEPOSIT_EXPENSE_TYPE"
+                "POS_DEPOSIT_EXPENSE_TYPE",
+                "COMMISSION_RUN_SALES_AGENT"
               ]
             }
           }
@@ -69493,7 +69694,7 @@
           "Output-Module"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_161",
+        "operationId": "getById_162",
         "parameters": [
           {
             "name": "id",
@@ -70913,7 +71114,7 @@
           "BankingUser"
         ],
         "summary": "Find an existing Resource by identifier",
-        "operationId": "getById_162",
+        "operationId": "getById_163",
         "parameters": [
           {
             "name": "id",
@@ -70954,7 +71155,7 @@
           "BankingUser"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_138",
+        "operationId": "delete_139",
         "parameters": [
           {
             "name": "id",
@@ -71567,7 +71768,7 @@
           "BankingWebform"
         ],
         "summary": "Delete an existing Resource",
-        "operationId": "delete_139",
+        "operationId": "delete_140",
         "parameters": [
           {
             "name": "id",
@@ -72052,6 +72253,15 @@
           "float": {
             "type": "boolean"
           },
+          "container": {
+            "type": "boolean"
+          },
+          "valueNode": {
+            "type": "boolean"
+          },
+          "missingNode": {
+            "type": "boolean"
+          },
           "integralNumber": {
             "type": "boolean"
           },
@@ -72073,12 +72283,6 @@
             ]
           },
           "string": {
-            "type": "boolean"
-          },
-          "missingNode": {
-            "type": "boolean"
-          },
-          "valueNode": {
             "type": "boolean"
           },
           "pojo": {
@@ -72110,9 +72314,6 @@
             "type": "boolean"
           },
           "binary": {
-            "type": "boolean"
-          },
-          "container": {
             "type": "boolean"
           },
           "number": {
@@ -81247,7 +81448,8 @@
             "enum": [
               "CUSTOM",
               "PRODUCT",
-              "DISCOUNT_GROUP"
+              "DISCOUNT_GROUP",
+              "PREDECESSOR_DOCUMENT"
             ]
           },
           "sourceId": {
@@ -83922,7 +84124,8 @@
             "enum": [
               "CUSTOM",
               "PRODUCT",
-              "DISCOUNT_GROUP"
+              "DISCOUNT_GROUP",
+              "PREDECESSOR_DOCUMENT"
             ]
           }
         },
@@ -87413,6 +87616,67 @@
         "required": [
           "accountId",
           "articleId"
+        ]
+      },
+      "erp-product-ArticleActor": {
+        "description": "Article-Actor-Relation",
+        "properties": {
+          "version": {
+            "type": "string",
+            "description": "Version Identifier for this Object (for PUT)"
+          },
+          "info": {
+            "$ref": "#/components/schemas/core-api-MetaInfo"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the Object"
+          },
+          "articleId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Referenced Article"
+          },
+          "articleNumber": {
+            "type": "string",
+            "description": "Artikelnummer",
+            "readOnly": true
+          },
+          "accountAddressId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Referenced Account Address"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Referenced Account",
+            "readOnly": true
+          },
+          "accountDisplayName": {
+            "type": "string",
+            "description": "Anzeigename des Accounts",
+            "readOnly": true
+          },
+          "accountAddressName": {
+            "type": "string",
+            "description": "Name der Zusatzadresse",
+            "readOnly": true
+          },
+          "type": {
+            "type": "string",
+            "description": "Typ des Akteurs",
+            "enum": [
+              "ECONOMIC_OPERATOR",
+              "IMPORTER",
+              "FULFILLMENT_SERVICE_PROVIDER"
+            ]
+          }
+        },
+        "required": [
+          "accountAddressId",
+          "articleId",
+          "type"
         ]
       },
       "erp-product-Accessory": {
@@ -92620,7 +92884,8 @@
               "POS_REGISTER",
               "CASH_DRAWER",
               "POS_PAYMENT_METHOD",
-              "POS_DEPOSIT_EXPENSE_TYPE"
+              "POS_DEPOSIT_EXPENSE_TYPE",
+              "COMMISSION_RUN_SALES_AGENT"
             ]
           }
         },
@@ -105264,7 +105529,8 @@
               "POS_REGISTER",
               "CASH_DRAWER",
               "POS_PAYMENT_METHOD",
-              "POS_DEPOSIT_EXPENSE_TYPE"
+              "POS_DEPOSIT_EXPENSE_TYPE",
+              "COMMISSION_RUN_SALES_AGENT"
             ]
           }
         },
@@ -106591,59 +106857,6 @@
           }
         }
       },
-      "dms-shelf-ShelfDocumentWebhookPayload": {
-        "description": "Webhook payload for DMS shelf document events",
-        "properties": {
-          "shelfDocumentId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected shelf document"
-          },
-          "externalRef": {
-            "type": "string",
-            "description": "External reference of the share"
-          }
-        }
-      },
-      "erp-product-ArticleAppMessagePayload": {
-        "description": "Webhook payload for article-related events",
-        "properties": {
-          "articleId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected article"
-          },
-          "priceId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected price"
-          },
-          "listingId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected listing"
-          },
-          "categoryId": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "vds-shipment-ShipmentAppMessagePayload": {
-        "description": "Webhook payload for shipment-related events",
-        "properties": {
-          "shipmentId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of shipment"
-          },
-          "parcelId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of parcel"
-          }
-        }
-      },
       "erp-pos-PosPaymentOrderEvent": {
         "properties": {
           "paymentOrderId": {
@@ -106672,6 +106885,59 @@
           },
           "paymentOperation": {
             "type": "string"
+          }
+        }
+      },
+      "vds-shipment-ShipmentAppMessagePayload": {
+        "description": "Webhook payload for shipment-related events",
+        "properties": {
+          "shipmentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of shipment"
+          },
+          "parcelId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of parcel"
+          }
+        }
+      },
+      "erp-product-ArticleAppMessagePayload": {
+        "description": "Webhook payload for article-related events",
+        "properties": {
+          "articleId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected article"
+          },
+          "priceId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected price"
+          },
+          "listingId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected listing"
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "dms-shelf-ShelfDocumentWebhookPayload": {
+        "description": "Webhook payload for DMS shelf document events",
+        "properties": {
+          "shelfDocumentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected shelf document"
+          },
+          "externalRef": {
+            "type": "string",
+            "description": "External reference of the share"
           }
         }
       },
@@ -122752,6 +123018,30 @@
         }
       }
     },
+    "document.supplier_order.order_close_remaining": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document supplier_order order_close_remaining",
+        "operationId": "webhook_document_supplier_order_order_close_remaining",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
     "document.supplier_order.order_delivery_approved": {
       "post": {
         "tags": [
@@ -122759,6 +123049,30 @@
         ],
         "summary": "Triggered on document supplier_order order_delivery_approved",
         "operationId": "webhook_document_supplier_order_order_delivery_approved",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.supplier_order.order_reopen": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document supplier_order order_reopen",
+        "operationId": "webhook_document_supplier_order_order_reopen",
         "requestBody": {
           "description": "Webhook payload",
           "content": {
