@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.36.0"
+    "version": "2026.36.1"
   },
   "servers": [
     {
@@ -72253,19 +72253,35 @@
           "float": {
             "type": "boolean"
           },
-          "container": {
+          "integralNumber": {
             "type": "boolean"
           },
-          "valueNode": {
+          "floatingPointNumber": {
             "type": "boolean"
           },
           "missingNode": {
             "type": "boolean"
           },
-          "integralNumber": {
+          "valueNode": {
             "type": "boolean"
           },
-          "floatingPointNumber": {
+          "double": {
+            "type": "boolean"
+          },
+          "bigDecimal": {
+            "type": "boolean"
+          },
+          "bigInteger": {
+            "type": "boolean"
+          },
+          "textual": {
+            "type": "boolean",
+            "deprecated": true
+          },
+          "boolean": {
+            "type": "boolean"
+          },
+          "binary": {
             "type": "boolean"
           },
           "nodeType": {
@@ -72297,23 +72313,7 @@
           "long": {
             "type": "boolean"
           },
-          "double": {
-            "type": "boolean"
-          },
-          "bigDecimal": {
-            "type": "boolean"
-          },
-          "bigInteger": {
-            "type": "boolean"
-          },
-          "textual": {
-            "type": "boolean",
-            "deprecated": true
-          },
-          "boolean": {
-            "type": "boolean"
-          },
-          "binary": {
+          "container": {
             "type": "boolean"
           },
           "number": {
@@ -106857,52 +106857,6 @@
           }
         }
       },
-      "erp-pos-PosPaymentOrderEvent": {
-        "properties": {
-          "paymentOrderId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "externalPaymentId": {
-            "type": "string"
-          },
-          "amount": {
-            "type": "number"
-          },
-          "currencyCode": {
-            "type": "string"
-          },
-          "paymentMethodId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "paymentMethodLabel": {
-            "type": "string"
-          },
-          "paymentConsumerId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "paymentOperation": {
-            "type": "string"
-          }
-        }
-      },
-      "vds-shipment-ShipmentAppMessagePayload": {
-        "description": "Webhook payload for shipment-related events",
-        "properties": {
-          "shipmentId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of shipment"
-          },
-          "parcelId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of parcel"
-          }
-        }
-      },
       "erp-product-ArticleAppMessagePayload": {
         "description": "Webhook payload for article-related events",
         "properties": {
@@ -106956,6 +106910,52 @@
           "fsResourceId": {
             "type": "string",
             "description": "File storage resource ID"
+          }
+        }
+      },
+      "erp-pos-PosPaymentOrderEvent": {
+        "properties": {
+          "paymentOrderId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "externalPaymentId": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "currencyCode": {
+            "type": "string"
+          },
+          "paymentMethodId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "paymentMethodLabel": {
+            "type": "string"
+          },
+          "paymentConsumerId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "paymentOperation": {
+            "type": "string"
+          }
+        }
+      },
+      "vds-shipment-ShipmentAppMessagePayload": {
+        "description": "Webhook payload for shipment-related events",
+        "properties": {
+          "shipmentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of shipment"
+          },
+          "parcelId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of parcel"
           }
         }
       }
