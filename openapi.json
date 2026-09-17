@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.36.1"
+    "version": "2026.36.2"
   },
   "servers": [
     {
@@ -72253,19 +72253,22 @@
           "float": {
             "type": "boolean"
           },
-          "integralNumber": {
+          "binary": {
             "type": "boolean"
           },
-          "floatingPointNumber": {
-            "type": "boolean"
-          },
-          "missingNode": {
+          "pojo": {
             "type": "boolean"
           },
           "valueNode": {
             "type": "boolean"
           },
-          "double": {
+          "container": {
+            "type": "boolean"
+          },
+          "integralNumber": {
+            "type": "boolean"
+          },
+          "floatingPointNumber": {
             "type": "boolean"
           },
           "bigDecimal": {
@@ -72279,9 +72282,6 @@
             "deprecated": true
           },
           "boolean": {
-            "type": "boolean"
-          },
-          "binary": {
             "type": "boolean"
           },
           "nodeType": {
@@ -72301,9 +72301,6 @@
           "string": {
             "type": "boolean"
           },
-          "pojo": {
-            "type": "boolean"
-          },
           "short": {
             "type": "boolean"
           },
@@ -72313,7 +72310,10 @@
           "long": {
             "type": "boolean"
           },
-          "container": {
+          "double": {
+            "type": "boolean"
+          },
+          "missingNode": {
             "type": "boolean"
           },
           "number": {
@@ -102450,10 +102450,10 @@
               "METHOD"
             ]
           },
-          "dataTypeName": {
+          "dataType": {
             "type": "string"
           },
-          "dataType": {
+          "dataTypeName": {
             "type": "string"
           }
         }
@@ -106857,6 +106857,24 @@
           }
         }
       },
+      "common-output-OutputWebhookPayload": {
+        "description": "Webhook payload for output queue events",
+        "properties": {
+          "queueId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the output queue"
+          },
+          "title": {
+            "type": "string",
+            "description": "Subject of the output queue"
+          },
+          "fsResourceId": {
+            "type": "string",
+            "description": "File storage resource ID"
+          }
+        }
+      },
       "erp-product-ArticleAppMessagePayload": {
         "description": "Webhook payload for article-related events",
         "properties": {
@@ -106878,38 +106896,6 @@
           "categoryId": {
             "type": "integer",
             "format": "int64"
-          }
-        }
-      },
-      "dms-shelf-ShelfDocumentWebhookPayload": {
-        "description": "Webhook payload for DMS shelf document events",
-        "properties": {
-          "shelfDocumentId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected shelf document"
-          },
-          "externalRef": {
-            "type": "string",
-            "description": "External reference of the share"
-          }
-        }
-      },
-      "common-output-OutputWebhookPayload": {
-        "description": "Webhook payload for output queue events",
-        "properties": {
-          "queueId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the output queue"
-          },
-          "title": {
-            "type": "string",
-            "description": "Subject of the output queue"
-          },
-          "fsResourceId": {
-            "type": "string",
-            "description": "File storage resource ID"
           }
         }
       },
@@ -106941,6 +106927,20 @@
           },
           "paymentOperation": {
             "type": "string"
+          }
+        }
+      },
+      "dms-shelf-ShelfDocumentWebhookPayload": {
+        "description": "Webhook payload for DMS shelf document events",
+        "properties": {
+          "shelfDocumentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected shelf document"
+          },
+          "externalRef": {
+            "type": "string",
+            "description": "External reference of the share"
           }
         }
       },
