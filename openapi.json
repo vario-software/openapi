@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.36.4"
+    "version": "2026.37.0"
   },
   "servers": [
     {
@@ -1899,7 +1899,7 @@
         "tags": [
           "Picklisten"
         ],
-        "operationId": "cancelPicklists",
+        "operationId": "cancelPicklistsIndirect",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1917,14 +1917,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/erp-wms-PicklistCancellationResult"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -38568,6 +38561,98 @@
         }
       }
     },
+    "/cmn/output/modules/{moduleKey}/script": {
+      "get": {
+        "tags": [
+          "Output-Module"
+        ],
+        "description": "Returns the script of an output module",
+        "operationId": "getModuleScript",
+        "parameters": [
+          {
+            "name": "moduleKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/common-output-OutputModuleScript"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Output-Module"
+        ],
+        "description": "Creates or changes the script of an output module",
+        "operationId": "setModuleScript",
+        "parameters": [
+          {
+            "name": "moduleKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-output-OutputModuleScript"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/common-output-OutputModuleScript"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Output-Module"
+        ],
+        "description": "Removes the script of an output module",
+        "operationId": "deleteModuleScript",
+        "parameters": [
+          {
+            "name": "moduleKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/cmn/output/modules/{moduleKey}/report-groups/{id}": {
       "get": {
         "tags": [
@@ -60835,7 +60920,6 @@
         "tags": [
           "Picklisten"
         ],
-        "summary": "Find an existing Resource by identifier",
         "operationId": "getById_149",
         "parameters": [
           {
@@ -60851,21 +60935,11 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-wms-Picklist"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Resource with given ID was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -62511,6 +62585,38 @@
                     "REGISTERED",
                     "DEREGISTERED"
                   ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/erp/pos/register/{posRegisterId}/tss/elster-data": {
+      "get": {
+        "tags": [
+          "PosRegister"
+        ],
+        "summary": "Retrieve the data of the POS register required for its registration at ELSTER",
+        "operationId": "retrieveElsterData",
+        "parameters": [
+          {
+            "name": "posRegisterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/erp-pos-PosRegisterElsterData"
                 }
               }
             }
@@ -69168,7 +69274,7 @@
         }
       }
     },
-    "/cmn/systems/licenses/": {
+    "/cmn/systems/licenses": {
       "get": {
         "tags": [
           "System"
@@ -69189,6 +69295,30 @@
             }
           }
         }
+      }
+    },
+    "/cmn/systems/licenses/": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "operationId": "getAllLicensesOld",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/core-product-AvailableLicense"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
       }
     },
     "/cmn/sequencer/{id}/pool/{groupKey}": {
@@ -72253,22 +72383,19 @@
           "float": {
             "type": "boolean"
           },
-          "binary": {
-            "type": "boolean"
-          },
           "pojo": {
             "type": "boolean"
           },
-          "valueNode": {
+          "short": {
             "type": "boolean"
           },
-          "container": {
+          "int": {
             "type": "boolean"
           },
-          "integralNumber": {
+          "long": {
             "type": "boolean"
           },
-          "floatingPointNumber": {
+          "double": {
             "type": "boolean"
           },
           "bigDecimal": {
@@ -72282,6 +72409,18 @@
             "deprecated": true
           },
           "boolean": {
+            "type": "boolean"
+          },
+          "binary": {
+            "type": "boolean"
+          },
+          "valueNode": {
+            "type": "boolean"
+          },
+          "missingNode": {
+            "type": "boolean"
+          },
+          "string": {
             "type": "boolean"
           },
           "nodeType": {
@@ -72298,22 +72437,13 @@
               "STRING"
             ]
           },
-          "string": {
+          "integralNumber": {
             "type": "boolean"
           },
-          "short": {
+          "floatingPointNumber": {
             "type": "boolean"
           },
-          "int": {
-            "type": "boolean"
-          },
-          "long": {
-            "type": "boolean"
-          },
-          "double": {
-            "type": "boolean"
-          },
-          "missingNode": {
+          "container": {
             "type": "boolean"
           },
           "number": {
@@ -72879,32 +73009,6 @@
         "required": [
           "label"
         ]
-      },
-      "erp-wms-PicklistCancellationResult": {
-        "description": "Ergebnis der Stornierung einer Pickliste",
-        "properties": {
-          "cancelledPicklistRefs": {
-            "type": "array",
-            "description": "IDs der stornierten Picklisten",
-            "items": {
-              "$ref": "#/components/schemas/core-api-ApiObjectReference"
-            }
-          },
-          "pickTrolleyWithPickedGoodsRefs": {
-            "type": "array",
-            "description": "Pickwagen, die noch Waren enthalten",
-            "items": {
-              "$ref": "#/components/schemas/core-api-ApiObjectReference"
-            }
-          },
-          "freedOrders": {
-            "type": "array",
-            "description": "Freigegebene Aufträge",
-            "items": {
-              "$ref": "#/components/schemas/core-api-ApiObjectReference"
-            }
-          }
-        }
       },
       "erp-wms-PicklistTemplate": {
         "properties": {
@@ -78265,6 +78369,7 @@
               "PAYMENT_PLAN",
               "PAYMENT_PLAN_ENTRY",
               "PAYMENT_IMPORT",
+              "IMPORT_DUNNING",
               "CLEARING",
               "CLEARING_DISSOLVED",
               "DEPOSIT",
@@ -84407,10 +84512,10 @@
             "type": "string",
             "description": "Unique identifier of the Object"
           },
-          "documentLineId": {
+          "documentLineComponentId": {
             "type": "integer",
             "format": "int64",
-            "description": "Referenz zur Belegposition"
+            "description": "Referenz zur Belegkomponente"
           },
           "documentLineBookingId": {
             "type": "integer",
@@ -93448,6 +93553,70 @@
           }
         }
       },
+      "common-output-OutputModuleScript": {
+        "properties": {
+          "version": {
+            "type": "string",
+            "description": "Version Identifier for this Object (for PUT)"
+          },
+          "info": {
+            "$ref": "#/components/schemas/core-api-MetaInfo"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the Object"
+          },
+          "moduleKey": {
+            "type": "string",
+            "description": "Key of the output module",
+            "readOnly": true
+          },
+          "label": {
+            "type": "string",
+            "description": "Label of this script",
+            "minLength": 1
+          },
+          "script": {
+            "$ref": "#/components/schemas/common-scripting-Script"
+          }
+        },
+        "required": [
+          "label"
+        ]
+      },
+      "common-scripting-Script": {
+        "description": "Script",
+        "properties": {
+          "version": {
+            "type": "string",
+            "description": "Version Identifier for this Object (for PUT)"
+          },
+          "info": {
+            "$ref": "#/components/schemas/core-api-MetaInfo"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the Object"
+          },
+          "moduleName": {
+            "type": "string",
+            "description": "Der Modulname dieses Skripts",
+            "minLength": 1
+          },
+          "scriptSource": {
+            "type": "string",
+            "description": "Das auszuführende Skript",
+            "maxLength": 2147483647,
+            "minLength": 0
+          },
+          "scriptModuleRef": {
+            "$ref": "#/components/schemas/core-api-ApiObjectReference"
+          }
+        },
+        "required": [
+          "moduleName"
+        ]
+      },
       "common-output-OutputReportGroup": {
         "properties": {
           "version": {
@@ -95696,6 +95865,16 @@
             "default": true,
             "description": "Aktiv",
             "readOnly": true
+          },
+          "appIdentifier": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Identifier of the app managing this category tree"
+          },
+          "appManagedOnly": {
+            "type": "boolean",
+            "default": false,
+            "description": "May only be modified by the owning app"
           }
         },
         "required": [
@@ -96286,6 +96465,32 @@
           "processingType"
         ]
       },
+      "erp-wms-PicklistCancellationResult": {
+        "description": "Ergebnis der Stornierung einer Pickliste",
+        "properties": {
+          "cancelledPicklistRefs": {
+            "type": "array",
+            "description": "IDs der stornierten Picklisten",
+            "items": {
+              "$ref": "#/components/schemas/core-api-ApiObjectReference"
+            }
+          },
+          "pickTrolleyWithPickedGoodsRefs": {
+            "type": "array",
+            "description": "Pickwagen, die noch Waren enthalten",
+            "items": {
+              "$ref": "#/components/schemas/core-api-ApiObjectReference"
+            }
+          },
+          "freedOrders": {
+            "type": "array",
+            "description": "Freigegebene Aufträge",
+            "items": {
+              "$ref": "#/components/schemas/core-api-ApiObjectReference"
+            }
+          }
+        }
+      },
       "erp-wms-PicklistProcessingResponse": {
         "properties": {
           "message": {
@@ -96310,6 +96515,7 @@
               "CHANGED_DELIVERY_METHOD_DELIVERY_TERM",
               "SERIAL_NUMBER_CHOSEN",
               "SERIAL_NUMBER_LIST_PROCESSED",
+              "MISSING_SERIAL_NUMBER",
               "ABSOLUTE_QUANTITY_MANUAL_CHANGED",
               "RELATIVE_QUANTITY_MANUAL_CHANGED",
               "PARCEL_NEEDS_TO_BE_WEIGHED",
@@ -96784,13 +96990,9 @@
       "erp-wms-PicklistLineBooking": {
         "description": "Buchungen zu Positionen einer Pickliste",
         "properties": {
-          "state": {
-            "type": "string",
-            "description": "Status der Buchung einer Position einer Pickliste",
-            "enum": [
-              "PRESETTING",
-              "PROCESSED"
-            ]
+          "preset": {
+            "type": "boolean",
+            "description": "Vorgabe-Buchung?"
           },
           "quantity": {
             "type": "number",
@@ -96815,9 +97017,9 @@
           }
         },
         "required": [
+          "preset",
           "quantity",
           "quantityPacked",
-          "state",
           "storageBinId"
         ]
       },
@@ -102450,10 +102652,10 @@
               "METHOD"
             ]
           },
-          "dataType": {
+          "dataTypeName": {
             "type": "string"
           },
-          "dataTypeName": {
+          "dataType": {
             "type": "string"
           }
         }
@@ -103223,6 +103425,58 @@
               "$ref": "#/components/schemas/core-api-ApiObjectReference"
             },
             "readOnly": true
+          }
+        }
+      },
+      "erp-pos-PosRegisterElsterData": {
+        "description": "Data of a POS register required for its registration at ELSTER",
+        "properties": {
+          "acquisitionDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Point in time the POS register was created (ELSTER: Anschaffungsdatum)"
+          },
+          "commissionedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Point in time the POS register was used productively for the first time (ELSTER: Inbetriebnahme)"
+          },
+          "softwareName": {
+            "type": "string",
+            "description": "Name of the software (ELSTER: Name der Software)"
+          },
+          "softwareVersion": {
+            "type": "string",
+            "description": "Version of the software (ELSTER: Softwareversion)"
+          },
+          "recordingSystemSerialNumber": {
+            "type": "string",
+            "description": "Serial number of the recording system (ELSTER: Seriennummer des Aufzeichnungssystems)"
+          },
+          "manufacturer": {
+            "type": "string",
+            "description": "Manufacturer of the recording system (ELSTER: Hersteller)"
+          },
+          "model": {
+            "type": "string",
+            "description": "Model of the recording system (ELSTER: Modell)"
+          },
+          "tseType": {
+            "type": "string",
+            "description": "Type of the TSE (ELSTER: Art der TSE)"
+          },
+          "tseSerialNumber": {
+            "type": "string",
+            "description": "Serial number of the TSE (ELSTER: Seriennummer der TSE)"
+          },
+          "tseCommissionedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Point in time the POS register was registered at the TSE for the first time (ELSTER: Inbetriebnahme der TSE)"
+          },
+          "bsiCertificationId": {
+            "type": "string",
+            "description": "ID of the TSS certification issued by the German Federal Office for Information Security (ELSTER: BSI-Zertifizierungs-ID)"
           }
         }
       },
@@ -104418,6 +104672,9 @@
           "line": {
             "$ref": "#/components/schemas/erp-document-DocumentLine"
           },
+          "component": {
+            "$ref": "#/components/schemas/erp-document-DocumentLineComponent"
+          },
           "booking": {
             "$ref": "#/components/schemas/erp-document-DocumentLineBooking"
           },
@@ -105156,39 +105413,6 @@
           }
         }
       },
-      "common-scripting-Script": {
-        "description": "Script",
-        "properties": {
-          "version": {
-            "type": "string",
-            "description": "Version Identifier for this Object (for PUT)"
-          },
-          "info": {
-            "$ref": "#/components/schemas/core-api-MetaInfo"
-          },
-          "id": {
-            "type": "string",
-            "description": "Unique identifier of the Object"
-          },
-          "moduleName": {
-            "type": "string",
-            "description": "Der Modulname dieses Skripts",
-            "minLength": 1
-          },
-          "scriptSource": {
-            "type": "string",
-            "description": "Das auszuführende Skript",
-            "maxLength": 2147483647,
-            "minLength": 0
-          },
-          "scriptModuleRef": {
-            "$ref": "#/components/schemas/core-api-ApiObjectReference"
-          }
-        },
-        "required": [
-          "moduleName"
-        ]
-      },
       "common-scripting-ScriptRun": {
         "properties": {
           "version": {
@@ -105639,12 +105863,20 @@
         "properties": {
           "licenseKey": {
             "type": "string",
-            "description": "der valide lizenz-key"
+            "description": "der valide lizenz-key",
+            "readOnly": true
           },
           "licenseValidTo": {
             "type": "string",
             "format": "date",
-            "description": "Bei Testlizenzen -> valide bis"
+            "description": "Bei Testlizenzen -> valide bis",
+            "readOnly": true
+          },
+          "amount": {
+            "type": "integer",
+            "format": "int32",
+            "description": "license-amount",
+            "readOnly": true
           }
         }
       },
@@ -106847,6 +107079,20 @@
           }
         }
       },
+      "dms-shelf-ShelfDocumentWebhookPayload": {
+        "description": "Webhook payload for DMS shelf document events",
+        "properties": {
+          "shelfDocumentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the affected shelf document"
+          },
+          "externalRef": {
+            "type": "string",
+            "description": "External reference of the share"
+          }
+        }
+      },
       "common-system-WebhookEntityPayload": {
         "description": "Default webhook payload containing the affected entity ID",
         "properties": {
@@ -106872,6 +107118,21 @@
           "fsResourceId": {
             "type": "string",
             "description": "File storage resource ID"
+          }
+        }
+      },
+      "vds-shipment-ShipmentAppMessagePayload": {
+        "description": "Webhook payload for shipment-related events",
+        "properties": {
+          "shipmentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of shipment"
+          },
+          "parcelId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of parcel"
           }
         }
       },
@@ -106927,35 +107188,6 @@
           },
           "paymentOperation": {
             "type": "string"
-          }
-        }
-      },
-      "dms-shelf-ShelfDocumentWebhookPayload": {
-        "description": "Webhook payload for DMS shelf document events",
-        "properties": {
-          "shelfDocumentId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of the affected shelf document"
-          },
-          "externalRef": {
-            "type": "string",
-            "description": "External reference of the share"
-          }
-        }
-      },
-      "vds-shipment-ShipmentAppMessagePayload": {
-        "description": "Webhook payload for shipment-related events",
-        "properties": {
-          "shipmentId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of shipment"
-          },
-          "parcelId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID of parcel"
           }
         }
       }
