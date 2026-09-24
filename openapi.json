@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.37.1"
+    "version": "2026.37.2"
   },
   "servers": [
     {
@@ -72383,16 +72383,16 @@
           "float": {
             "type": "boolean"
           },
-          "integralNumber": {
-            "type": "boolean"
-          },
-          "floatingPointNumber": {
-            "type": "boolean"
-          },
           "pojo": {
             "type": "boolean"
           },
           "short": {
+            "type": "boolean"
+          },
+          "integralNumber": {
+            "type": "boolean"
+          },
+          "floatingPointNumber": {
             "type": "boolean"
           },
           "int": {
@@ -72420,15 +72420,6 @@
           "binary": {
             "type": "boolean"
           },
-          "string": {
-            "type": "boolean"
-          },
-          "missingNode": {
-            "type": "boolean"
-          },
-          "valueNode": {
-            "type": "boolean"
-          },
           "nodeType": {
             "type": "string",
             "enum": [
@@ -72442,6 +72433,15 @@
               "POJO",
               "STRING"
             ]
+          },
+          "string": {
+            "type": "boolean"
+          },
+          "missingNode": {
+            "type": "boolean"
+          },
+          "valueNode": {
+            "type": "boolean"
           },
           "container": {
             "type": "boolean"
@@ -73734,6 +73734,77 @@
           "quantity"
         ]
       },
+      "common-masterdata-CountryReference": {
+        "description": "Ursprungsland ",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID des Landes"
+          },
+          "isoAlpha2": {
+            "type": "string",
+            "description": "IsoAlpha2-Code des Landes"
+          },
+          "isoAlpha3": {
+            "type": "string",
+            "description": "IsoAlpha3-Code des Landes"
+          },
+          "label": {
+            "type": "string",
+            "description": "Bezeichnung des Landes",
+            "readOnly": true
+          }
+        }
+      },
+      "common-masterdata-CountryRegion": {
+        "description": "Bundesland bzw. Regions-Verwaltung",
+        "properties": {
+          "version": {
+            "type": "string",
+            "description": "Version Identifier for this Object (for PUT)"
+          },
+          "info": {
+            "$ref": "#/components/schemas/core-api-MetaInfo"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the Object"
+          },
+          "label": {
+            "type": "string",
+            "description": "Label",
+            "minLength": 1
+          },
+          "abbreviation": {
+            "type": "string",
+            "description": "Abkürzung"
+          },
+          "regionalCode": {
+            "type": "string",
+            "description": "Eindeutiger regionaler Code (z. B. FIPS-Code, NUTS-Code, spezifischer Landescode)"
+          },
+          "iso3166_2Code": {
+            "type": "string",
+            "description": "ISO 3166-2 Code für die Region",
+            "maxLength": 6,
+            "minLength": 4
+          },
+          "countryCode": {
+            "$ref": "#/components/schemas/common-masterdata-CountryReference"
+          },
+          "active": {
+            "type": "boolean",
+            "default": true,
+            "description": "is active",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "countryCode",
+          "label"
+        ]
+      },
       "common-masterdata-CurrencyReference": {
         "description": "Währung",
         "properties": {
@@ -73896,9 +73967,6 @@
             "maxLength": 255,
             "minLength": 0
           },
-          "region": {
-            "$ref": "#/components/schemas/vds-shipment-DeliveryAddress.CountryRegion"
-          },
           "postcode": {
             "type": "string",
             "description": "postcode of this address",
@@ -73910,6 +73978,9 @@
             "description": "country of this address",
             "maxLength": 255,
             "minLength": 0
+          },
+          "region": {
+            "$ref": "#/components/schemas/common-masterdata-CountryRegion"
           },
           "countryIso3": {
             "type": "string",
@@ -73943,27 +74014,6 @@
           },
           "custom": {
             "$ref": "#/components/schemas/unknownservice-unknownmodule-JsonNode"
-          }
-        }
-      },
-      "vds-shipment-DeliveryAddress.CountryRegion": {
-        "description": "region of this address",
-        "properties": {
-          "label": {
-            "type": "string",
-            "description": "Label"
-          },
-          "abbreviation": {
-            "type": "string",
-            "description": "Abkürzung"
-          },
-          "regionalCode": {
-            "type": "string",
-            "description": "Eindeutiger regionaler Code (z. B. FIPS-Code, NUTS-Code, spezifischer Landescode)"
-          },
-          "iso3166_2Code": {
-            "type": "string",
-            "description": "ISO 3166-2 Code für die Region"
           }
         }
       },
@@ -75817,29 +75867,6 @@
             "items": {
               "$ref": "#/components/schemas/core-api-LocalizedLabelWithDescription"
             }
-          }
-        }
-      },
-      "common-masterdata-CountryReference": {
-        "description": "Land (Iso-A-2)",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID des Landes"
-          },
-          "isoAlpha2": {
-            "type": "string",
-            "description": "IsoAlpha2-Code des Landes"
-          },
-          "isoAlpha3": {
-            "type": "string",
-            "description": "IsoAlpha3-Code des Landes"
-          },
-          "label": {
-            "type": "string",
-            "description": "Bezeichnung des Landes",
-            "readOnly": true
           }
         }
       },
@@ -95475,54 +95502,6 @@
           }
         },
         "required": [
-          "label"
-        ]
-      },
-      "common-masterdata-CountryRegion": {
-        "description": "Bundesland bzw. Regions-Verwaltung",
-        "properties": {
-          "version": {
-            "type": "string",
-            "description": "Version Identifier for this Object (for PUT)"
-          },
-          "info": {
-            "$ref": "#/components/schemas/core-api-MetaInfo"
-          },
-          "id": {
-            "type": "string",
-            "description": "Unique identifier of the Object"
-          },
-          "label": {
-            "type": "string",
-            "description": "Label",
-            "minLength": 1
-          },
-          "abbreviation": {
-            "type": "string",
-            "description": "Abkürzung"
-          },
-          "regionalCode": {
-            "type": "string",
-            "description": "Eindeutiger regionaler Code (z. B. FIPS-Code, NUTS-Code, spezifischer Landescode)"
-          },
-          "iso3166_2Code": {
-            "type": "string",
-            "description": "ISO 3166-2 Code für die Region",
-            "maxLength": 6,
-            "minLength": 4
-          },
-          "countryCode": {
-            "$ref": "#/components/schemas/common-masterdata-CountryReference"
-          },
-          "active": {
-            "type": "boolean",
-            "default": true,
-            "description": "is active",
-            "readOnly": true
-          }
-        },
-        "required": [
-          "countryCode",
           "label"
         ]
       },
