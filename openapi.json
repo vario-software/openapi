@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.37.4"
+    "version": "2026.38.0"
   },
   "servers": [
     {
@@ -12175,6 +12175,55 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/erp-document-DocumentResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Document"
+        ],
+        "summary": "update an existing document with changed position",
+        "operationId": "patchDocumentLine",
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "lineId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/erp-document-DocumentLinePatchRequest"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "OK",
@@ -27081,6 +27130,16 @@
             "required": false,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "posPaymentMethodId",
+            "in": "query",
+            "description": "ID of the POS payment method actually used, ignored if not valid for this payment",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -65043,6 +65102,8 @@
         "tags": [
           "Bank"
         ],
+        "summary": "Liefert den Verbindungszustand der Bank aus der Bankschnittstelle",
+        "description": "Ist die gespeicherte Bankverbindung der Schnittstelle unbekannt, wird sie auf eine noch vorhandene Verbindung desselben Instituts umgestellt. Gibt es keine, wird die veraltete Zuordnung entfernt und der Zustand gemeldet — die Bank muss dann neu autorisiert werden.",
         "operationId": "getExternalState",
         "parameters": [
           {
@@ -65058,11 +65119,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/erp-bank-BankConnectionDto"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Bankverbindung ist der Schnittstelle nicht bekannt oder nicht mit dem angemeldeten Benutzer verknüpft",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/core-error-ApiError"
                 }
               }
             }
@@ -72116,6 +72187,9 @@
               "POS_RETURN_CASH_RECEIPT",
               "POS_CASH_JOURNAL_DEPOSIT",
               "POS_CASH_JOURNAL_EXPENSE",
+              "POS_CASH_JOURNAL_DEPOSIT_CANCELLATION",
+              "POS_CASH_JOURNAL_EXPENSE_CANCELLATION",
+              "POS_CASH_JOURNAL_WITHDRAWAL_CANCELLATION",
               "POS_CASH_JOURNAL_WITHDRAWAL",
               "POS_CASH_JOURNAL_CLOSING",
               "FABRICATION_ORDER"
@@ -72171,6 +72245,11 @@
             "type": "string",
             "format": "date",
             "description": "Haltbarkeitsdatum"
+          },
+          "ignoreExpiryDateOnStockBooking": {
+            "type": "boolean",
+            "description": "Ignore expiry date on stock booking",
+            "readOnly": true
           },
           "note": {
             "type": "string",
@@ -72243,6 +72322,9 @@
               "CANCELLED"
             ],
             "readOnly": true
+          },
+          "usedTemplate": {
+            "$ref": "#/components/schemas/erp-wms-ReplenishmentProposalTemplate"
           },
           "picklistRefs": {
             "type": "array",
@@ -72365,6 +72447,135 @@
           "storageBinRef"
         ]
       },
+      "erp-wms-ReplenishmentProposalTemplate": {
+        "description": "Vorlage zur Erstellung von Nachschubvorschlägen",
+        "properties": {
+          "version": {
+            "type": "string",
+            "description": "Version Identifier for this Object (for PUT)"
+          },
+          "info": {
+            "$ref": "#/components/schemas/core-api-MetaInfo"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the Object"
+          },
+          "label": {
+            "type": "string",
+            "description": "Name der Vorlage",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "description": "Beschreibung der Vorlage"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Aktiv?"
+          },
+          "finishingType": {
+            "type": "string",
+            "default": "PICKLISTS",
+            "description": "Wie soll die Umlagerung des Nachschubs durchgeführt werden?",
+            "enum": [
+              "PICKLISTS",
+              "DOCUMENTS",
+              "PRINT_AND_TRANSFER"
+            ]
+          },
+          "cycleToCreateReplenishmentProposalCronExpression": {
+            "type": "string",
+            "description": "Zyklus zur Erstellung von Nachschubvorschlägen (für Background-Jobs, als Quartz-Cron-Expression)"
+          },
+          "alternativeSelectionInVql": {
+            "type": "string",
+            "description": "Alternative Selektion in VQL (Spalten: Artikel-ID, Lager-ID, Ziel-Menge)"
+          },
+          "additionalExistsStatementsInVql": {
+            "type": "array",
+            "description": "Zusätzliche Exists-Statements in VQL",
+            "items": {
+              "type": "string",
+              "description": "Zusätzliche Exists-Statements in VQL"
+            }
+          },
+          "targetStorageId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Bestimmtes Ziel-Lager für den Nachschubvorschlag"
+          },
+          "articleNumberFrom": {
+            "type": "string",
+            "description": "Artikel von"
+          },
+          "articleNumberTo": {
+            "type": "string",
+            "description": "Artikel bis"
+          },
+          "productGroupFrom": {
+            "type": "string",
+            "description": "Warengruppe von"
+          },
+          "productGroupTo": {
+            "type": "string",
+            "description": "Warengruppe bis"
+          },
+          "onlyArticlesWithSalesInNumberOfLastDays": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Nur Artikel mit Verkäufen in den letzten <i>n</i> Tagen"
+          },
+          "onlySalesStoragesAsTarget": {
+            "type": "boolean",
+            "default": false,
+            "description": "Nur Verkaufslager beachten"
+          },
+          "considerReservedQuantities": {
+            "type": "boolean",
+            "default": false,
+            "description": "Reserviert-Mengen beachten"
+          },
+          "considerOrderedQuantities": {
+            "type": "boolean",
+            "default": false,
+            "description": "Bestellt-Mengen beachten"
+          },
+          "considerActualAvailableQuantities": {
+            "type": "boolean",
+            "default": true,
+            "description": "Tatsächliche verfügbare Mengen beachten. Optionen zu Reserviert- und Bestellt-Mengen werden dabei nicht mehr beachtet, da diese Werte ggf. schon in die Verfügbarkeitsermittlung eingeflossen sind"
+          },
+          "sortByRoutePosition": {
+            "type": "boolean",
+            "default": true,
+            "description": "Positionen der Pickliste nach Laufwegposition sortieren"
+          },
+          "specifyStorageBins": {
+            "type": "boolean",
+            "default": true,
+            "description": "Lagerplätze vorgeben"
+          },
+          "specifySerialWithOldestExpiryDate": {
+            "type": "boolean",
+            "default": false,
+            "description": "Automatische Ermittlung von S/N oder Chargen sortiert über das Verfallsdatum"
+          },
+          "replenishBaseArticleOfBundle": {
+            "type": "boolean",
+            "default": false,
+            "description": "Basisgebinde nachlegen"
+          },
+          "replenishmentProposalOutputReportGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID der Reportgruppe zum Druck des Nachschubvorschlags"
+          }
+        },
+        "required": [
+          "label"
+        ]
+      },
       "unknownservice-unknownmodule-JsonNode": {
         "description": "Search-Dialog",
         "properties": {
@@ -72383,22 +72594,7 @@
           "float": {
             "type": "boolean"
           },
-          "integralNumber": {
-            "type": "boolean"
-          },
-          "floatingPointNumber": {
-            "type": "boolean"
-          },
-          "valueNode": {
-            "type": "boolean"
-          },
-          "container": {
-            "type": "boolean"
-          },
-          "pojo": {
-            "type": "boolean"
-          },
-          "short": {
+          "string": {
             "type": "boolean"
           },
           "nodeType": {
@@ -72415,7 +72611,25 @@
               "STRING"
             ]
           },
-          "string": {
+          "integralNumber": {
+            "type": "boolean"
+          },
+          "floatingPointNumber": {
+            "type": "boolean"
+          },
+          "missingNode": {
+            "type": "boolean"
+          },
+          "valueNode": {
+            "type": "boolean"
+          },
+          "container": {
+            "type": "boolean"
+          },
+          "pojo": {
+            "type": "boolean"
+          },
+          "short": {
             "type": "boolean"
           },
           "int": {
@@ -72441,9 +72655,6 @@
             "type": "boolean"
           },
           "binary": {
-            "type": "boolean"
-          },
-          "missingNode": {
             "type": "boolean"
           },
           "number": {
@@ -72698,135 +72909,6 @@
             "description": "sollen nur bereits veröffentlichte Dokumente beachtet werden?"
           }
         }
-      },
-      "erp-wms-ReplenishmentProposalTemplate": {
-        "description": "Vorlage zur Erstellung von Nachschubvorschlägen",
-        "properties": {
-          "version": {
-            "type": "string",
-            "description": "Version Identifier for this Object (for PUT)"
-          },
-          "info": {
-            "$ref": "#/components/schemas/core-api-MetaInfo"
-          },
-          "id": {
-            "type": "string",
-            "description": "Unique identifier of the Object"
-          },
-          "label": {
-            "type": "string",
-            "description": "Name der Vorlage",
-            "minLength": 1
-          },
-          "description": {
-            "type": "string",
-            "description": "Beschreibung der Vorlage"
-          },
-          "active": {
-            "type": "boolean",
-            "description": "Aktiv?"
-          },
-          "finishingType": {
-            "type": "string",
-            "default": "PICKLISTS",
-            "description": "Wie soll die Umlagerung des Nachschubs durchgeführt werden?",
-            "enum": [
-              "PICKLISTS",
-              "DOCUMENTS",
-              "PRINT_AND_TRANSFER"
-            ]
-          },
-          "cycleToCreateReplenishmentProposalCronExpression": {
-            "type": "string",
-            "description": "Zyklus zur Erstellung von Nachschubvorschlägen (für Background-Jobs, als Quartz-Cron-Expression)"
-          },
-          "alternativeSelectionInVql": {
-            "type": "string",
-            "description": "Alternative Selektion in VQL (Spalten: Artikel-ID, Lager-ID, Ziel-Menge)"
-          },
-          "additionalExistsStatementsInVql": {
-            "type": "array",
-            "description": "Zusätzliche Exists-Statements in VQL",
-            "items": {
-              "type": "string",
-              "description": "Zusätzliche Exists-Statements in VQL"
-            }
-          },
-          "targetStorageId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Bestimmtes Ziel-Lager für den Nachschubvorschlag"
-          },
-          "articleNumberFrom": {
-            "type": "string",
-            "description": "Artikel von"
-          },
-          "articleNumberTo": {
-            "type": "string",
-            "description": "Artikel bis"
-          },
-          "productGroupFrom": {
-            "type": "string",
-            "description": "Warengruppe von"
-          },
-          "productGroupTo": {
-            "type": "string",
-            "description": "Warengruppe bis"
-          },
-          "onlyArticlesWithSalesInNumberOfLastDays": {
-            "type": "integer",
-            "format": "int32",
-            "description": "Nur Artikel mit Verkäufen in den letzten <i>n</i> Tagen"
-          },
-          "onlySalesStoragesAsTarget": {
-            "type": "boolean",
-            "default": false,
-            "description": "Nur Verkaufslager beachten"
-          },
-          "considerReservedQuantities": {
-            "type": "boolean",
-            "default": false,
-            "description": "Reserviert-Mengen beachten"
-          },
-          "considerOrderedQuantities": {
-            "type": "boolean",
-            "default": false,
-            "description": "Bestellt-Mengen beachten"
-          },
-          "considerActualAvailableQuantities": {
-            "type": "boolean",
-            "default": true,
-            "description": "Tatsächliche verfügbare Mengen beachten. Optionen zu Reserviert- und Bestellt-Mengen werden dabei nicht mehr beachtet, da diese Werte ggf. schon in die Verfügbarkeitsermittlung eingeflossen sind"
-          },
-          "sortByRoutePosition": {
-            "type": "boolean",
-            "default": true,
-            "description": "Positionen der Pickliste nach Laufwegposition sortieren"
-          },
-          "specifyStorageBins": {
-            "type": "boolean",
-            "default": true,
-            "description": "Lagerplätze vorgeben"
-          },
-          "specifySerialWithOldestExpiryDate": {
-            "type": "boolean",
-            "default": false,
-            "description": "Automatische Ermittlung von S/N oder Chargen sortiert über das Verfallsdatum"
-          },
-          "replenishBaseArticleOfBundle": {
-            "type": "boolean",
-            "default": false,
-            "description": "Basisgebinde nachlegen"
-          },
-          "replenishmentProposalOutputReportGroupId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "ID der Reportgruppe zum Druck des Nachschubvorschlags"
-          }
-        },
-        "required": [
-          "label"
-        ]
       },
       "erp-wms-PickTrolley": {
         "description": "Pickwagen",
@@ -77479,6 +77561,11 @@
             "default": false,
             "description": "Lagerbestand beachten für zu bestellende Menge"
           },
+          "productWideNeedAssessmentAndOrder": {
+            "type": "boolean",
+            "default": false,
+            "description": "Produktweite Bedarfsermittlung und Bestellung über alle Gebinde des Produkts"
+          },
           "recognizeFabricationComponentBookings": {
             "type": "boolean",
             "default": false,
@@ -77624,6 +77711,9 @@
           },
           "supplierAccountRef": {
             "$ref": "#/components/schemas/core-api-ApiObjectReference"
+          },
+          "orderUnit": {
+            "$ref": "#/components/schemas/common-masterdata-UnitTypeReference"
           },
           "proposedOrderAmount": {
             "type": "number",
@@ -79480,6 +79570,9 @@
               "POS_RETURN_CASH_RECEIPT",
               "POS_CASH_JOURNAL_DEPOSIT",
               "POS_CASH_JOURNAL_EXPENSE",
+              "POS_CASH_JOURNAL_DEPOSIT_CANCELLATION",
+              "POS_CASH_JOURNAL_EXPENSE_CANCELLATION",
+              "POS_CASH_JOURNAL_WITHDRAWAL_CANCELLATION",
               "POS_CASH_JOURNAL_WITHDRAWAL",
               "POS_CASH_JOURNAL_CLOSING",
               "FABRICATION_ORDER"
@@ -79488,6 +79581,9 @@
           },
           "documentState": {
             "$ref": "#/components/schemas/erp-document-DocumentTypeState"
+          },
+          "cancellationReasonRef": {
+            "$ref": "#/components/schemas/core-api-ApiCreatableReference"
           },
           "currencyCode": {
             "type": "string",
@@ -80856,7 +80952,14 @@
           },
           "doPrintLabel": {
             "type": "boolean",
+            "default": false,
             "description": "Soll zu der Position Etiketten gedruckt werden."
+          },
+          "storageInfo": {
+            "type": "string",
+            "description": "picking hint",
+            "maxLength": 2147483647,
+            "minLength": 0
           }
         },
         "required": [
@@ -81242,6 +81345,9 @@
               "POS_RETURN_CASH_RECEIPT",
               "POS_CASH_JOURNAL_DEPOSIT",
               "POS_CASH_JOURNAL_EXPENSE",
+              "POS_CASH_JOURNAL_DEPOSIT_CANCELLATION",
+              "POS_CASH_JOURNAL_EXPENSE_CANCELLATION",
+              "POS_CASH_JOURNAL_WITHDRAWAL_CANCELLATION",
               "POS_CASH_JOURNAL_WITHDRAWAL",
               "POS_CASH_JOURNAL_CLOSING",
               "FABRICATION_ORDER"
@@ -83714,6 +83820,9 @@
               "POS_RETURN_CASH_RECEIPT",
               "POS_CASH_JOURNAL_DEPOSIT",
               "POS_CASH_JOURNAL_EXPENSE",
+              "POS_CASH_JOURNAL_DEPOSIT_CANCELLATION",
+              "POS_CASH_JOURNAL_EXPENSE_CANCELLATION",
+              "POS_CASH_JOURNAL_WITHDRAWAL_CANCELLATION",
               "POS_CASH_JOURNAL_WITHDRAWAL",
               "POS_CASH_JOURNAL_CLOSING",
               "FABRICATION_ORDER"
@@ -86775,6 +86884,12 @@
             "type": "boolean",
             "default": true,
             "description": "retournierbar"
+          },
+          "storageInfo": {
+            "type": "string",
+            "description": "Kommissionierungshinweis",
+            "maxLength": 2147483647,
+            "minLength": 0
           }
         },
         "required": [
@@ -87147,7 +87262,15 @@
           },
           "storageLocation": {
             "type": "string",
-            "description": "Lagerort"
+            "description": "Lagerort",
+            "maxLength": 255,
+            "minLength": 0
+          },
+          "storageInfo": {
+            "type": "string",
+            "description": "Kommisionierungshinweis",
+            "maxLength": 2147483647,
+            "minLength": 0
           },
           "withStorageBins": {
             "type": "boolean",
@@ -87579,6 +87702,9 @@
             "description": "Verpackungseinheit"
           },
           "productUnit": {
+            "$ref": "#/components/schemas/common-masterdata-UnitTypeReference"
+          },
+          "orderUnit": {
             "$ref": "#/components/schemas/common-masterdata-UnitTypeReference"
           },
           "deliveryTime": {
@@ -94527,6 +94653,26 @@
           "fileName"
         ]
       },
+      "common-data_import-FixedWidthColumnDefinition": {
+        "description": "Column definitions used to split fixed-width rows",
+        "properties": {
+          "startPosition": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Column starting position",
+            "minimum": 1
+          },
+          "padChar": {
+            "type": "string",
+            "description": "will be removed if found at the beginning or end of the column",
+            "maxLength": 1,
+            "minLength": 1
+          }
+        },
+        "required": [
+          "startPosition"
+        ]
+      },
       "common-data_import-FormatDirective": {
         "description": "Standard-Format für Wahrheitswerte",
         "properties": {
@@ -94697,6 +94843,13 @@
           "columnSeparator": {
             "type": "string",
             "description": "Nur für CSV: Trennzeichen innerhalb einer Zeile"
+          },
+          "fixedWidthColumnDefinitions": {
+            "type": "array",
+            "description": "Column definitions used to split fixed-width rows",
+            "items": {
+              "$ref": "#/components/schemas/common-data_import-FixedWidthColumnDefinition"
+            }
           },
           "charSet": {
             "type": "string",
@@ -96494,6 +96647,7 @@
               "CHANGED_DELIVERY_METHOD_DELIVERY_TERM",
               "SERIAL_NUMBER_CHOSEN",
               "SERIAL_NUMBER_LIST_PROCESSED",
+              "SERIAL_NUMBER_AMBIGUOUS",
               "MISSING_SERIAL_NUMBER",
               "ABSOLUTE_QUANTITY_MANUAL_CHANGED",
               "RELATIVE_QUANTITY_MANUAL_CHANGED",
@@ -96567,6 +96721,13 @@
           },
           "serialNumber": {
             "$ref": "#/components/schemas/erp-product-ArticleSerialNumber"
+          },
+          "ambiguousSerialNumbers": {
+            "type": "array",
+            "description": "List of ambiguous serial numbers. The user must make a unique selection.",
+            "items": {
+              "$ref": "#/components/schemas/erp-product-ArticleSerialNumber"
+            }
           },
           "storageBinRef": {
             "$ref": "#/components/schemas/erp-stock-StorageBinRef"
@@ -96689,6 +96850,10 @@
           "storageLocation": {
             "type": "string",
             "description": "Lagerort, wenn keine Lagerplätze vorhanden"
+          },
+          "lineStorageInfo": {
+            "type": "string",
+            "description": "Kommissionierungshinweis des Artikels"
           },
           "pickTrolleyBoxId": {
             "type": "integer",
@@ -97934,6 +98099,11 @@
             "format": "int64",
             "description": "Seriennummer"
           },
+          "ignoreExpiryDateOnStockBooking": {
+            "type": "boolean",
+            "default": false,
+            "description": "Ignore expiry date on stock booking"
+          },
           "bookDate": {
             "type": "string",
             "format": "date",
@@ -98030,6 +98200,11 @@
             "type": "integer",
             "format": "int64",
             "description": "Seriennummer"
+          },
+          "ignoreExpiryDateOnStockBooking": {
+            "type": "boolean",
+            "default": false,
+            "description": "Ignore expiry date on stock booking"
           },
           "bookDate": {
             "type": "string",
@@ -98144,6 +98319,11 @@
             "type": "string",
             "format": "date",
             "description": "Haltbarkeitsdatum"
+          },
+          "ignoreExpiryDateOnStockBooking": {
+            "type": "boolean",
+            "default": false,
+            "description": "Ignore expiry date on stock booking"
           },
           "serialNumberNote": {
             "type": "string",
@@ -101101,6 +101281,9 @@
               "POS_CASH_JOURNAL_DEPOSIT",
               "POS_CASH_JOURNAL_EXPENSE",
               "POS_CASH_JOURNAL_WITHDRAWAL",
+              "POS_CASH_JOURNAL_DEPOSIT_CANCELLATION",
+              "POS_CASH_JOURNAL_EXPENSE_CANCELLATION",
+              "POS_CASH_JOURNAL_WITHDRAWAL_CANCELLATION",
               "POS_RECEIPT",
               "POS_RETURN_RECEIPT"
             ]
@@ -102367,6 +102550,23 @@
         },
         "required": [
           "document"
+        ]
+      },
+      "erp-document-DocumentLinePatchRequest": {
+        "properties": {
+          "line": {
+            "$ref": "#/components/schemas/erp-document-DocumentLine"
+          },
+          "parameters": {
+            "type": "array",
+            "description": "additional parameters for transition",
+            "items": {
+              "$ref": "#/components/schemas/common-api-AdditionalParameter"
+            }
+          }
+        },
+        "required": [
+          "line"
         ]
       },
       "erp-wms-ScannableCodePart": {
@@ -103678,6 +103878,9 @@
               "POS_RETURN_CASH_RECEIPT",
               "POS_CASH_JOURNAL_DEPOSIT",
               "POS_CASH_JOURNAL_EXPENSE",
+              "POS_CASH_JOURNAL_DEPOSIT_CANCELLATION",
+              "POS_CASH_JOURNAL_EXPENSE_CANCELLATION",
+              "POS_CASH_JOURNAL_WITHDRAWAL_CANCELLATION",
               "POS_CASH_JOURNAL_WITHDRAWAL",
               "POS_CASH_JOURNAL_CLOSING",
               "FABRICATION_ORDER"
@@ -104311,6 +104514,9 @@
               "POS_RETURN_CASH_RECEIPT",
               "POS_CASH_JOURNAL_DEPOSIT",
               "POS_CASH_JOURNAL_EXPENSE",
+              "POS_CASH_JOURNAL_DEPOSIT_CANCELLATION",
+              "POS_CASH_JOURNAL_EXPENSE_CANCELLATION",
+              "POS_CASH_JOURNAL_WITHDRAWAL_CANCELLATION",
               "POS_CASH_JOURNAL_WITHDRAWAL",
               "POS_CASH_JOURNAL_CLOSING",
               "FABRICATION_ORDER"
@@ -105373,6 +105579,9 @@
               "POS_CASH_JOURNAL_DEPOSIT",
               "POS_CASH_JOURNAL_EXPENSE",
               "POS_CASH_JOURNAL_WITHDRAWAL",
+              "POS_CASH_JOURNAL_DEPOSIT_CANCELLATION",
+              "POS_CASH_JOURNAL_EXPENSE_CANCELLATION",
+              "POS_CASH_JOURNAL_WITHDRAWAL_CANCELLATION",
               "POS_RECEIPT",
               "POS_RETURN_RECEIPT"
             ]
@@ -107276,6 +107485,30 @@
         ],
         "summary": "Triggered when an article shelf file is updated for a sales channel",
         "operationId": "webhook_article(sales_channel_id=%s)_shelf_update",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/erp-product-ArticleAppMessagePayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "article(sales-channel-id=%s).availability-change": {
+      "post": {
+        "tags": [
+          "webhook:article(sales-channel-id=%s)"
+        ],
+        "summary": "Triggered when the calculated availability of an article changes for a sales channel",
+        "operationId": "webhook_article(sales_channel_id=%s)_availability_change",
         "requestBody": {
           "description": "Webhook payload",
           "content": {
@@ -117109,6 +117342,30 @@
         }
       }
     },
+    "document.pos_cash_journal_deposit.cancel_saved": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_deposit cancel_saved",
+        "operationId": "webhook_document_pos_cash_journal_deposit_cancel_saved",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
     "document.pos_cash_journal_deposit.create": {
       "post": {
         "tags": [
@@ -117229,6 +117486,222 @@
         }
       }
     },
+    "document.pos_cash_journal_deposit_cancellation.after_workflow_on_create": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_deposit_cancellation after_workflow_on_create",
+        "operationId": "webhook_document_pos_cash_journal_deposit_cancellation_after_workflow_on_create",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_deposit_cancellation.begin_editing": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_deposit_cancellation begin_editing",
+        "operationId": "webhook_document_pos_cash_journal_deposit_cancellation_begin_editing",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_deposit_cancellation.cancel_editing": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_deposit_cancellation cancel_editing",
+        "operationId": "webhook_document_pos_cash_journal_deposit_cancellation_cancel_editing",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_deposit_cancellation.create": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_deposit_cancellation create",
+        "operationId": "webhook_document_pos_cash_journal_deposit_cancellation_create",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_deposit_cancellation.delete": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_deposit_cancellation delete",
+        "operationId": "webhook_document_pos_cash_journal_deposit_cancellation_delete",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_deposit_cancellation.deposit_to_deposit_cancellation": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_deposit_cancellation deposit_to_deposit_cancellation",
+        "operationId": "webhook_document_pos_cash_journal_deposit_cancellation_deposit_to_deposit_cancellation",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_deposit_cancellation.end_editing": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_deposit_cancellation end_editing",
+        "operationId": "webhook_document_pos_cash_journal_deposit_cancellation_end_editing",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_deposit_cancellation.publish": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_deposit_cancellation publish",
+        "operationId": "webhook_document_pos_cash_journal_deposit_cancellation_publish",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_deposit_cancellation.save_during_edit": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_deposit_cancellation save_during_edit",
+        "operationId": "webhook_document_pos_cash_journal_deposit_cancellation_save_during_edit",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
     "document.pos_cash_journal_expense.after_workflow_on_create": {
       "post": {
         "tags": [
@@ -117284,6 +117757,30 @@
         ],
         "summary": "Triggered on document pos_cash_journal_expense cancel_editing",
         "operationId": "webhook_document_pos_cash_journal_expense_cancel_editing",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_expense.cancel_saved": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_expense cancel_saved",
+        "operationId": "webhook_document_pos_cash_journal_expense_cancel_saved",
         "requestBody": {
           "description": "Webhook payload",
           "content": {
@@ -117404,6 +117901,222 @@
         ],
         "summary": "Triggered on document pos_cash_journal_expense save_during_edit",
         "operationId": "webhook_document_pos_cash_journal_expense_save_during_edit",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_expense_cancellation.after_workflow_on_create": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_expense_cancellation after_workflow_on_create",
+        "operationId": "webhook_document_pos_cash_journal_expense_cancellation_after_workflow_on_create",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_expense_cancellation.begin_editing": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_expense_cancellation begin_editing",
+        "operationId": "webhook_document_pos_cash_journal_expense_cancellation_begin_editing",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_expense_cancellation.cancel_editing": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_expense_cancellation cancel_editing",
+        "operationId": "webhook_document_pos_cash_journal_expense_cancellation_cancel_editing",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_expense_cancellation.create": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_expense_cancellation create",
+        "operationId": "webhook_document_pos_cash_journal_expense_cancellation_create",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_expense_cancellation.delete": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_expense_cancellation delete",
+        "operationId": "webhook_document_pos_cash_journal_expense_cancellation_delete",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_expense_cancellation.end_editing": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_expense_cancellation end_editing",
+        "operationId": "webhook_document_pos_cash_journal_expense_cancellation_end_editing",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_expense_cancellation.expense_to_expense_cancellation": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_expense_cancellation expense_to_expense_cancellation",
+        "operationId": "webhook_document_pos_cash_journal_expense_cancellation_expense_to_expense_cancellation",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_expense_cancellation.publish": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_expense_cancellation publish",
+        "operationId": "webhook_document_pos_cash_journal_expense_cancellation_publish",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_expense_cancellation.save_during_edit": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_expense_cancellation save_during_edit",
+        "operationId": "webhook_document_pos_cash_journal_expense_cancellation_save_during_edit",
         "requestBody": {
           "description": "Webhook payload",
           "content": {
@@ -117685,6 +118398,30 @@
         }
       }
     },
+    "document.pos_cash_journal_withdrawal.cancel_saved": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_withdrawal cancel_saved",
+        "operationId": "webhook_document_pos_cash_journal_withdrawal_cancel_saved",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
     "document.pos_cash_journal_withdrawal.create": {
       "post": {
         "tags": [
@@ -117788,6 +118525,222 @@
         ],
         "summary": "Triggered on document pos_cash_journal_withdrawal save_during_edit",
         "operationId": "webhook_document_pos_cash_journal_withdrawal_save_during_edit",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_withdrawal_cancellation.after_workflow_on_create": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_withdrawal_cancellation after_workflow_on_create",
+        "operationId": "webhook_document_pos_cash_journal_withdrawal_cancellation_after_workflow_on_create",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_withdrawal_cancellation.begin_editing": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_withdrawal_cancellation begin_editing",
+        "operationId": "webhook_document_pos_cash_journal_withdrawal_cancellation_begin_editing",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_withdrawal_cancellation.cancel_editing": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_withdrawal_cancellation cancel_editing",
+        "operationId": "webhook_document_pos_cash_journal_withdrawal_cancellation_cancel_editing",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_withdrawal_cancellation.create": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_withdrawal_cancellation create",
+        "operationId": "webhook_document_pos_cash_journal_withdrawal_cancellation_create",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_withdrawal_cancellation.delete": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_withdrawal_cancellation delete",
+        "operationId": "webhook_document_pos_cash_journal_withdrawal_cancellation_delete",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_withdrawal_cancellation.end_editing": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_withdrawal_cancellation end_editing",
+        "operationId": "webhook_document_pos_cash_journal_withdrawal_cancellation_end_editing",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_withdrawal_cancellation.publish": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_withdrawal_cancellation publish",
+        "operationId": "webhook_document_pos_cash_journal_withdrawal_cancellation_publish",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_withdrawal_cancellation.save_during_edit": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_withdrawal_cancellation save_during_edit",
+        "operationId": "webhook_document_pos_cash_journal_withdrawal_cancellation_save_during_edit",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.pos_cash_journal_withdrawal_cancellation.withdrawal_to_withdrawal_cancellation": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document pos_cash_journal_withdrawal_cancellation withdrawal_to_withdrawal_cancellation",
+        "operationId": "webhook_document_pos_cash_journal_withdrawal_cancellation_withdrawal_to_withdrawal_cancellation",
         "requestBody": {
           "description": "Webhook payload",
           "content": {
