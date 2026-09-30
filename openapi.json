@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.38.0"
+    "version": "2026.38.1"
   },
   "servers": [
     {
@@ -72594,9 +72594,6 @@
           "float": {
             "type": "boolean"
           },
-          "string": {
-            "type": "boolean"
-          },
           "nodeType": {
             "type": "string",
             "enum": [
@@ -72611,6 +72608,9 @@
               "STRING"
             ]
           },
+          "string": {
+            "type": "boolean"
+          },
           "integralNumber": {
             "type": "boolean"
           },
@@ -72621,9 +72621,6 @@
             "type": "boolean"
           },
           "valueNode": {
-            "type": "boolean"
-          },
-          "container": {
             "type": "boolean"
           },
           "pojo": {
@@ -72655,6 +72652,9 @@
             "type": "boolean"
           },
           "binary": {
+            "type": "boolean"
+          },
+          "container": {
             "type": "boolean"
           },
           "number": {
@@ -102831,10 +102831,10 @@
               "METHOD"
             ]
           },
-          "dataTypeName": {
+          "dataType": {
             "type": "string"
           },
-          "dataType": {
+          "dataTypeName": {
             "type": "string"
           }
         }
@@ -110005,6 +110005,54 @@
         ],
         "summary": "Triggered on document customer_delivery_document create",
         "operationId": "webhook_document_customer_delivery_document_create",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.customer_delivery_document.customer_shipping_delivery_accepted_to_saved": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document customer_delivery_document customer_shipping_delivery_accepted_to_saved",
+        "operationId": "webhook_document_customer_delivery_document_customer_shipping_delivery_accepted_to_saved",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "document.customer_delivery_document.customer_shipping_delivery_saved_to_accepted": {
+      "post": {
+        "tags": [
+          "webhook:document"
+        ],
+        "summary": "Triggered on document customer_delivery_document customer_shipping_delivery_saved_to_accepted",
+        "operationId": "webhook_document_customer_delivery_document_customer_shipping_delivery_saved_to_accepted",
         "requestBody": {
           "description": "Webhook payload",
           "content": {
