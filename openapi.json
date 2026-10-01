@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.38.1"
+    "version": "2026.38.2"
   },
   "servers": [
     {
@@ -72594,6 +72594,12 @@
           "float": {
             "type": "boolean"
           },
+          "integralNumber": {
+            "type": "boolean"
+          },
+          "string": {
+            "type": "boolean"
+          },
           "nodeType": {
             "type": "string",
             "enum": [
@@ -72608,19 +72614,13 @@
               "STRING"
             ]
           },
-          "string": {
-            "type": "boolean"
-          },
-          "integralNumber": {
-            "type": "boolean"
-          },
-          "floatingPointNumber": {
-            "type": "boolean"
-          },
           "missingNode": {
             "type": "boolean"
           },
           "valueNode": {
+            "type": "boolean"
+          },
+          "container": {
             "type": "boolean"
           },
           "pojo": {
@@ -72654,7 +72654,7 @@
           "binary": {
             "type": "boolean"
           },
-          "container": {
+          "floatingPointNumber": {
             "type": "boolean"
           },
           "number": {
@@ -102831,10 +102831,10 @@
               "METHOD"
             ]
           },
-          "dataType": {
+          "dataTypeName": {
             "type": "string"
           },
-          "dataTypeName": {
+          "dataType": {
             "type": "string"
           }
         }
