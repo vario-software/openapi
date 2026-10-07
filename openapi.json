@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.38.5"
+    "version": "2026.38.6"
   },
   "servers": [
     {
@@ -72594,7 +72594,7 @@
           "float": {
             "type": "boolean"
           },
-          "missingNode": {
+          "string": {
             "type": "boolean"
           },
           "nodeType": {
@@ -72614,13 +72614,13 @@
           "integralNumber": {
             "type": "boolean"
           },
-          "string": {
+          "floatingPointNumber": {
+            "type": "boolean"
+          },
+          "missingNode": {
             "type": "boolean"
           },
           "valueNode": {
-            "type": "boolean"
-          },
-          "container": {
             "type": "boolean"
           },
           "pojo": {
@@ -72654,7 +72654,7 @@
           "binary": {
             "type": "boolean"
           },
-          "floatingPointNumber": {
+          "container": {
             "type": "boolean"
           },
           "number": {
@@ -98989,7 +98989,7 @@
         "properties": {
           "comment": {
             "type": "string",
-            "description": "Kommentar zur Wiederöffnung"
+            "description": "Comment on the reopening."
           },
           "businessTransactionRef": {
             "$ref": "#/components/schemas/core-api-ApiObjectReference"
