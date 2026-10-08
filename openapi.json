@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.38.6"
+    "version": "2026.38.7"
   },
   "servers": [
     {
@@ -72594,7 +72594,19 @@
           "float": {
             "type": "boolean"
           },
-          "string": {
+          "valueNode": {
+            "type": "boolean"
+          },
+          "container": {
+            "type": "boolean"
+          },
+          "missingNode": {
+            "type": "boolean"
+          },
+          "double": {
+            "type": "boolean"
+          },
+          "short": {
             "type": "boolean"
           },
           "nodeType": {
@@ -72611,22 +72623,7 @@
               "STRING"
             ]
           },
-          "integralNumber": {
-            "type": "boolean"
-          },
-          "floatingPointNumber": {
-            "type": "boolean"
-          },
-          "missingNode": {
-            "type": "boolean"
-          },
-          "valueNode": {
-            "type": "boolean"
-          },
-          "pojo": {
-            "type": "boolean"
-          },
-          "short": {
+          "string": {
             "type": "boolean"
           },
           "int": {
@@ -72635,7 +72632,13 @@
           "long": {
             "type": "boolean"
           },
-          "double": {
+          "pojo": {
+            "type": "boolean"
+          },
+          "integralNumber": {
+            "type": "boolean"
+          },
+          "floatingPointNumber": {
             "type": "boolean"
           },
           "bigDecimal": {
@@ -72652,9 +72655,6 @@
             "type": "boolean"
           },
           "binary": {
-            "type": "boolean"
-          },
-          "container": {
             "type": "boolean"
           },
           "number": {
@@ -77372,13 +77372,14 @@
               "SEPA_B2B_DIRECT_DEBIT",
               "CLEARING",
               "CLEARING_WITH_PREDECESSOR_DOCUMENT",
+              "FACTORING",
               "OTHER"
             ]
           },
           "active": {
             "type": "boolean",
             "default": true,
-            "description": "Aktiv?"
+            "description": "Is this active?"
           },
           "printDescription": {
             "type": "string",
@@ -77394,35 +77395,38 @@
           "closePayable": {
             "type": "boolean",
             "default": false,
-            "description": "Verbindlichkeiten-OP abschließen?"
+            "description": "Close the payable open item?"
           },
           "closeReceivable": {
             "type": "boolean",
             "default": false,
-            "description": "Forderungs-OP abschließen?"
+            "description": "Close the receivable open item?"
           },
           "closeCustomerAccountType": {
             "type": "boolean",
             "default": false,
-            "description": "Debitoren-OP abschließen?"
+            "description": "Close the debtor open item?"
           },
           "closeSupplierAccountType": {
             "type": "boolean",
             "default": false,
-            "description": "Kreditoren-OP abschließen?"
+            "description": "Close the creditor open item?"
           },
           "businessTransaction": {
+            "$ref": "#/components/schemas/core-api-ApiObjectReference"
+          },
+          "factoringAccount": {
             "$ref": "#/components/schemas/core-api-ApiObjectReference"
           },
           "daysToAddForDirectDebit": {
             "type": "integer",
             "format": "int32",
-            "description": "+Tage für Erstlastschrift"
+            "description": "Additional days for the first direct debit."
           },
           "daysToAddForFollowup": {
             "type": "integer",
             "format": "int32",
-            "description": "+Tage für Folgelastschrift"
+            "description": "Additional days for the recurring direct debit."
           }
         },
         "required": [
@@ -86191,6 +86195,7 @@
               "SEPA_B2B_DIRECT_DEBIT",
               "CLEARING",
               "CLEARING_WITH_PREDECESSOR_DOCUMENT",
+              "FACTORING",
               "OTHER"
             ]
           },
