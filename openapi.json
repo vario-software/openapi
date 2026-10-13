@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.39.0"
+    "version": "2026.39.1"
   },
   "servers": [
     {
@@ -73272,27 +73272,38 @@
           "float": {
             "type": "boolean"
           },
+          "missingNode": {
+            "type": "boolean"
+          },
+          "string": {
+            "type": "boolean"
+          },
           "integralNumber": {
             "type": "boolean"
           },
           "floatingPointNumber": {
             "type": "boolean"
           },
-          "long": {
+          "double": {
             "type": "boolean"
           },
-          "double": {
+          "valueNode": {
             "type": "boolean"
           },
           "bigDecimal": {
             "type": "boolean"
           },
-          "bigInteger": {
+          "pojo": {
             "type": "boolean"
           },
-          "textual": {
-            "type": "boolean",
-            "deprecated": true
+          "short": {
+            "type": "boolean"
+          },
+          "int": {
+            "type": "boolean"
+          },
+          "long": {
+            "type": "boolean"
           },
           "nodeType": {
             "type": "string",
@@ -73308,23 +73319,12 @@
               "STRING"
             ]
           },
-          "string": {
+          "bigInteger": {
             "type": "boolean"
           },
-          "missingNode": {
-            "type": "boolean"
-          },
-          "valueNode": {
-            "type": "boolean"
-          },
-          "pojo": {
-            "type": "boolean"
-          },
-          "short": {
-            "type": "boolean"
-          },
-          "int": {
-            "type": "boolean"
+          "textual": {
+            "type": "boolean",
+            "deprecated": true
           },
           "boolean": {
             "type": "boolean"
@@ -104019,10 +104019,10 @@
               "METHOD"
             ]
           },
-          "dataTypeName": {
+          "dataType": {
             "type": "string"
           },
-          "dataType": {
+          "dataTypeName": {
             "type": "string"
           }
         }
