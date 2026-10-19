@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.39.4"
+    "version": "2026.40.0"
   },
   "servers": [
     {
@@ -73272,13 +73272,19 @@
           "float": {
             "type": "boolean"
           },
-          "container": {
+          "integralNumber": {
             "type": "boolean"
           },
-          "boolean": {
+          "floatingPointNumber": {
             "type": "boolean"
           },
-          "binary": {
+          "long": {
+            "type": "boolean"
+          },
+          "double": {
+            "type": "boolean"
+          },
+          "bigDecimal": {
             "type": "boolean"
           },
           "nodeType": {
@@ -73298,6 +73304,12 @@
           "string": {
             "type": "boolean"
           },
+          "missingNode": {
+            "type": "boolean"
+          },
+          "valueNode": {
+            "type": "boolean"
+          },
           "pojo": {
             "type": "boolean"
           },
@@ -73307,32 +73319,20 @@
           "int": {
             "type": "boolean"
           },
-          "long": {
-            "type": "boolean"
-          },
-          "double": {
-            "type": "boolean"
-          },
-          "bigDecimal": {
-            "type": "boolean"
-          },
           "bigInteger": {
-            "type": "boolean"
-          },
-          "valueNode": {
-            "type": "boolean"
-          },
-          "missingNode": {
             "type": "boolean"
           },
           "textual": {
             "type": "boolean",
             "deprecated": true
           },
-          "integralNumber": {
+          "boolean": {
             "type": "boolean"
           },
-          "floatingPointNumber": {
+          "binary": {
+            "type": "boolean"
+          },
+          "container": {
             "type": "boolean"
           },
           "number": {
@@ -81638,6 +81638,9 @@
           "convertedIntoBundleArticleRef": {
             "$ref": "#/components/schemas/core-api-ApiObjectReference"
           },
+          "onGoodsArrivalConvertIntoBundleArticleRef": {
+            "$ref": "#/components/schemas/core-api-ApiObjectReference"
+          },
           "insertTerm": {
             "type": "string",
             "description": "Accessory insert term.",
@@ -84020,7 +84023,7 @@
         ]
       },
       "erp-account-Contact": {
-        "description": "List of contacts",
+        "description": "Default contacts",
         "properties": {
           "version": {
             "type": "string",
@@ -84831,6 +84834,10 @@
             "type": "string",
             "description": "Article identifier of this line (optional)."
           },
+          "onGoodsArrivalConvertIntoBundleArticleId": {
+            "type": "string",
+            "description": "Bundle article the received goods of this line are converted into (optional)."
+          },
           "externalId": {
             "type": "string",
             "description": "Reference to the corresponding line in an external system."
@@ -85235,6 +85242,7 @@
               "DOCUMENT_STATE_MANUALLY_CHANGED",
               "DOCUMENT_MAINTAINED",
               "COMPLETED_WITH_UNDER_DELIVERY",
+              "ORDER_REMAINDER_CLOSED",
               "ORDER_REOPENED",
               "REVERT_AFTER_WORKFLOW_FAILURE",
               "ORDER_DELIVERY_APPROVED",
@@ -93702,6 +93710,12 @@
             "maxLength": 255,
             "minLength": 0
           },
+          "pluralName": {
+            "type": "string",
+            "description": "Unit plural name.",
+            "maxLength": 255,
+            "minLength": 0
+          },
           "abbreviation": {
             "type": "string",
             "description": "Unit abbreviation.",
@@ -94820,6 +94834,13 @@
       "common-cunit-ArithmeticQueryTermFragment": {
         "description": "Term fragment - a further nesting with its own operations.",
         "properties": {
+          "terms": {
+            "type": "array",
+            "description": "Inner terms - either references to attributes or further nestings of the calculation.",
+            "items": {
+              "$ref": "#/components/schemas/common-cunit-ArithmeticQueryTermInner"
+            }
+          },
           "operations": {
             "type": "array",
             "description": "Operations to be performed on the terms.",
@@ -108806,6 +108827,30 @@
         ],
         "summary": "Triggered when an article is created for a sales channel",
         "operationId": "webhook_article(sales_channel_id=%s)_create",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/erp-product-ArticleAppMessagePayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "article(sales-channel-id=%s).delete": {
+      "post": {
+        "tags": [
+          "webhook:article(sales-channel-id=%s)"
+        ],
+        "summary": "Triggered when an article is deleted from a sales channel",
+        "operationId": "webhook_article(sales_channel_id=%s)_delete",
         "requestBody": {
           "description": "Webhook payload",
           "content": {
@@ -127892,6 +127937,54 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/erp-sales_channel-VariantListingAppMessagePayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "voucher.create": {
+      "post": {
+        "tags": [
+          "webhook:voucher"
+        ],
+        "summary": "Triggered when a new voucher is created",
+        "operationId": "webhook_voucher_create",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received"
+          }
+        }
+      }
+    },
+    "voucher.update": {
+      "post": {
+        "tags": [
+          "webhook:voucher"
+        ],
+        "summary": "Triggered when an existing voucher is booked or changed",
+        "operationId": "webhook_voucher_update",
+        "requestBody": {
+          "description": "Webhook payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/common-system-WebhookEntityPayload"
               }
             }
           }
