@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.40.2"
+    "version": "2026.40.3"
   },
   "servers": [
     {
@@ -73272,30 +73272,16 @@
           "float": {
             "type": "boolean"
           },
-          "boolean": {
-            "type": "boolean"
-          },
           "integralNumber": {
             "type": "boolean"
           },
           "floatingPointNumber": {
             "type": "boolean"
           },
-          "nodeType": {
-            "type": "string",
-            "enum": [
-              "ARRAY",
-              "BINARY",
-              "BOOLEAN",
-              "MISSING",
-              "NULL",
-              "NUMBER",
-              "OBJECT",
-              "POJO",
-              "STRING"
-            ]
-          },
           "string": {
+            "type": "boolean"
+          },
+          "container": {
             "type": "boolean"
           },
           "missingNode": {
@@ -73304,7 +73290,10 @@
           "valueNode": {
             "type": "boolean"
           },
-          "container": {
+          "boolean": {
+            "type": "boolean"
+          },
+          "binary": {
             "type": "boolean"
           },
           "pojo": {
@@ -73332,8 +73321,19 @@
             "type": "boolean",
             "deprecated": true
           },
-          "binary": {
-            "type": "boolean"
+          "nodeType": {
+            "type": "string",
+            "enum": [
+              "ARRAY",
+              "BINARY",
+              "BOOLEAN",
+              "MISSING",
+              "NULL",
+              "NUMBER",
+              "OBJECT",
+              "POJO",
+              "STRING"
+            ]
           },
           "number": {
             "type": "boolean"
@@ -104040,10 +104040,10 @@
               "METHOD"
             ]
           },
-          "dataType": {
+          "dataTypeName": {
             "type": "string"
           },
-          "dataTypeName": {
+          "dataType": {
             "type": "string"
           }
         }
