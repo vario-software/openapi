@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.40.4"
+    "version": "2026.41.0"
   },
   "servers": [
     {
@@ -261,10 +261,6 @@
     {
       "name": "EavGroup",
       "description": "Management of individual Fields"
-    },
-    {
-      "name": "Email",
-      "description": "Email sending"
     },
     {
       "name": "FinanceBooking",
@@ -39582,95 +39578,6 @@
         }
       }
     },
-    "/cmn/emails/{id}": {
-      "get": {
-        "tags": [
-          "Email"
-        ],
-        "operationId": "getEmailList",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/common-email-EmailList"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Email"
-        ],
-        "operationId": "updateEmailListState",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          },
-          {
-            "name": "state",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "TO_DELIVER",
-                "DELIVERED",
-                "DELIVER_FAILED",
-                "RECEIVED"
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Email"
-        ],
-        "operationId": "deleteEmailList",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/cmn/data-import/scheduled-import/{id}": {
       "get": {
         "tags": [
@@ -67334,6 +67241,37 @@
         }
       }
     },
+    "/erp/sales-channels/{salesChannelId}/with-relevant-storages-only": {
+      "get": {
+        "tags": [
+          "SalesChannel"
+        ],
+        "operationId": "getSalesChannelWithRelevantStorages",
+        "parameters": [
+          {
+            "name": "salesChannelId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/erp-sales_channel-SalesChannel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/erp/sales-channels/{salesChannelId}/tss/state": {
       "get": {
         "tags": [
@@ -71018,37 +70956,6 @@
         }
       }
     },
-    "/cmn/emails/failures/{failureId}": {
-      "get": {
-        "tags": [
-          "Email"
-        ],
-        "operationId": "getEmailFailure",
-        "parameters": [
-          {
-            "name": "failureId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/common-email-EmailFailure"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/cmn/data-import/runs/single/{id}/script-context-description": {
       "get": {
         "tags": [
@@ -73272,35 +73179,6 @@
           "float": {
             "type": "boolean"
           },
-          "integralNumber": {
-            "type": "boolean"
-          },
-          "nodeType": {
-            "type": "string",
-            "enum": [
-              "ARRAY",
-              "BINARY",
-              "BOOLEAN",
-              "MISSING",
-              "NULL",
-              "NUMBER",
-              "OBJECT",
-              "POJO",
-              "STRING"
-            ]
-          },
-          "string": {
-            "type": "boolean"
-          },
-          "valueNode": {
-            "type": "boolean"
-          },
-          "container": {
-            "type": "boolean"
-          },
-          "missingNode": {
-            "type": "boolean"
-          },
           "pojo": {
             "type": "boolean"
           },
@@ -73332,7 +73210,36 @@
           "binary": {
             "type": "boolean"
           },
+          "string": {
+            "type": "boolean"
+          },
+          "nodeType": {
+            "type": "string",
+            "enum": [
+              "ARRAY",
+              "BINARY",
+              "BOOLEAN",
+              "MISSING",
+              "NULL",
+              "NUMBER",
+              "OBJECT",
+              "POJO",
+              "STRING"
+            ]
+          },
+          "valueNode": {
+            "type": "boolean"
+          },
+          "container": {
+            "type": "boolean"
+          },
+          "integralNumber": {
+            "type": "boolean"
+          },
           "floatingPointNumber": {
+            "type": "boolean"
+          },
+          "missingNode": {
             "type": "boolean"
           },
           "number": {
@@ -93557,6 +93464,12 @@
             "type": "boolean",
             "description": "system presetting",
             "readOnly": true
+          },
+          "appIdentifier": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Identifier of the app that manages this role. App roles can only be changed by support or system.",
+            "readOnly": true
           }
         },
         "required": [
@@ -97890,6 +97803,13 @@
           },
           "serialNumberRef": {
             "$ref": "#/components/schemas/core-api-ApiObjectReference"
+          },
+          "ambiguousSerialNumbers": {
+            "type": "array",
+            "description": "Possible serial numbers for article",
+            "items": {
+              "$ref": "#/components/schemas/core-api-ApiObjectReference"
+            }
           }
         }
       },
@@ -103369,6 +103289,10 @@
             "format": "int64",
             "description": "Copy: the identifier of the report to copy. When this value is set, outputModuleKey is ignored."
           },
+          "fullCopy": {
+            "type": "boolean",
+            "description": "Create full copy including the report file"
+          },
           "toGroupId": {
             "type": "integer",
             "format": "int64",
@@ -107529,138 +107453,6 @@
           "count": {
             "type": "integer",
             "format": "int64"
-          }
-        }
-      },
-      "common-email-EmailContent": {
-        "description": "content",
-        "properties": {
-          "html": {
-            "type": "string",
-            "description": "Content as HTML."
-          },
-          "text": {
-            "type": "string",
-            "description": "Content as text."
-          }
-        }
-      },
-      "common-email-EmailList": {
-        "properties": {
-          "version": {
-            "type": "string",
-            "description": "Version Identifier for this Object (for PUT)"
-          },
-          "info": {
-            "$ref": "#/components/schemas/core-api-MetaInfo"
-          },
-          "id": {
-            "type": "string",
-            "description": "Unique identifier of the Object"
-          },
-          "type": {
-            "type": "string",
-            "description": "type",
-            "enum": [
-              "INBOUND",
-              "OUTBOUND"
-            ]
-          },
-          "from": {
-            "type": "string",
-            "description": "Sender email address."
-          },
-          "fromPersonal": {
-            "type": "string",
-            "description": "Sender full name."
-          },
-          "to": {
-            "type": "string",
-            "description": "Recipient."
-          },
-          "cc": {
-            "type": "string",
-            "description": "CC"
-          },
-          "bcc": {
-            "type": "string",
-            "description": "BCC"
-          },
-          "subject": {
-            "type": "string",
-            "description": "Subject."
-          },
-          "content": {
-            "$ref": "#/components/schemas/common-email-EmailContent"
-          },
-          "attachmentObjectReferences": {
-            "type": "string",
-            "description": "Reference to the attachment."
-          },
-          "state": {
-            "type": "string",
-            "description": "Email state.",
-            "enum": [
-              "TO_DELIVER",
-              "DELIVERED",
-              "DELIVER_FAILED",
-              "RECEIVED"
-            ]
-          }
-        }
-      },
-      "common-email-EmailFailure": {
-        "properties": {
-          "version": {
-            "type": "string",
-            "description": "Version Identifier for this Object (for PUT)"
-          },
-          "info": {
-            "$ref": "#/components/schemas/core-api-MetaInfo"
-          },
-          "id": {
-            "type": "string",
-            "description": "Unique identifier of the Object"
-          },
-          "type": {
-            "type": "string",
-            "description": "Type.",
-            "enum": [
-              "BOUNCE",
-              "COMPLAINT"
-            ]
-          },
-          "reason": {
-            "type": "string",
-            "description": "Reason for the error."
-          },
-          "status": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/common-email-EmailNotificationStatus"
-            }
-          },
-          "timestamp": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Timestamp."
-          }
-        }
-      },
-      "common-email-EmailNotificationStatus": {
-        "description": "Status.",
-        "properties": {
-          "status": {
-            "type": "string"
-          },
-          "action": {
-            "type": "string"
-          },
-          "diagnosticCode": {
-            "type": "string"
-          },
-          "emailAddress": {
-            "type": "string"
           }
         }
       },
