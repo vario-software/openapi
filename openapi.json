@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.41.1"
+    "version": "2026.41.2"
   },
   "servers": [
     {
@@ -73182,10 +73182,16 @@
           "integralNumber": {
             "type": "boolean"
           },
-          "floatingPointNumber": {
+          "missingNode": {
             "type": "boolean"
           },
-          "string": {
+          "int": {
+            "type": "boolean"
+          },
+          "long": {
+            "type": "boolean"
+          },
+          "valueNode": {
             "type": "boolean"
           },
           "nodeType": {
@@ -73202,13 +73208,10 @@
               "STRING"
             ]
           },
-          "missingNode": {
+          "string": {
             "type": "boolean"
           },
-          "valueNode": {
-            "type": "boolean"
-          },
-          "container": {
+          "double": {
             "type": "boolean"
           },
           "pojo": {
@@ -73217,13 +73220,7 @@
           "short": {
             "type": "boolean"
           },
-          "int": {
-            "type": "boolean"
-          },
-          "long": {
-            "type": "boolean"
-          },
-          "double": {
+          "floatingPointNumber": {
             "type": "boolean"
           },
           "bigDecimal": {
@@ -73240,6 +73237,9 @@
             "type": "boolean"
           },
           "binary": {
+            "type": "boolean"
+          },
+          "container": {
             "type": "boolean"
           },
           "number": {
