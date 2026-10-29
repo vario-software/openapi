@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.41.2"
+    "version": "2026.41.3"
   },
   "servers": [
     {
@@ -73179,20 +73179,27 @@
           "float": {
             "type": "boolean"
           },
-          "integralNumber": {
-            "type": "boolean"
-          },
           "missingNode": {
             "type": "boolean"
           },
-          "int": {
+          "integralNumber": {
             "type": "boolean"
           },
-          "long": {
+          "floatingPointNumber": {
             "type": "boolean"
           },
           "valueNode": {
             "type": "boolean"
+          },
+          "bigDecimal": {
+            "type": "boolean"
+          },
+          "bigInteger": {
+            "type": "boolean"
+          },
+          "textual": {
+            "type": "boolean",
+            "deprecated": true
           },
           "nodeType": {
             "type": "string",
@@ -73211,7 +73218,7 @@
           "string": {
             "type": "boolean"
           },
-          "double": {
+          "boolean": {
             "type": "boolean"
           },
           "pojo": {
@@ -73220,20 +73227,13 @@
           "short": {
             "type": "boolean"
           },
-          "floatingPointNumber": {
+          "int": {
             "type": "boolean"
           },
-          "bigDecimal": {
+          "long": {
             "type": "boolean"
           },
-          "bigInteger": {
-            "type": "boolean"
-          },
-          "textual": {
-            "type": "boolean",
-            "deprecated": true
-          },
-          "boolean": {
+          "double": {
             "type": "boolean"
           },
           "binary": {
@@ -81635,6 +81635,11 @@
           "udi": {
             "type": "string",
             "description": "Unique Device Identifier (UDI)"
+          },
+          "batchSelectedAutomatically": {
+            "type": "boolean",
+            "description": "Was the batch selected automatically at the POS by the earliest best before date?",
+            "readOnly": true
           }
         },
         "required": [
@@ -90020,6 +90025,16 @@
             "type": "boolean",
             "default": true,
             "description": "Print paper documents automatically."
+          },
+          "posBatchSelection": {
+            "type": "string",
+            "default": "MANUAL",
+            "description": "Batch selection at the POS for batch articles scanned without a batch. A scanned batch always takes precedence.",
+            "enum": [
+              "MANUAL",
+              "AUTOMATIC_FOR_B2C",
+              "AUTOMATIC_ALWAYS"
+            ]
           },
           "businessRelationType": {
             "type": "string",
@@ -103964,10 +103979,10 @@
               "METHOD"
             ]
           },
-          "dataTypeName": {
+          "dataType": {
             "type": "string"
           },
-          "dataType": {
+          "dataTypeName": {
             "type": "string"
           }
         }
