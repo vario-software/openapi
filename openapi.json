@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.41.4"
+    "version": "2026.42.0"
   },
   "servers": [
     {
@@ -66235,6 +66235,64 @@
         }
       }
     },
+    "/erp/articles/{id}/instore-code": {
+      "get": {
+        "tags": [
+          "Article"
+        ],
+        "summary": "Create the in-store barcode (EAN-13) of an article from its PLU code",
+        "operationId": "generateInstoreCode",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Article identifier.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "prefix",
+            "in": "query",
+            "description": "Prefix that defines the meaning of the value",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Prefix of an in-store code (EAN-13) that defines the meaning of the encoded value.",
+              "enum": [
+                "PRICE",
+                "QUANTITY",
+                "WEIGHT"
+              ]
+            }
+          },
+          {
+            "name": "value",
+            "in": "query",
+            "description": "depending on the prefix either a weight, currency or quantity value",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/erp/articles/{id}/bundle-conversion-info": {
       "get": {
         "tags": [
@@ -72604,44 +72662,6 @@
   },
   "components": {
     "schemas": {
-      "common-task-TaskLogLine": {
-        "description": "Completion log.",
-        "properties": {
-          "version": {
-            "type": "string",
-            "description": "Version Identifier for this Object (for PUT)"
-          },
-          "info": {
-            "$ref": "#/components/schemas/core-api-MetaInfo"
-          },
-          "id": {
-            "type": "string",
-            "description": "Unique identifier of the Object"
-          },
-          "logTime": {
-            "type": "string",
-            "format": "date-time",
-            "description": "logTime",
-            "readOnly": true
-          },
-          "origin": {
-            "type": "string",
-            "description": "log level",
-            "enum": [
-              "DEBUG",
-              "INFO",
-              "WARNING",
-              "ERROR",
-              "CONSOLE",
-              "STACKTRACE"
-            ],
-            "readOnly": true
-          },
-          "message": {
-            "$ref": "#/components/schemas/core-api-LocalizeableMessage"
-          }
-        }
-      },
       "core-api-ApiObjectReference": {
         "description": "Parent category.",
         "properties": {
@@ -72668,27 +72688,6 @@
         "required": [
           "id"
         ]
-      },
-      "core-api-LocalizeableMessage": {
-        "description": "localizeable message",
-        "properties": {
-          "messageCode": {
-            "type": "string",
-            "description": "Internal unique identifier/key for this message"
-          },
-          "messageParameters": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object",
-              "description": "list of parameters to fill a formattable message"
-            },
-            "description": "list of parameters to fill a formattable message"
-          },
-          "formattedMessage": {
-            "type": "string",
-            "description": "formatted message (default language)"
-          }
-        }
       },
       "core-api-MetaInfo": {
         "description": "MetaInformations for this Object",
@@ -72903,6 +72902,8 @@
             "description": "Replenishment proposal status.",
             "enum": [
               "OPEN",
+              "PARTIALLY_IN_TRANSFER",
+              "IN_TRANSFER",
               "FINISHED",
               "CANCELLED"
             ],
@@ -72919,17 +72920,19 @@
             },
             "readOnly": true
           },
-          "sourceDocumentRef": {
-            "$ref": "#/components/schemas/erp-document-DocumentRef"
-          },
-          "targetDocumentRef": {
-            "$ref": "#/components/schemas/erp-document-DocumentRef"
-          },
-          "finishLogLines": {
+          "sourceDocumentRefs": {
             "type": "array",
-            "description": "Completion log.",
+            "description": "Replenishment source documents.",
             "items": {
-              "$ref": "#/components/schemas/common-task-TaskLogLine"
+              "$ref": "#/components/schemas/erp-document-DocumentRef"
+            },
+            "readOnly": true
+          },
+          "targetDocumentRefs": {
+            "type": "array",
+            "description": "Replenishment target documents.",
+            "items": {
+              "$ref": "#/components/schemas/erp-document-DocumentRef"
             },
             "readOnly": true
           },
@@ -73182,7 +73185,16 @@
           "missingNode": {
             "type": "boolean"
           },
-          "string": {
+          "valueNode": {
+            "type": "boolean"
+          },
+          "container": {
+            "type": "boolean"
+          },
+          "integralNumber": {
+            "type": "boolean"
+          },
+          "binary": {
             "type": "boolean"
           },
           "nodeType": {
@@ -73199,16 +73211,7 @@
               "STRING"
             ]
           },
-          "valueNode": {
-            "type": "boolean"
-          },
-          "container": {
-            "type": "boolean"
-          },
-          "integralNumber": {
-            "type": "boolean"
-          },
-          "floatingPointNumber": {
+          "string": {
             "type": "boolean"
           },
           "pojo": {
@@ -73239,7 +73242,7 @@
           "boolean": {
             "type": "boolean"
           },
-          "binary": {
+          "floatingPointNumber": {
             "type": "boolean"
           },
           "number": {
@@ -73247,6 +73250,27 @@
           },
           "embeddedValue": {
             "type": "boolean"
+          }
+        }
+      },
+      "core-api-LocalizeableMessage": {
+        "description": "localizeable message",
+        "properties": {
+          "messageCode": {
+            "type": "string",
+            "description": "Internal unique identifier/key for this message"
+          },
+          "messageParameters": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "description": "list of parameters to fill a formattable message"
+            },
+            "description": "list of parameters to fill a formattable message"
+          },
+          "formattedMessage": {
+            "type": "string",
+            "description": "formatted message (default language)"
           }
         }
       },
@@ -73492,6 +73516,11 @@
             "type": "boolean",
             "default": false,
             "description": "Should only documents that are already published be considered?"
+          },
+          "directPrintEnabled": {
+            "type": "boolean",
+            "default": true,
+            "description": "Return output directly to the client."
           }
         }
       },
@@ -78425,6 +78454,12 @@
             "type": "string",
             "description": "External open item number."
           },
+          "externalPaymentReference": {
+            "type": "string",
+            "description": "Payment reference from an external system.",
+            "maxLength": 255,
+            "minLength": 0
+          },
           "paymentDiscountOrigin": {
             "type": "string",
             "description": "Origin of the payment discount values. When changed to a value other than USER_DEFINED, the values are reloaded.",
@@ -78579,6 +78614,11 @@
           "externalNumber": {
             "type": "string",
             "description": "External open item number.",
+            "readOnly": true
+          },
+          "externalPaymentReference": {
+            "type": "string",
+            "description": "Payment reference from an external system",
             "readOnly": true
           },
           "depositPaymentAmount": {
@@ -79373,7 +79413,8 @@
               "CUSTOMER_NUMBER",
               "SUPPLIER_NUMBER",
               "AMOUNT",
-              "EXTERNAL_NUMBER"
+              "EXTERNAL_NUMBER",
+              "EXTERNAL_PAYMENT_REFERENCE"
             ]
           },
           "points": {
@@ -80022,6 +80063,12 @@
             "maxLength": 255,
             "minLength": 0
           },
+          "externalPaymentReference": {
+            "type": "string",
+            "description": "Payment reference from an external system, e.g. the transaction id of the payment provider.",
+            "maxLength": 255,
+            "minLength": 0
+          },
           "published": {
             "type": "boolean",
             "default": false,
@@ -80438,6 +80485,24 @@
               "DOMESTIC",
               "EUROPEAN_COMMUNITY",
               "INTERNATIONAL"
+            ]
+          },
+          "mainSupplyType": {
+            "type": "string",
+            "description": "Predominant supply of a sales document (goods or services). Empty for all other documents. Only taken over from the request if mainSupplyTypeOrigin is USER_DEFINED, then it is required.",
+            "enum": [
+              "GOODS",
+              "SERVICES"
+            ]
+          },
+          "mainSupplyTypeOrigin": {
+            "type": "string",
+            "default": "AUTOMATIC",
+            "description": "Origin of the main supply type. AUTOMATIC determines it from the document lines, PREDECESSOR takes over the value set by the user in the predecessor of a credit note or cancellation, USER_DEFINED keeps the value set by the user.",
+            "enum": [
+              "AUTOMATIC",
+              "PREDECESSOR",
+              "USER_DEFINED"
             ]
           },
           "performanceCountryCode": {
@@ -84599,6 +84664,10 @@
             "type": "string",
             "description": "account-id to create a new Document"
           },
+          "locationId": {
+            "type": "string",
+            "description": "location-id to create a new Document"
+          },
           "salesChannelId": {
             "type": "string",
             "description": "sales-channel-id to create a new Document"
@@ -84610,6 +84679,12 @@
           "externalNumber": {
             "type": "string",
             "description": "External document number."
+          },
+          "externalPaymentReference": {
+            "type": "string",
+            "description": "Payment reference from an external system, e.g. the transaction id of the payment provider.",
+            "maxLength": 255,
+            "minLength": 0
           },
           "billingType": {
             "type": "string",
@@ -85132,6 +85207,7 @@
             "description": "Kinds of entries in the DocumentProtocol.",
             "enum": [
               "MANUAL",
+              "PROBLEM",
               "CREATED",
               "SAVED",
               "BEGIN_EDITING",
@@ -85152,6 +85228,7 @@
               "CANCELLED",
               "DISSOLVED",
               "DOCUMENT_STATE_MANUALLY_CHANGED",
+              "DOCUMENT_MANUALLY_TRANSFERRED_FROM_WORKFLOW_STATE",
               "DOCUMENT_MAINTAINED",
               "COMPLETED_WITH_UNDER_DELIVERY",
               "ORDER_REMAINDER_CLOSED",
@@ -87415,7 +87492,8 @@
           "workUnitInMinutes": {
             "type": "integer",
             "format": "int32",
-            "description": "Work unit in minutes."
+            "description": "Work unit in minutes.",
+            "minimum": 0
           },
           "initialLastPurchasePrice": {
             "type": "number",
@@ -87549,6 +87627,10 @@
             "description": "Kommissionierungshinweis",
             "maxLength": 2147483647,
             "minLength": 0
+          },
+          "priceLookUpCode": {
+            "type": "string",
+            "description": "Price look-up code (PLU)."
           }
         },
         "required": [
@@ -105098,6 +105180,44 @@
           }
         }
       },
+      "common-task-TaskLogLine": {
+        "description": "Log entries.",
+        "properties": {
+          "version": {
+            "type": "string",
+            "description": "Version Identifier for this Object (for PUT)"
+          },
+          "info": {
+            "$ref": "#/components/schemas/core-api-MetaInfo"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the Object"
+          },
+          "logTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "logTime",
+            "readOnly": true
+          },
+          "origin": {
+            "type": "string",
+            "description": "log level",
+            "enum": [
+              "DEBUG",
+              "INFO",
+              "WARNING",
+              "ERROR",
+              "CONSOLE",
+              "STACKTRACE"
+            ],
+            "readOnly": true
+          },
+          "message": {
+            "$ref": "#/components/schemas/core-api-LocalizeableMessage"
+          }
+        }
+      },
       "erp-stock-OrderProposalToOrdersRun": {
         "description": "Supplier order creation run according to an order proposal.",
         "properties": {
@@ -105157,7 +105277,8 @@
               "IN_PROCESS",
               "COMPLETED",
               "ERRONEOUS",
-              "ABORTED"
+              "ABORTED",
+              "ABORTED_BY_SUB_WORKFLOW"
             ]
           },
           "workflowElementRef": {
