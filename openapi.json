@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.42.0"
+    "version": "2026.42.1"
   },
   "servers": [
     {
@@ -73182,16 +73182,14 @@
           "float": {
             "type": "boolean"
           },
-          "missingNode": {
+          "bigInteger": {
             "type": "boolean"
           },
-          "valueNode": {
-            "type": "boolean"
+          "textual": {
+            "type": "boolean",
+            "deprecated": true
           },
-          "container": {
-            "type": "boolean"
-          },
-          "integralNumber": {
+          "boolean": {
             "type": "boolean"
           },
           "binary": {
@@ -73214,6 +73212,12 @@
           "string": {
             "type": "boolean"
           },
+          "missingNode": {
+            "type": "boolean"
+          },
+          "valueNode": {
+            "type": "boolean"
+          },
           "pojo": {
             "type": "boolean"
           },
@@ -73232,17 +73236,13 @@
           "bigDecimal": {
             "type": "boolean"
           },
-          "bigInteger": {
-            "type": "boolean"
-          },
-          "textual": {
-            "type": "boolean",
-            "deprecated": true
-          },
-          "boolean": {
+          "integralNumber": {
             "type": "boolean"
           },
           "floatingPointNumber": {
+            "type": "boolean"
+          },
+          "container": {
             "type": "boolean"
           },
           "number": {
@@ -104061,10 +104061,10 @@
               "METHOD"
             ]
           },
-          "dataTypeName": {
+          "dataType": {
             "type": "string"
           },
-          "dataType": {
+          "dataTypeName": {
             "type": "string"
           }
         }
