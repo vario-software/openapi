@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.42.4"
+    "version": "2026.43.0"
   },
   "servers": [
     {
@@ -67283,6 +67283,15 @@
             "schema": {
               "type": "number"
             }
+          },
+          {
+            "name": "voucherTypeId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
           }
         ],
         "responses": {
@@ -73182,6 +73191,27 @@
           "float": {
             "type": "boolean"
           },
+          "integralNumber": {
+            "type": "boolean"
+          },
+          "missingNode": {
+            "type": "boolean"
+          },
+          "pojo": {
+            "type": "boolean"
+          },
+          "short": {
+            "type": "boolean"
+          },
+          "int": {
+            "type": "boolean"
+          },
+          "long": {
+            "type": "boolean"
+          },
+          "double": {
+            "type": "boolean"
+          },
           "nodeType": {
             "type": "string",
             "enum": [
@@ -73199,34 +73229,10 @@
           "string": {
             "type": "boolean"
           },
-          "container": {
-            "type": "boolean"
-          },
-          "pojo": {
-            "type": "boolean"
-          },
-          "integralNumber": {
-            "type": "boolean"
-          },
-          "missingNode": {
-            "type": "boolean"
-          },
-          "valueNode": {
-            "type": "boolean"
-          },
-          "short": {
-            "type": "boolean"
-          },
-          "int": {
-            "type": "boolean"
-          },
-          "long": {
-            "type": "boolean"
-          },
-          "double": {
-            "type": "boolean"
-          },
           "bigDecimal": {
+            "type": "boolean"
+          },
+          "floatingPointNumber": {
             "type": "boolean"
           },
           "bigInteger": {
@@ -73242,10 +73248,13 @@
           "binary": {
             "type": "boolean"
           },
+          "container": {
+            "type": "boolean"
+          },
           "number": {
             "type": "boolean"
           },
-          "floatingPointNumber": {
+          "valueNode": {
             "type": "boolean"
           },
           "embeddedValue": {
@@ -77510,6 +77519,9 @@
           "accountRef": {
             "$ref": "#/components/schemas/core-api-ApiObjectReference"
           },
+          "refundVoucherTypeRef": {
+            "$ref": "#/components/schemas/core-api-ApiObjectReference"
+          },
           "paymentMethods": {
             "type": "array",
             "description": "Payment Methods",
@@ -77542,6 +77554,7 @@
           },
           "dsfinvkExport": {
             "type": "boolean",
+            "default": false,
             "description": "Perform the DSFinV-K export.",
             "readOnly": true
           },
@@ -79236,6 +79249,11 @@
             "type": "string",
             "description": "Open item currency (ISO-A3)."
           },
+          "transactionAmount": {
+            "type": "number",
+            "description": "Amount in the currency of the assigned bank transaction, converted with the book exchange rate of the open item for foreign currencies.",
+            "readOnly": true
+          },
           "exchangeRate": {
             "type": "number",
             "description": "Currency exchange rate against the base currency."
@@ -79483,6 +79501,8 @@
               "FINANCIAL_SETTLEMENT_LEDGER",
               "LEDGER_NOT_RELEVANT_FOR_BUSINESS",
               "PAYMENT_FEE_LEDGER",
+              "EXCHANGE_GAIN_LEDGER",
+              "EXCHANGE_LOSS_LEDGER",
               "DISCOUNT_GRANTED",
               "DISCOUNT_RECEIVED",
               "BANK_TRANSACTION",
@@ -79583,6 +79603,10 @@
               "CUSTOMER",
               "SUPPLIER"
             ]
+          },
+          "currency": {
+            "type": "string",
+            "description": "ISO 4217 code of the currency this ledger assignment applies to; empty means any currency."
           },
           "bankAccountRef": {
             "$ref": "#/components/schemas/core-api-ApiObjectReference"
@@ -82271,6 +82295,10 @@
           },
           "voucherRef": {
             "$ref": "#/components/schemas/core-api-ApiObjectReference"
+          },
+          "voucherCode": {
+            "type": "string",
+            "description": "Scanned code of the preprinted voucher card a POS return is refunded on"
           },
           "voucherTypeRef": {
             "$ref": "#/components/schemas/core-api-ApiObjectReference"
@@ -89743,6 +89771,11 @@
               "GENERATED",
               "SCANNED"
             ]
+          },
+          "codeUnique": {
+            "type": "boolean",
+            "default": true,
+            "description": "Must a captured code be unique within the voucher type?"
           },
           "applicationPriority": {
             "type": "integer",
@@ -101332,6 +101365,10 @@
             "type": "number",
             "description": "Included payment discount or dunning fees."
           },
+          "transactionAmount": {
+            "type": "number",
+            "description": "Amount taken from the bank transaction in its currency. Required for payments on an open item in another currency; the amount is then given in the currency of the open item."
+          },
           "comment": {
             "type": "string",
             "description": "Comment."
@@ -101402,6 +101439,16 @@
           "distributionAmount": {
             "type": "number",
             "description": "Distribution amount."
+          },
+          "entryType": {
+            "type": "string",
+            "default": "MANUAL",
+            "description": "Type of a manual finance booking on a bank transaction.",
+            "enum": [
+              "MANUAL",
+              "PAYMENT_FEE",
+              "EXCHANGE_DIFFERENCE"
+            ]
           }
         }
       },
@@ -102141,6 +102188,7 @@
             "description": "Origin of the record",
             "enum": [
               "ISSUE",
+              "ISSUE_RESERVATION",
               "REDEMPTION",
               "REDEMPTION_DISSOLVED",
               "CREDIT_NOTE",
@@ -102220,6 +102268,7 @@
             "description": "Origin of the record",
             "enum": [
               "ISSUE",
+              "ISSUE_RESERVATION",
               "REDEMPTION",
               "REDEMPTION_DISSOLVED",
               "CREDIT_NOTE",
@@ -104061,10 +104110,10 @@
               "METHOD"
             ]
           },
-          "dataType": {
+          "dataTypeName": {
             "type": "string"
           },
-          "dataTypeName": {
+          "dataType": {
             "type": "string"
           }
         }
@@ -105473,6 +105522,31 @@
           "comment": {
             "type": "string",
             "description": "a comment on the entry"
+          },
+          "entryType": {
+            "type": "string",
+            "default": "MANUAL",
+            "description": "Type of a manual finance booking on a bank transaction.",
+            "enum": [
+              "MANUAL",
+              "PAYMENT_FEE",
+              "EXCHANGE_DIFFERENCE"
+            ]
+          },
+          "openItemRecordId": {
+            "type": "string",
+            "description": "Identifier of the payment record the exchange rate difference belongs to.",
+            "readOnly": true
+          },
+          "transmittedExchangeRate": {
+            "type": "number",
+            "description": "Exchange rate transmitted by the bank: amount in bank currency per unit of the open item currency.",
+            "readOnly": true
+          },
+          "determinedExchangeRate": {
+            "type": "number",
+            "description": "Book exchange rate of the open item: amount in bank currency per unit of the open item currency.",
+            "readOnly": true
           }
         }
       },
