@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.43.0"
+    "version": "2026.43.1"
   },
   "servers": [
     {
@@ -73191,7 +73191,29 @@
           "float": {
             "type": "boolean"
           },
-          "integralNumber": {
+          "double": {
+            "type": "boolean"
+          },
+          "bigDecimal": {
+            "type": "boolean"
+          },
+          "bigInteger": {
+            "type": "boolean"
+          },
+          "textual": {
+            "type": "boolean",
+            "deprecated": true
+          },
+          "boolean": {
+            "type": "boolean"
+          },
+          "binary": {
+            "type": "boolean"
+          },
+          "valueNode": {
+            "type": "boolean"
+          },
+          "container": {
             "type": "boolean"
           },
           "missingNode": {
@@ -73207,9 +73229,6 @@
             "type": "boolean"
           },
           "long": {
-            "type": "boolean"
-          },
-          "double": {
             "type": "boolean"
           },
           "nodeType": {
@@ -73229,32 +73248,13 @@
           "string": {
             "type": "boolean"
           },
-          "bigDecimal": {
+          "integralNumber": {
             "type": "boolean"
           },
           "floatingPointNumber": {
             "type": "boolean"
           },
-          "bigInteger": {
-            "type": "boolean"
-          },
-          "textual": {
-            "type": "boolean",
-            "deprecated": true
-          },
-          "boolean": {
-            "type": "boolean"
-          },
-          "binary": {
-            "type": "boolean"
-          },
-          "container": {
-            "type": "boolean"
-          },
           "number": {
-            "type": "boolean"
-          },
-          "valueNode": {
             "type": "boolean"
           },
           "embeddedValue": {
@@ -101438,7 +101438,7 @@
           },
           "distributionAmount": {
             "type": "number",
-            "description": "Distribution amount."
+            "description": "Distribution amount. For MANUAL a positive amount uses up the bank transaction amount, a negative amount books in the opposite direction. For PAYMENT_FEE always enter the bank fee as a positive expense, for incoming transactions it is stored with a negative sign."
           },
           "entryType": {
             "type": "string",
@@ -104110,10 +104110,10 @@
               "METHOD"
             ]
           },
-          "dataTypeName": {
+          "dataType": {
             "type": "string"
           },
-          "dataType": {
+          "dataTypeName": {
             "type": "string"
           }
         }
@@ -105501,7 +105501,7 @@
           },
           "amount": {
             "type": "number",
-            "description": "the amount"
+            "description": "Amount relative to the bank transaction: positive amounts use up the transaction amount, negative amounts free it. A bank fee (PAYMENT_FEE) on an incoming transaction is therefore negative."
           },
           "ledgerNumber": {
             "type": "string",
