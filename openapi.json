@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.43.1"
+    "version": "2026.43.2"
   },
   "servers": [
     {
@@ -73191,44 +73191,22 @@
           "float": {
             "type": "boolean"
           },
-          "double": {
-            "type": "boolean"
-          },
-          "bigDecimal": {
-            "type": "boolean"
-          },
-          "bigInteger": {
-            "type": "boolean"
-          },
-          "textual": {
-            "type": "boolean",
-            "deprecated": true
-          },
-          "boolean": {
-            "type": "boolean"
-          },
-          "binary": {
+          "integralNumber": {
             "type": "boolean"
           },
           "valueNode": {
             "type": "boolean"
           },
-          "container": {
-            "type": "boolean"
-          },
           "missingNode": {
             "type": "boolean"
           },
-          "pojo": {
-            "type": "boolean"
-          },
-          "short": {
-            "type": "boolean"
-          },
-          "int": {
-            "type": "boolean"
-          },
           "long": {
+            "type": "boolean"
+          },
+          "double": {
+            "type": "boolean"
+          },
+          "bigDecimal": {
             "type": "boolean"
           },
           "nodeType": {
@@ -73248,10 +73226,32 @@
           "string": {
             "type": "boolean"
           },
-          "integralNumber": {
+          "bigInteger": {
+            "type": "boolean"
+          },
+          "pojo": {
+            "type": "boolean"
+          },
+          "short": {
+            "type": "boolean"
+          },
+          "int": {
             "type": "boolean"
           },
           "floatingPointNumber": {
+            "type": "boolean"
+          },
+          "textual": {
+            "type": "boolean",
+            "deprecated": true
+          },
+          "boolean": {
+            "type": "boolean"
+          },
+          "binary": {
+            "type": "boolean"
+          },
+          "container": {
             "type": "boolean"
           },
           "number": {
