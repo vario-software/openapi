@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.44.4"
+    "version": "2026.45.0"
   },
   "servers": [
     {
@@ -40430,6 +40430,30 @@
         }
       }
     },
+    "/cmn/data-import/runs/single/{id}/run-skipped": {
+      "put": {
+        "tags": [
+          "ImportRun"
+        ],
+        "operationId": "runSkippedImport",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/cmn/data-import/runs/single/{id}/load-data": {
       "put": {
         "tags": [
@@ -40703,6 +40727,54 @@
         "responses": {
           "200": {
             "description": "OK"
+          }
+        }
+      }
+    },
+    "/cmn/data-import/runs/multi-part/{id}/ordered-rule-sets/{orderedRuleSetId}/skip": {
+      "put": {
+        "tags": [
+          "MultiPartImport"
+        ],
+        "operationId": "updateSkipImport",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "orderedRuleSetId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/common-data_import-MultiPartImportRun"
+                }
+              }
+            }
           }
         }
       }
@@ -44694,17 +44766,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/erp-wms-InventoryCounting"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -44756,17 +44818,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/erp-wms-InventoryCounting"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -59645,6 +59697,7 @@
           "Output-Module"
         ],
         "summary": "General endpoint for printing reports",
+        "description": "With 'asynchronous' the output is produced in the background: the response is 202 with the task reference, completion is sent to the user's websocket queue 'output'.",
         "operationId": "printReport",
         "parameters": [
           {
@@ -73641,6 +73694,11 @@
             "default": false,
             "description": "Should only documents that are already published be considered?"
           },
+          "asynchronous": {
+            "type": "boolean",
+            "default": false,
+            "description": "Produce the output in the background. The response then only references the task; completion is announced to the requesting user via websocket."
+          },
           "directPrintEnabled": {
             "type": "boolean",
             "default": true,
@@ -75486,6 +75544,18 @@
             "default": true,
             "description": "Is this active?",
             "readOnly": true
+          },
+          "partsTaxApplicable": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether this tax-schema triggers the used-parts tax (Altteilesteuer); omitted on update keeps the stored value"
+          },
+          "partsTaxQuote": {
+            "type": "number",
+            "default": 10,
+            "description": "Percentage of the net price taken as additional taxable base for the used-parts tax; omitted on update keeps the stored value",
+            "maximum": 100,
+            "minimum": 0
           }
         },
         "required": [
@@ -76060,114 +76130,116 @@
         }
       },
       "core-cunit-CuAttribute": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/core-cunit-MetaContent"
+        "description": "Cell column description (when nested).",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "Unique key identifying the attribute."
           },
-          {
-            "type": "object",
-            "properties": {
-              "key": {
-                "type": "string",
-                "description": "Unique key identifying the attribute."
-              },
-              "attribute": {
-                "type": "string",
-                "description": "Name of the attribute containing the result."
-              },
-              "path": {
-                "type": "string",
-                "description": "Path that uniquely describes this attribute."
-              },
-              "displayName": {
-                "type": "string",
-                "description": "Field name."
-              },
-              "displayNameOverride": {
-                "type": "boolean",
-                "default": false,
-                "description": "The field name was overridden (alias or function)."
-              },
-              "groupDisplayName": {
-                "type": "string",
-                "description": "Field group name."
-              },
-              "parentDisplayName": {
-                "type": "string",
-                "description": "Referencing field name."
-              },
-              "resultable": {
-                "type": "boolean",
-                "default": true,
-                "description": "Can this field be a result field?"
-              },
-              "filterable": {
-                "type": "boolean",
-                "default": true,
-                "description": "Can this field be filtered by?"
-              },
-              "sortable": {
-                "type": "boolean",
-                "default": true,
-                "description": "Is this field sortable?"
-              },
-              "visible": {
-                "type": "boolean",
-                "default": true,
-                "description": "Should this field be shown?"
-              },
-              "functions": {
-                "type": "array",
-                "description": "Applied functions (when this is used as result metadata).",
-                "items": {
-                  "type": "string",
-                  "description": "Applied functions (when this is used as result metadata)."
-                }
-              },
-              "sortDirection": {
-                "type": "string",
-                "description": "Information on how this column was sorted."
-              },
-              "constraint": {
-                "$ref": "#/components/schemas/core-cunit-CuAttributeConstraint"
-              },
-              "dataType": {
-                "$ref": "#/components/schemas/core-cunit-CuAttributeDataType"
-              },
-              "dataTypeIdentifier": {
-                "type": "string",
-                "description": "Attribute data type identifier (when dataType is empty).",
-                "readOnly": true
-              },
-              "modelType": {
-                "type": "string",
-                "description": "The attribute belongs to the model type 'static' or 'dynamic'.",
-                "enum": [
-                  "STATIC",
-                  "DYNAMIC"
-                ],
-                "readOnly": true
-              },
-              "entityIdentifier": {
-                "type": "string",
-                "description": "Identifier of the entity this attribute belongs to (e.g. 'AccountEntity').",
-                "readOnly": true
-              },
-              "referencedEntityIdentifier": {
-                "type": "string",
-                "description": "For relation attributes: fully qualified class name of the target entity (e.g. 'ag.vario.erp.account.AccountEntity').",
-                "readOnly": true
-              },
-              "headers": {
-                "type": "array",
-                "description": "For a grouped header (e.g. a cross table) the individual groups are described here.",
-                "items": {
-                  "$ref": "#/components/schemas/core-cunit-CuAttribute.HeaderGroup"
-                },
-                "readOnly": true
-              }
+          "attribute": {
+            "type": "string",
+            "description": "Name of the attribute containing the result."
+          },
+          "path": {
+            "type": "string",
+            "description": "Path that uniquely describes this attribute."
+          },
+          "displayName": {
+            "type": "string",
+            "description": "Field name."
+          },
+          "displayNameOverride": {
+            "type": "boolean",
+            "default": false,
+            "description": "The field name was overridden (alias or function)."
+          },
+          "groupDisplayName": {
+            "type": "string",
+            "description": "Field group name."
+          },
+          "parentDisplayName": {
+            "type": "string",
+            "description": "Referencing field name."
+          },
+          "resultable": {
+            "type": "boolean",
+            "default": true,
+            "description": "Can this field be a result field?"
+          },
+          "filterable": {
+            "type": "boolean",
+            "default": true,
+            "description": "Can this field be filtered by?"
+          },
+          "sortable": {
+            "type": "boolean",
+            "default": true,
+            "description": "Is this field sortable?"
+          },
+          "visible": {
+            "type": "boolean",
+            "default": true,
+            "description": "Should this field be shown?"
+          },
+          "functions": {
+            "type": "array",
+            "description": "Applied functions (when this is used as result metadata).",
+            "items": {
+              "type": "string",
+              "description": "Applied functions (when this is used as result metadata)."
             }
+          },
+          "sortDirection": {
+            "type": "string",
+            "description": "Information on how this column was sorted."
+          },
+          "constraint": {
+            "$ref": "#/components/schemas/core-cunit-CuAttributeConstraint"
+          },
+          "dataType": {
+            "$ref": "#/components/schemas/core-cunit-CuAttributeDataType"
+          },
+          "dataTypeIdentifier": {
+            "type": "string",
+            "description": "Attribute data type identifier (when dataType is empty).",
+            "readOnly": true
+          },
+          "modelType": {
+            "type": "string",
+            "description": "The attribute belongs to the model type 'static' or 'dynamic'.",
+            "enum": [
+              "STATIC",
+              "DYNAMIC"
+            ],
+            "readOnly": true
+          },
+          "entityIdentifier": {
+            "type": "string",
+            "description": "Identifier of the entity this attribute belongs to (e.g. 'AccountEntity').",
+            "readOnly": true
+          },
+          "referencedEntityIdentifier": {
+            "type": "string",
+            "description": "For relation attributes: fully qualified class name of the target entity (e.g. 'ag.vario.erp.account.AccountEntity').",
+            "readOnly": true
+          },
+          "headers": {
+            "type": "array",
+            "description": "For a grouped header (e.g. a cross table) the individual groups are described here.",
+            "items": {
+              "$ref": "#/components/schemas/core-cunit-CuAttribute.HeaderGroup"
+            },
+            "readOnly": true
+          },
+          "_type": {
+            "type": "string",
+            "enum": [
+              "attribute"
+            ]
           }
+        },
+        "required": [
+          "_type"
         ]
       },
       "core-cunit-CuAttribute.HeaderGroup": {
@@ -76341,38 +76413,43 @@
         }
       },
       "core-cunit-CuMeta": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/core-cunit-MetaContent"
+        "properties": {
+          "definition": {
+            "$ref": "#/components/schemas/core-cunit-CuAttribute"
           },
-          {
-            "type": "object",
-            "properties": {
-              "definition": {
-                "$ref": "#/components/schemas/core-cunit-CuAttribute"
-              },
-              "value": {
-                "type": "array",
-                "description": "Cell column description (when nested).",
-                "items": {
-                  "$ref": "#/components/schemas/core-cunit-MetaContent"
-                }
-              }
+          "value": {
+            "type": "array",
+            "description": "Nested metadata entries, either attributes or further nested metadata.",
+            "items": {
+              "$ref": "#/components/schemas/core-cunit-MetaContent"
             }
+          },
+          "_type": {
+            "type": "string",
+            "enum": [
+              "meta"
+            ]
           }
+        },
+        "required": [
+          "_type"
         ]
       },
       "core-cunit-MetaContent": {
-        "description": "Variable definition.",
+        "description": "Metadata entry, either an attribute or nested metadata.",
         "discriminator": {
-          "propertyName": "_type"
+          "propertyName": "_type",
+          "mapping": {
+            "attribute": "#/components/schemas/core-cunit-CuAttribute",
+            "meta": "#/components/schemas/core-cunit-CuMeta"
+          }
         },
         "oneOf": [
           {
-            "$ref": "#/components/schemas/core-cunit-CuMeta"
+            "$ref": "#/components/schemas/core-cunit-CuAttribute"
           },
           {
-            "$ref": "#/components/schemas/core-cunit-CuAttribute"
+            "$ref": "#/components/schemas/core-cunit-CuMeta"
           }
         ],
         "properties": {
@@ -79631,7 +79708,8 @@
               "POS_PAYMENT_LEDGER",
               "POS_INTERIM_LEDGER",
               "CASH_JOURNAL_BALANCE_DIFFERENCE",
-              "POS_DEPOSIT_EXPENSE"
+              "POS_DEPOSIT_EXPENSE",
+              "SALES_PARTS_TAX_LEDGER"
             ]
           },
           "productGroup": {
@@ -80425,6 +80503,16 @@
           "totalVat": {
             "type": "number",
             "description": "Total VAT.",
+            "readOnly": true
+          },
+          "totalPartsTax": {
+            "type": "number",
+            "description": "Total additional VAT on used parts (§ 10 Abs. 5 UStG).",
+            "readOnly": true
+          },
+          "totalTax": {
+            "type": "number",
+            "description": "Total of all tax amounts (VAT and used-parts VAT).",
             "readOnly": true
           },
           "totalGrossPrice": {
@@ -81687,6 +81775,16 @@
             "description": "Is §13b UStG applied?",
             "readOnly": true
           },
+          "partsTaxApplicable": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether used-parts tax (Altteilesteuer) applies to this line; null takes the setting of the line's tax schema, true/false overrides it."
+          },
+          "partsTaxBaseAmount": {
+            "type": "number",
+            "description": "Taxable base amount of the used-parts tax for this line.",
+            "readOnly": true
+          },
           "presetPrice": {
             "type": "number",
             "description": "Preset value for the price calculation.",
@@ -82465,7 +82563,7 @@
           },
           "voucherCode": {
             "type": "string",
-            "description": "Scanned code of the preprinted voucher card a POS return is refunded on"
+            "description": "Scanned code of the preprinted voucher card a POS return is refunded on, or the captured number of a redeemed foreign voucher"
           },
           "voucherTypeRef": {
             "$ref": "#/components/schemas/core-api-ApiObjectReference"
@@ -82712,7 +82810,8 @@
             "type": "string",
             "description": "Tax type.",
             "enum": [
-              "VAT"
+              "VAT",
+              "PARTS_TAX"
             ]
           },
           "taxFree": {
@@ -82922,6 +83021,17 @@
           "id": {
             "type": "string",
             "description": "Unique identifier of the Object"
+          },
+          "parentFabricationOrderRef": {
+            "$ref": "#/components/schemas/erp-document-DocumentRef"
+          },
+          "childFabricationOrderRefs": {
+            "type": "array",
+            "description": "References to the child fabrication orders, sorted by their position.",
+            "items": {
+              "$ref": "#/components/schemas/erp-document-DocumentRef"
+            },
+            "readOnly": true
           },
           "startDate": {
             "type": "string",
@@ -84978,9 +85088,6 @@
           "custom": {
             "type": "object",
             "readOnly": true
-          },
-          "einvoice": {
-            "type": "boolean"
           }
         }
       },
@@ -85431,6 +85538,8 @@
               "MANUAL_NEXT_DUE_DATE_CHANGE",
               "DROP_SHIPPING_DELIVERY_APPROVED_FOR_INVOICE_DUE_TO_SUPPLIER_DELIVERY",
               "DROP_SHIPPING_DELIVERY_UNAPPROVED_FOR_INVOICE_DUE_TO_DELETION_SUPPLIER_DELIVERY",
+              "FABRICATION_PLANNED",
+              "FABRICATION_PLANNED_OUT",
               "FABRICATION_STARTED",
               "FABRICATION_CANCELLED",
               "FABRICATION_PAUSED",
@@ -90117,6 +90226,21 @@
             "default": true,
             "description": "Must a captured code be unique within the voucher type?"
           },
+          "foreignVoucher": {
+            "type": "boolean",
+            "default": false,
+            "description": "Is this a voucher from a third-party system that is not managed here but only redeemed at the point of sale with its number and amount?"
+          },
+          "foreignVoucherCodeRequired": {
+            "type": "boolean",
+            "default": true,
+            "description": "Must the number of a foreign voucher be captured on redemption?"
+          },
+          "sellable": {
+            "type": "boolean",
+            "default": true,
+            "description": "Can vouchers of this type be sold and newly issued? Existing vouchers, e.g. imported ones, remain redeemable either way. Always false for a foreign voucher."
+          },
           "applicationPriority": {
             "type": "integer",
             "format": "int32",
@@ -94679,6 +94803,12 @@
             ],
             "readOnly": true
           },
+          "priority": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "description": "Priority within the category. If several tasks are due, the one with the higher value is started first; equal values keep the due-time order. Omitted on update keeps the stored value."
+          },
           "dataPayloadJson": {
             "type": "object"
           },
@@ -96634,6 +96764,11 @@
           },
           "ruleSet": {
             "$ref": "#/components/schemas/common-data_import-ImportMappingRuleSet"
+          },
+          "skipImport": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether the import is skipped when the multi-part import is executed."
           }
         }
       },
@@ -96723,6 +96858,11 @@
           "label": {
             "type": "string",
             "description": "Label."
+          },
+          "skipImport": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether the import is skipped when the multi-part import is executed."
           }
         }
       },
@@ -101448,10 +101588,13 @@
             "enum": [
               "BANK_CONNECTION_IMPORT",
               "BANK_CONNECTION_UPDATE",
+              "BANK_CONNECTION_CONNECT",
               "PAYMENT_WITH_ACCOUNT_ID",
               "STANDALONE_PAYMENT",
               "DIRECT_DEBIT_WITH_ACCOUNT_ID",
-              "STANDING_ORDER"
+              "STANDING_ORDER",
+              "STANDING_ORDER_WITH_ACCOUNT_ID",
+              "SIGNING_BASKET"
             ]
           },
           "status": {
@@ -103373,6 +103516,16 @@
             "format": "int32",
             "description": "Number of outputs.",
             "minimum": 1
+          },
+          "sourceId": {
+            "type": "string",
+            "description": "ID of the object this output was created from",
+            "readOnly": true
+          },
+          "sourceRefType": {
+            "type": "string",
+            "description": "Reference key of the object this output was created from",
+            "readOnly": true
           }
         }
       },
@@ -103759,6 +103912,11 @@
           },
           "ruleSet": {
             "$ref": "#/components/schemas/common-data_import-ImportMappingRuleSet"
+          },
+          "skipImport": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether the import is skipped when the multi-part import is executed."
           }
         }
       },
@@ -104278,10 +104436,10 @@
               "METHOD"
             ]
           },
-          "dataType": {
+          "dataTypeName": {
             "type": "string"
           },
-          "dataTypeName": {
+          "dataType": {
             "type": "string"
           }
         }
@@ -107784,6 +107942,11 @@
           "label": {
             "type": "string",
             "description": "Label."
+          },
+          "skipImport": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether the import is skipped when the multi-part import is executed."
           }
         }
       },
@@ -108135,6 +108298,9 @@
           "uiIntegrations": {
             "$ref": "#/components/schemas/node-unknownmodule-UiIntegrationsDto"
           },
+          "mcpIntegrations": {
+            "$ref": "#/components/schemas/node-unknownmodule-McpIntegrationsDto"
+          },
           "requirements": {
             "$ref": "#/components/schemas/node-unknownmodule-RequirementsDto"
           },
@@ -108203,6 +108369,47 @@
           "autoAppendable": {
             "type": "boolean",
             "description": "Whether auto-appendable"
+          }
+        }
+      },
+      "node-unknownmodule-McpIntegrationDto": {
+        "description": "List of MCP endpoints",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Integration ID"
+          },
+          "permissionKey": {
+            "type": "string",
+            "description": "Permission key"
+          },
+          "msgKey": {
+            "type": "string",
+            "description": "Message key"
+          },
+          "url": {
+            "type": "string",
+            "description": "MCP endpoint URL (Streamable HTTP)"
+          },
+          "contextAttribute": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "description": "Context attributes"
+            },
+            "description": "Context attributes"
+          }
+        }
+      },
+      "node-unknownmodule-McpIntegrationsDto": {
+        "description": "MCP endpoints of this app (tools and ui:// resources)",
+        "properties": {
+          "integrations": {
+            "type": "array",
+            "description": "List of MCP endpoints",
+            "items": {
+              "$ref": "#/components/schemas/node-unknownmodule-McpIntegrationDto"
+            }
           }
         }
       },
@@ -108344,10 +108551,13 @@
             "enum": [
               "BANK_CONNECTION_IMPORT",
               "BANK_CONNECTION_UPDATE",
+              "BANK_CONNECTION_CONNECT",
               "PAYMENT_WITH_ACCOUNT_ID",
               "STANDALONE_PAYMENT",
               "DIRECT_DEBIT_WITH_ACCOUNT_ID",
-              "STANDING_ORDER"
+              "STANDING_ORDER",
+              "STANDING_ORDER_WITH_ACCOUNT_ID",
+              "SIGNING_BASKET"
             ]
           },
           "status": {
