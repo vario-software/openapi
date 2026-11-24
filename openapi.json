@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.45.0"
+    "version": "2026.45.1"
   },
   "servers": [
     {
