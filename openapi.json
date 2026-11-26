@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.45.2"
+    "version": "2026.45.3"
   },
   "servers": [
     {
@@ -98256,6 +98256,10 @@
             "type": "boolean",
             "default": false,
             "description": "Whether the storage bins are sorted by their route position instead of their name"
+          },
+          "orderId": {
+            "type": "string",
+            "description": "Identifier of the order the lines are restricted to - set while the lines of a single order are packed"
           }
         }
       },
@@ -104436,10 +104440,10 @@
               "METHOD"
             ]
           },
-          "dataTypeName": {
+          "dataType": {
             "type": "string"
           },
-          "dataType": {
+          "dataTypeName": {
             "type": "string"
           }
         }
