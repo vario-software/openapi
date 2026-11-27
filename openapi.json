@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "OpenAPI definition",
-    "version": "2026.45.3"
+    "version": "2026.45.4"
   },
   "servers": [
     {
@@ -74584,7 +74584,7 @@
           },
           "quantity": {
             "type": "number",
-            "description": "Counted quantity."
+            "description": "Counted quantity. Null as long as nothing was recorded in this revision; the actual stock of the previous revision then remains in effect."
           },
           "revision": {
             "type": "integer",
@@ -74600,8 +74600,7 @@
         },
         "required": [
           "articleId",
-          "inventoryId",
-          "quantity"
+          "inventoryId"
         ]
       },
       "common-masterdata-CountryReference": {
@@ -94383,7 +94382,8 @@
               "AREA",
               "VOLUME",
               "SPEED",
-              "TIME"
+              "TIME",
+              "DATA_VOLUME"
             ]
           },
           "name": {
@@ -104440,10 +104440,10 @@
               "METHOD"
             ]
           },
-          "dataType": {
+          "dataTypeName": {
             "type": "string"
           },
-          "dataTypeName": {
+          "dataType": {
             "type": "string"
           }
         }
